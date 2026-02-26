@@ -233,9 +233,9 @@ export function Session() {
     return exit.message.set(
       [
         ``,
-        `  ██ ▄█▀ ██ ██     ▄████▄  ${UI.Style.TEXT_DIM}${title}${UI.Style.TEXT_NORMAL}`,
-        `  ████   ██ ██     ██  ██  ${UI.Style.TEXT_DIM}kilo -s ${session()?.id}${UI.Style.TEXT_NORMAL}`,
-        `  ██ ▀█▄ ██ ██████ ▀████▀  `,
+        `  ▄████▄ ██▄ ▄██  ▄████▄  ████▄ ██████  ${UI.Style.TEXT_DIM}${title}${UI.Style.TEXT_NORMAL}`,
+        `  ██▄▄▄  ██ █ ██  ██  ██  ██ ██   ██    ${UI.Style.TEXT_DIM}kilo -s ${session()?.id}${UI.Style.TEXT_NORMAL}`,
+        `  ▀████▀ ██   ██  ██  ██  ██ ██   ██    `,
       ].join("\n"),
     )
     // kilocode_change end
