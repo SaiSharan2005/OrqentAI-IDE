@@ -50,7 +50,7 @@ export function Tips() {
   )
 }
 
-// Curated tips for Kilo CLI
+// Curated tips for smartAI CLI
 const TIPS = [
   "Type {highlight}@{/highlight} followed by a filename to fuzzy search and attach files",
   "Start a message with {highlight}!{/highlight} to run shell commands directly (e.g., {highlight}!ls -la{/highlight})",
