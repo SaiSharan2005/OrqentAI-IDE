@@ -4,7 +4,7 @@
   "version": "7.0.30",
   "type": "module",
   "license": "MIT",
-  "description": "Telemetry for Kilo CLI - PostHog analytics integration",
+  "description": "Telemetry for smartAI CLI - PostHog analytics integration",
   "exports": {
     ".": "./src/index.ts"
   },

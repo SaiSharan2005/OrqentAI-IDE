@@ -1,6 +1,6 @@
 # AGENTS.md
 
-Kilo CLI is an open source AI coding agent that generates code from natural language, automates tasks, and supports 500+ AI models.
+smartAI CLI is an open source AI coding agent that generates code from natural language, automates tasks, and supports 500+ AI models.
 
 - ALWAYS USE PARALLEL TOOLS WHEN APPLICABLE.
 - The default branch in this repo is `main`.
@@ -21,8 +21,8 @@ All products are clients of the **CLI** (`packages/opencode/`), which contains t
 
 | Product                | Package                 | Description                                                                                                                                                                          |
 | ---------------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Kilo CLI               | `packages/opencode/`    | Core engine. TUI, `kilo run`, `kilo serve`, `kilo web`. Fork of upstream OpenCode.                                                                                                   |
-| Kilo VS Code Extension | `packages/kilo-vscode/` | VS Code extension. Bundles the CLI binary, spawns `kilo serve` as a child process. Includes the **Agent Manager** — a multi-session orchestration panel with git worktree isolation. |
+| smartAI CLI               | `packages/opencode/`    | Core engine. TUI, `kilo run`, `kilo serve`, `kilo web`. Fork of upstream OpenCode.                                                                                                   |
+| smartAI VS Code Extension | `packages/kilo-vscode/` | VS Code extension. Bundles the CLI binary, spawns `kilo serve` as a child process. Includes the **Agent Manager** — a multi-session orchestration panel with git worktree isolation. |
 | OpenCode Desktop       | `packages/desktop/`     | Standalone Tauri native app. Bundles CLI as sidecar. Single-session UI. Unrelated to the VS Code extension. Not actively maintained — synced from upstream fork.                     |
 | OpenCode Web           | `packages/app/`         | Shared SolidJS frontend used by both the desktop app and `kilo web` CLI command. Not actively maintained — synced from upstream fork.                                                |
 
@@ -37,7 +37,7 @@ Turborepo + Bun workspaces. The packages you'll work with most:
 | `packages/opencode/`       | `@kilocode/cli`            | Core CLI -- agents, tools, sessions, server, TUI. This is where most work happens.         |
 | `packages/sdk/js/`         | `@kilocode/sdk`            | Auto-generated TypeScript SDK (client for the server API). Do not edit `src/gen/` by hand. |
 | `packages/kilo-vscode/`    | `kilo-code`                | VS Code extension with sidebar chat + Agent Manager. See its own `AGENTS.md` for details.  |
-| `packages/kilo-gateway/`   | `@kilocode/kilo-gateway`   | Kilo auth, provider routing, API integration                                               |
+| `packages/kilo-gateway/`   | `@kilocode/kilo-gateway`   | smartAI auth, provider routing, API integration                                               |
 | `packages/kilo-telemetry/` | `@kilocode/kilo-telemetry` | PostHog analytics + OpenTelemetry                                                          |
 | `packages/kilo-i18n/`      | `@kilocode/kilo-i18n`      | Internationalization / translations                                                        |
 | `packages/kilo-ui/`        | `@kilocode/kilo-ui`        | SolidJS component library shared by the extension webview and `packages/app/`              |
@@ -152,16 +152,16 @@ Tests MUST test actual implementation, do not duplicate logic into a test.
 
 ## Fork Merge Process
 
-Kilo CLI is a fork of [opencode](https://github.com/anomalyco/opencode).
+smartAI CLI is a fork of [opencode](https://github.com/anomalyco/opencode).
 
 ### Minimizing Merge Conflicts
 
 We regularly merge upstream changes from opencode. To minimize merge conflicts and keep the sync process smooth:
 
-1. **Prefer `kilocode` directories** - Place Kilo-specific code in dedicated directories whenever possible:
-   - `packages/opencode/src/kilocode/` - Kilo-specific source code
-   - `packages/opencode/test/kilocode/` - Kilo-specific tests
-   - `packages/kilo-gateway/` - The Kilo Gateway package
+1. **Prefer `kilocode` directories** - Place smartAI-specific code in dedicated directories whenever possible:
+   - `packages/opencode/src/kilocode/` - smartAI-specific source code
+   - `packages/opencode/test/kilocode/` - smartAI-specific tests
+   - `packages/kilo-gateway/` - The smartAI Gateway package
 
 2. **Minimize changes to shared files** - When you must modify files that exist in upstream opencode, keep changes as small and isolated as possible.
 
@@ -174,7 +174,7 @@ The goal is to keep our diff from upstream as small as possible, making regular 
 
 ### Kilocode Change Markers
 
-To minimize merge conflicts when syncing with upstream, mark Kilo Code-specific changes in shared code with `kilocode_change` comments.
+To minimize merge conflicts when syncing with upstream, mark smartAI-specific changes in shared code with `kilocode_change` comments.
 
 **Single line:**
 
@@ -199,10 +199,10 @@ const bar = 2
 
 #### When markers are NOT needed
 
-Code in these paths is Kilo Code-specific and does NOT need `kilocode_change` markers:
+Code in these paths is smartAI-specific and does NOT need `kilocode_change` markers:
 
 - `packages/opencode/src/kilocode/` - All files in this directory
 - `packages/opencode/test/kilocode/` - All test files for kilocode
 - Any other path containing `kilocode` in filename or directory name
 
-These paths are entirely Kilo Code additions and won't conflict with upstream.
+These paths are entirely smartAI additions and won't conflict with upstream.

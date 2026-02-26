@@ -51,7 +51,7 @@ export function DialogStatus() {
         </text>
       </box>
       {/* kilocode_change start */}
-      <text fg={theme.textMuted}>Kilo v{Installation.VERSION}</text>
+      <text fg={theme.textMuted}>smartAI v{Installation.VERSION}</text>
       {/* kilocode_change end */}
       <Show when={Object.keys(sync.data.mcp).length > 0} fallback={<text fg={theme.text}>No MCP Servers</text>}>
         <box>

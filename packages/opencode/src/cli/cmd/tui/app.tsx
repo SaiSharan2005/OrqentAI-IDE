@@ -264,7 +264,7 @@ function App() {
   createEffect(() => {
     if (!terminalTitleEnabled() || Flag.KILO_DISABLE_TERMINAL_TITLE) return
 
-    const titleDefault = "Kilo CLI" // kilocode_change
+    const titleDefault = "smartAI CLI" // kilocode_change
 
     if (route.data.type === "home") {
       renderer.setTerminalTitle(titleDefault) // kilocode_change
@@ -735,7 +735,7 @@ function App() {
     toast.show({
       variant: "info",
       title: "Update Available",
-      message: `Kilo v${evt.properties.version} is available. Run 'kilo upgrade' to update manually.`, // kilocode_change
+      message: `smartAI v${evt.properties.version} is available. Run 'kilo upgrade' to update manually.`, // kilocode_change
       duration: 10000,
     })
   })

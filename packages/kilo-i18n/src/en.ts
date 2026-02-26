@@ -1,10 +1,10 @@
 // kilocode_change - new file
-// Kilo-specific translations and overrides
+// smartAI-specific translations and overrides
 // Keys here will override any matching keys from upstream translations
 export const dict = {
-  // Kilo Gateway provider translations
+  // smartAI Gateway provider translations
   "provider.connect.kiloGateway.line1":
-    "Kilo Gateway gives you access to a curated set of reliable optimized models for coding agents.",
+    "smartAI Gateway gives you access to a curated set of reliable optimized models for coding agents.",
   "provider.connect.kiloGateway.line2":
     "With a single API key you'll get access to models such as Claude, GPT, Gemini, GLM and more.",
   "provider.connect.kiloGateway.visit.prefix": "Visit ",
@@ -16,5 +16,5 @@ export const dict = {
   "dialog.provider.kilo.note": "Access 500+ AI models",
 
   // Add any upstream overrides below this line
-  // Example: "some.upstream.key": "Kilo-specific override value",
+  // Example: "some.upstream.key": "smartAI-specific override value",
 }

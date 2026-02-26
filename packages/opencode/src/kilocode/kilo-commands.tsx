@@ -41,8 +41,8 @@ export function registerKiloCommands(useSDK: () => UseSDK) {
     {
       value: "kilo.profile",
       title: "Profile",
-      description: "View your Kilo Gateway profile",
-      category: "Kilo",
+      description: "View your smartAI Gateway profile",
+      category: "smartAI",
       slash: { name: "profile", aliases: ["me", "whoami"] },
       enabled: isKiloConnected(),
       hidden: !isKiloConnected(),
@@ -55,7 +55,7 @@ export function registerKiloCommands(useSDK: () => UseSDK) {
             dialog.replace(() => (
               <DialogAlert
                 title="Error"
-                message="Failed to fetch profile. Please ensure you're authenticated with Kilo Gateway."
+                message="Failed to fetch profile. Please ensure you're authenticated with smartAI Gateway."
               />
             ))
             return
@@ -75,8 +75,8 @@ export function registerKiloCommands(useSDK: () => UseSDK) {
     {
       value: "kilo.teams",
       title: "Teams",
-      description: "Switch between Kilo Gateway teams",
-      category: "Kilo",
+      description: "Switch between smartAI Gateway teams",
+      category: "smartAI",
       slash: { name: "teams", aliases: ["team", "org", "orgs"] },
       enabled: isKiloConnected(),
       hidden: !isKiloConnected(),
@@ -89,7 +89,7 @@ export function registerKiloCommands(useSDK: () => UseSDK) {
             dialog.replace(() => (
               <DialogAlert
                 title="Error"
-                message="Failed to fetch teams. Please ensure you're authenticated with Kilo Gateway."
+                message="Failed to fetch teams. Please ensure you're authenticated with smartAI Gateway."
               />
             ))
             return

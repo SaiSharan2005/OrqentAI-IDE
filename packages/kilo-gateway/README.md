@@ -1,11 +1,11 @@
 # @kilocode/kilo-gateway
 
-Unified Kilo Gateway package for OpenCode providing authentication, AI provider integration, and API access.
+Unified smartAI Gateway package for OpenCode providing authentication, AI provider integration, and API access.
 
 ## Features
 
-- **Authentication**: Device authorization flow for Kilo Gateway
-- **AI Provider**: OpenRouter-based provider with Kilo Gateway integration
+- **Authentication**: Device authorization flow for smartAI Gateway
+- **AI Provider**: OpenRouter-based provider with smartAI Gateway integration
 - **API Integration**: Profile, balance, and model management
 - **TUI Helpers**: Utilities for terminal UI components
 

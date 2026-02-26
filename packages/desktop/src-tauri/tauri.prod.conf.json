@@ -1,6 +1,6 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "Kilo",
+  "productName": "smartAI",
   "identifier": "ai.kilo.desktop",
   "bundle": {
     "createUpdaterArtifacts": true,

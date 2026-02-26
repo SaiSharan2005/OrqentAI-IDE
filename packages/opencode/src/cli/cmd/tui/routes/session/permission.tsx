@@ -157,12 +157,12 @@ export function PermissionPrompt(props: { request: PermissionRequest }) {
             <Switch>
               <Match when={props.request.always.length === 1 && props.request.always[0] === "*"}>
                 {/* kilocode_change */}
-                <TextBody title={"This will allow " + props.request.permission + " until Kilo is restarted."} />
+                <TextBody title={"This will allow " + props.request.permission + " until smartAI is restarted."} />
               </Match>
               <Match when={true}>
                 <box paddingLeft={1} gap={1}>
                   {/* kilocode_change */}
-                  <text fg={theme.textMuted}>This will allow the following patterns until Kilo is restarted</text>
+                  <text fg={theme.textMuted}>This will allow the following patterns until smartAI is restarted</text>
                   <box>
                     <For each={props.request.always}>
                       {(pattern) => (
@@ -503,7 +503,7 @@ function RejectPrompt(props: { onConfirm: (message: string) => void; onCancel: (
         </box>
         <box paddingLeft={1}>
           {/* kilocode_change */}
-          <text fg={theme.textMuted}>Tell Kilo what to do differently</text>
+          <text fg={theme.textMuted}>Tell smartAI what to do differently</text>
         </box>
       </box>
       <box

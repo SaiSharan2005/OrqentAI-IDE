@@ -15,7 +15,7 @@ const packagesDir = join(kiloVscodeDir, "..")
 const opencodeDir = join(packagesDir, "opencode")
 const opencodeSrcDir = join(opencodeDir, "src")
 const targetBinDir = join(kiloVscodeDir, "bin")
-const targetBinPath = join(targetBinDir, "kilo")
+const targetBinPath = join(targetBinDir, process.platform === "win32" ? "kilo.exe" : "kilo")
 
 let building = false
 let pending = false
@@ -26,7 +26,9 @@ function log(msg: string) {
 }
 
 function sourceBinaryPath(): string {
-  return join(opencodeDir, "dist", `@kilocode/cli-${process.platform}-${process.arch}`, "bin", "kilo")
+  const platform = process.platform === "win32" ? "windows" : process.platform
+  const ext = process.platform === "win32" ? ".exe" : ""
+  return join(opencodeDir, "dist", `@kilocode/cli-${platform}-${process.arch}`, "bin", `kilo${ext}`)
 }
 
 async function rebuild() {

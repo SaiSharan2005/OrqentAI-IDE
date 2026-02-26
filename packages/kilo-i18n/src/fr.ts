@@ -1,8 +1,8 @@
 // kilocode_change - new file
 export const dict = {
-  // Kilo Gateway provider translations
+  // smartAI Gateway provider translations
   "provider.connect.kiloGateway.line1":
-    "Kilo Gateway vous donne accès à une sélection de modèles fiables et optimisés pour les agents de codage.",
+    "smartAI Gateway vous donne accès à une sélection de modèles fiables et optimisés pour les agents de codage.",
   "provider.connect.kiloGateway.line2":
     "Avec une seule clé API, vous aurez accès à des modèles tels que Claude, GPT, Gemini, GLM et plus encore.",
   "provider.connect.kiloGateway.visit.prefix": "Visitez ",

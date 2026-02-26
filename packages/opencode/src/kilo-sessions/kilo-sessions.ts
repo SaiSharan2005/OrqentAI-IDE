@@ -227,7 +227,7 @@ export namespace KiloSessions {
 
     const client = await getClient()
     if (!client) {
-      throw new Error("Unable to share session: no Kilo credentials found. Run `kilo auth login`.")
+      throw new Error("Unable to share session: no smartAI credentials found. Run `kilo auth login`.")
     }
 
     const current = (await get(sessionId).catch(() => undefined)) ?? (await create(sessionId))
@@ -272,7 +272,7 @@ export namespace KiloSessions {
 
     const client = await getClient()
     if (!client) {
-      throw new Error("Unable to unshare session: no Kilo credentials found. Run `kilo auth login`.")
+      throw new Error("Unable to unshare session: no smartAI credentials found. Run `kilo auth login`.")
     }
 
     log.info("unsharing", { sessionId })

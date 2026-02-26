@@ -149,7 +149,7 @@ export namespace ModelsDev {
       const kiloModels = await ModelCache.fetch("kilo", kiloFetchOptions).catch(() => ({}))
       providers["kilo"] = {
         id: "kilo",
-        name: "Kilo Gateway",
+        name: "smartAI Gateway",
         env: ["KILO_API_KEY"],
         api: ensureTrailingSlash(KILO_OPENROUTER_BASE),
         npm: "@kilocode/kilo-gateway",
