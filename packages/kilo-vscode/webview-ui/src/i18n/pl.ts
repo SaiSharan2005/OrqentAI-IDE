@@ -360,7 +360,7 @@ export const dict = {
   "toast.session.listFailed.title": "Nie udało się załadować sesji dla {{project}}",
 
   "toast.update.title": "Dostępna aktualizacja",
-  "toast.update.description": "Nowa wersja Kilo ({{version}}) jest teraz dostępna do instalacji.",
+  "toast.update.description": "Nowa wersja smartAI ({{version}}) jest teraz dostępna do instalacji.",
   "toast.update.action.installRestart": "Zainstaluj i zrestartuj",
   "toast.update.action.notYet": "Jeszcze nie",
 
@@ -390,7 +390,7 @@ export const dict = {
   "error.chain.modelNotFound": "Model nie znaleziony: {{provider}}/{{model}}",
   "error.chain.checkConfig": "Sprawdź swoją konfigurację (opencode.json) nazwy dostawców/modeli",
   "error.chain.mcpFailed":
-    'Serwer MCP "{{name}}" nie powiódł się. Uwaga, Kilo nie obsługuje jeszcze uwierzytelniania MCP.',
+    'Serwer MCP "{{name}}" nie powiódł się. Uwaga, smartAI nie obsługuje jeszcze uwierzytelniania MCP.',
   "error.chain.providerAuthFailed": "Uwierzytelnianie dostawcy nie powiodło się ({{provider}}): {{message}}",
   "error.chain.providerInitFailed":
     'Nie udało się zainicjować dostawcy "{{provider}}". Sprawdź poświadczenia i konfigurację.',
@@ -500,12 +500,12 @@ export const dict = {
   "sidebar.workspaces.enable": "Włącz przestrzenie robocze",
   "sidebar.workspaces.disable": "Wyłącz przestrzenie robocze",
   "sidebar.gettingStarted.title": "Pierwsze kroki",
-  "sidebar.gettingStarted.line1": "Kilo zawiera darmowe modele, więc możesz zacząć od razu.",
+  "sidebar.gettingStarted.line1": "smartAI zawiera darmowe modele, więc możesz zacząć od razu.",
   "sidebar.gettingStarted.line2": "Połącz dowolnego dostawcę, aby używać modeli, w tym Claude, GPT, Gemini itp.",
   "sidebar.project.recentSessions": "Ostatnie sesje",
   "sidebar.project.viewAllSessions": "Zobacz wszystkie sesje",
 
-  "app.name.desktop": "Kilo Desktop",
+  "app.name.desktop": "smartAI Desktop",
   "settings.section.desktop": "Pulpit",
   "settings.section.server": "Serwer",
   "settings.tab.general": "Ogólne",
@@ -519,7 +519,7 @@ export const dict = {
   "settings.general.row.language.title": "Język",
   "settings.general.row.language.description": "Zmień język wyświetlania dla Kilo",
   "settings.general.row.appearance.title": "Wygląd",
-  "settings.general.row.appearance.description": "Dostosuj wygląd Kilo na swoim urządzeniu",
+  "settings.general.row.appearance.description": "Dostosuj wygląd smartAI na swoim urządzeniu",
   "settings.general.row.theme.title": "Motyw",
   "settings.general.row.theme.description": "Dostosuj motyw Kilo.",
   "settings.general.row.font.title": "Czcionka",
@@ -733,7 +733,7 @@ export const dict = {
   "deviceAuth.toast.urlCopied": "URL skopiowany do schowka",
   "deviceAuth.toast.codeCopied": "Kod skopiowany do schowka",
   "deviceAuth.status.initiating": "Rozpoczynanie logowania...",
-  "deviceAuth.title": "Zaloguj się do Kilo Code",
+  "deviceAuth.title": "Zaloguj się do smartAI",
   "deviceAuth.step1": "Krok 1: Otwórz ten URL",
   "deviceAuth.action.copyUrl": "Kopiuj URL",
   "deviceAuth.action.openBrowser": "Otwórz przeglądarkę",
@@ -751,7 +751,7 @@ export const dict = {
 
   "profile.title": "Profil",
   "profile.notLoggedIn": "Nie zalogowano",
-  "profile.action.login": "Zaloguj się przez Kilo Code",
+  "profile.action.login": "Zaloguj się przez smartAI",
   "profile.balance.title": "Saldo",
   "profile.balance.refresh": "Odśwież saldo",
   "profile.action.dashboard": "Panel",
@@ -770,11 +770,11 @@ export const dict = {
   "settings.prompts.title": "Polecenia",
   "settings.experimental.title": "Eksperymentalne",
   "settings.language.title": "Język",
-  "settings.aboutKiloCode.title": "O Kilo Code",
+  "settings.aboutKiloCode.title": "O smartAI",
 
   "session.messages.empty": "Rozpocznij rozmowę, wpisując wiadomość poniżej.",
   "session.messages.welcome":
-    "Kilo Code to asystent programowania AI. Poproś go o tworzenie funkcji, naprawę błędów lub wyjaśnienie bazy kodu.",
+    "smartAI to asystent programowania AI. Poproś go o tworzenie funkcji, naprawę błędów lub wyjaśnienie bazy kodu.",
   "session.messages.scrollToBottom": "Przewiń na dół",
   "session.status.writingResponse": "Pisanie odpowiedzi…",
   "session.status.retrying": "Ponawiam próbę ({{ attempt }})… {{ message }}",
@@ -807,7 +807,7 @@ export const dict = {
   "settings.aboutKiloCode.port.label": "Port:",
   "settings.aboutKiloCode.versionInfo": "Informacje o wersji",
   "settings.aboutKiloCode.version.label": "Wersja:",
-  "settings.aboutKiloCode.extensionName": "Rozszerzenie Kilo Code",
+  "settings.aboutKiloCode.extensionName": "Rozszerzenie smartAI",
   "settings.aboutKiloCode.community": "Społeczność i wsparcie",
   "settings.aboutKiloCode.feedback.prefix": "Jeśli masz pytania lub uwagi, śmiało otwórz zgłoszenie na",
   "settings.aboutKiloCode.feedback.or": "lub",
@@ -815,7 +815,7 @@ export const dict = {
     "W sprawach rozliczeń lub konta skontaktuj się z obsługą klienta pod adresem",
   "settings.aboutKiloCode.resetSettings.title": "Resetuj ustawienia",
   "settings.aboutKiloCode.resetSettings.description":
-    "Zresetuj wszystkie ustawienia rozszerzenia Kilo Code do wartości domyślnych. Nie wpływa to na konfigurację CLI ani backendu.",
+    "Zresetuj wszystkie ustawienia rozszerzenia smartAI do wartości domyślnych. Nie wpływa to na konfigurację CLI ani backendu.",
   "settings.aboutKiloCode.resetSettings.button": "Resetuj wszystkie ustawienia",
 
   "settings.agentBehaviour.subtab.modes": "Tryby",
@@ -835,7 +835,7 @@ export const dict = {
   "settings.browser.headless.title": "Tryb headless",
   "settings.browser.headless.description": "Uruchom w trybie headless (bez widocznego okna przeglądarki).",
 
-  "settings.language.description": 'Wybierz język interfejsu Kilo Code. „Auto" używa języka wyświetlania VS Code.',
+  "settings.language.description": 'Wybierz język interfejsu smartAI. „Auto" używa języka wyświetlania VS Code.',
   "settings.language.auto": "Auto (język VS Code)",
   "settings.language.current": "Bieżący:",
 

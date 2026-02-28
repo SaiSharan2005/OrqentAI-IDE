@@ -251,7 +251,7 @@ export const dict = {
   "dialog.directory.empty": "Aucun dossier trouvé",
 
   "dialog.server.title": "Serveurs",
-  "dialog.server.description": "Changez le serveur Kilo auquel cette application se connecte.",
+  "dialog.server.description": "Changez le serveur smartAI auquel cette application se connecte.",
   "dialog.server.search.placeholder": "Rechercher des serveurs",
   "dialog.server.empty": "Aucun serveur pour l'instant",
   "dialog.server.add.title": "Ajouter un serveur",
@@ -505,13 +505,13 @@ export const dict = {
   "sidebar.workspaces.enable": "Activer les espaces de travail",
   "sidebar.workspaces.disable": "Désactiver les espaces de travail",
   "sidebar.gettingStarted.title": "Commencer",
-  "sidebar.gettingStarted.line1": "Kilo inclut des modèles gratuits pour que vous puissiez commencer immédiatement.",
+  "sidebar.gettingStarted.line1": "smartAI inclut des modèles gratuits pour que vous puissiez commencer immédiatement.",
   "sidebar.gettingStarted.line2":
     "Connectez n'importe quel fournisseur pour utiliser des modèles, y compris Claude, GPT, Gemini etc.",
   "sidebar.project.recentSessions": "Sessions récentes",
   "sidebar.project.viewAllSessions": "Voir toutes les sessions",
 
-  "app.name.desktop": "Kilo Desktop",
+  "app.name.desktop": "smartAI Desktop",
   "settings.section.desktop": "Bureau",
   "settings.section.server": "Serveur",
   "settings.tab.general": "Général",
@@ -741,7 +741,7 @@ export const dict = {
   "deviceAuth.toast.urlCopied": "URL copiée dans le presse-papier",
   "deviceAuth.toast.codeCopied": "Code copié dans le presse-papier",
   "deviceAuth.status.initiating": "Démarrage de la connexion...",
-  "deviceAuth.title": "Se connecter à Kilo Code",
+  "deviceAuth.title": "Se connecter à smartAI",
   "deviceAuth.step1": "Étape 1 : Ouvrez cette URL",
   "deviceAuth.action.copyUrl": "Copier l'URL",
   "deviceAuth.action.openBrowser": "Ouvrir le navigateur",
@@ -759,7 +759,7 @@ export const dict = {
 
   "profile.title": "Profil",
   "profile.notLoggedIn": "Non connecté",
-  "profile.action.login": "Se connecter avec Kilo Code",
+  "profile.action.login": "Se connecter avec smartAI",
   "profile.balance.title": "Solde",
   "profile.balance.refresh": "Actualiser le solde",
   "profile.action.dashboard": "Tableau de bord",
@@ -778,11 +778,11 @@ export const dict = {
   "settings.prompts.title": "Prompts",
   "settings.experimental.title": "Expérimental",
   "settings.language.title": "Langue",
-  "settings.aboutKiloCode.title": "À propos de Kilo Code",
+  "settings.aboutKiloCode.title": "À propos de smartAI",
 
   "session.messages.empty": "Commencez une conversation en tapant un message ci-dessous.",
   "session.messages.welcome":
-    "Kilo Code est un assistant de programmation IA. Demandez-lui de créer des fonctionnalités, corriger des bugs ou expliquer votre code.",
+    "smartAI est un assistant de programmation IA. Demandez-lui de créer des fonctionnalités, corriger des bugs ou expliquer votre code.",
   "session.messages.scrollToBottom": "Défiler vers le bas",
   "session.status.writingResponse": "Rédaction de la réponse…",
   "session.status.retrying": "Nouvelle tentative (essai {{ attempt }})… {{ message }}",
@@ -815,7 +815,7 @@ export const dict = {
   "settings.aboutKiloCode.port.label": "Port :",
   "settings.aboutKiloCode.versionInfo": "Informations de version",
   "settings.aboutKiloCode.version.label": "Version :",
-  "settings.aboutKiloCode.extensionName": "Extension Kilo Code",
+  "settings.aboutKiloCode.extensionName": "Extension smartAI",
   "settings.aboutKiloCode.community": "Communauté et support",
   "settings.aboutKiloCode.feedback.prefix":
     "Si vous avez des questions ou des commentaires, n'hésitez pas à ouvrir un ticket sur",
@@ -824,7 +824,7 @@ export const dict = {
     "Pour les questions de facturation ou de compte, contactez le support client à",
   "settings.aboutKiloCode.resetSettings.title": "Réinitialiser les paramètres",
   "settings.aboutKiloCode.resetSettings.description":
-    "Réinitialiser tous les paramètres de l'extension Kilo Code à leurs valeurs par défaut. Cela n'affecte pas la configuration CLI ou backend.",
+    "Réinitialiser tous les paramètres de l'extension smartAI à leurs valeurs par défaut. Cela n'affecte pas la configuration CLI ou backend.",
   "settings.aboutKiloCode.resetSettings.button": "Réinitialiser tous les paramètres",
 
   "settings.agentBehaviour.subtab.modes": "Modes",
@@ -845,7 +845,7 @@ export const dict = {
   "settings.browser.headless.description": "Exécuter en mode headless (sans fenêtre de navigateur visible).",
 
   "settings.language.description":
-    "Choisissez la langue de l'interface de Kilo Code. \"Auto\" utilise la langue d'affichage de VS Code.",
+    "Choisissez la langue de l'interface de smartAI. \"Auto\" utilise la langue d'affichage de VS Code.",
   "settings.language.auto": "Auto (langue VS Code)",
   "settings.language.current": "Actuelle :",
 
