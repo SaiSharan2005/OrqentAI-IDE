@@ -1578,8 +1578,8 @@ export type ProviderConfig = {
         input: Array<"text" | "audio" | "image" | "video" | "pdf">
         output: Array<"text" | "audio" | "image" | "video" | "pdf">
       }
-      recommended?: boolean
       recommendedIndex?: number
+      prompt?: "codex" | "gemini" | "beast" | "anthropic" | "trinity" | "anthropic_without_todo"
       experimental?: boolean
       status?: "alpha" | "beta" | "deprecated"
       options?: {
@@ -2033,8 +2033,8 @@ export type Model = {
       [key: string]: unknown
     }
   }
-  recommended?: boolean
   recommendedIndex?: number
+  prompt?: "codex" | "gemini" | "beast" | "anthropic" | "trinity" | "anthropic_without_todo"
 }
 
 export type Provider = {
@@ -3638,6 +3638,46 @@ export type SessionPromptResponses = {
 
 export type SessionPromptResponse = SessionPromptResponses[keyof SessionPromptResponses]
 
+export type SessionDeleteMessageData = {
+  body?: never
+  path: {
+    /**
+     * Session ID
+     */
+    sessionID: string
+    /**
+     * Message ID
+     */
+    messageID: string
+  }
+  query?: {
+    directory?: string
+  }
+  url: "/session/{sessionID}/message/{messageID}"
+}
+
+export type SessionDeleteMessageErrors = {
+  /**
+   * Bad request
+   */
+  400: BadRequestError
+  /**
+   * Not found
+   */
+  404: NotFoundError
+}
+
+export type SessionDeleteMessageError = SessionDeleteMessageErrors[keyof SessionDeleteMessageErrors]
+
+export type SessionDeleteMessageResponses = {
+  /**
+   * Successfully deleted message
+   */
+  200: boolean
+}
+
+export type SessionDeleteMessageResponse = SessionDeleteMessageResponses[keyof SessionDeleteMessageResponses]
+
 export type SessionMessageData = {
   body?: never
   path: {
@@ -4231,8 +4271,8 @@ export type ProviderListResponses = {
             input: Array<"text" | "audio" | "image" | "video" | "pdf">
             output: Array<"text" | "audio" | "image" | "video" | "pdf">
           }
-          recommended?: boolean
           recommendedIndex?: number
+          prompt?: "codex" | "gemini" | "beast" | "anthropic" | "trinity" | "anthropic_without_todo"
           experimental?: boolean
           status?: "alpha" | "beta" | "deprecated"
           options: {
