@@ -27,6 +27,7 @@ import { Provider } from "../../provider/provider"
 import { Bus } from "../../bus"
 import { MessageV2 } from "../../session/message-v2"
 import { SessionPrompt } from "@/session/prompt"
+import { KILO_API_BASE } from "@kilocode/kilo-gateway" // kilocode_change
 import { $ } from "bun"
 
 type GitHubAuthor = {
@@ -360,7 +361,7 @@ export const GithubInstallCommand = cmd({
 
             async function getInstallation() {
               // kilocode_change start - updated to new endpoint
-              return await fetch(`https://api.kilo.ai/api/integrations/github/check-installation?owner=${app.owner}`)
+              return await fetch(`${KILO_API_BASE}/api/integrations/github/check-installation?owner=${app.owner}`)
                 .then((res) => res.json())
                 .then((data) => data.installation)
               // kilocode_change end
@@ -482,7 +483,7 @@ export const GithubRunCommand = cmd({
           ? (payload as IssueCommentEvent | IssuesEvent).issue.number
           : (payload as PullRequestEvent | PullRequestReviewCommentEvent).pull_request.number
       const runUrl = `/${owner}/${repo}/actions/runs/${runId}`
-      const shareBaseUrl = isMock ? "https://dev.kilo.ai" : "https://kilo.ai" // kilocode_change
+      const shareBaseUrl = isMock ? KILO_API_BASE : KILO_API_BASE // kilocode_change
 
       let appToken: string
       let octoRest: Octokit
@@ -721,7 +722,7 @@ export const GithubRunCommand = cmd({
 
       function normalizeOidcBaseUrl(): string {
         const value = process.env["OIDC_BASE_URL"]
-        if (!value) return "https://api.kilo.ai" // kilocode_change
+        if (!value) return KILO_API_BASE // kilocode_change
         return value.replace(/\/+$/, "")
       }
 

@@ -10,6 +10,7 @@ import { useTheme } from "@tui/context/theme"
 import { useDialog } from "@tui/ui/dialog"
 import { Link } from "@tui/ui/link"
 import { TextAttributes } from "@opentui/core"
+import { KILO_API_BASE } from "@kilocode/kilo-gateway"
 import type { KilocodeProfile, KilocodeBalance } from "@kilocode/kilo-gateway"
 
 interface DialogKiloProfileProps {
@@ -43,8 +44,8 @@ export function DialogKiloProfile(props: DialogKiloProfileProps) {
 
   // Generate usage URL based on organization context
   const usageUrl = props.currentOrgId
-    ? `https://app.kilo.ai/organizations/${props.currentOrgId}/usage-details`
-    : "https://app.kilo.ai/usage"
+    ? `${KILO_API_BASE}/organizations/${props.currentOrgId}/usage-details`
+    : `${KILO_API_BASE}/usage`
 
   return (
     <box paddingLeft={2} paddingRight={2} gap={1}>

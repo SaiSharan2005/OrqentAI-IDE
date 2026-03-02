@@ -238,21 +238,18 @@ function ApiMethod(props: ApiMethodProps) {
       title={props.title}
       placeholder="API key"
       description={
-        {
-          kilo: (
-            <box gap={1}>
-              {/* kilocode_change start */}
-              <text fg={theme.textMuted}>
-                smartAI Gateway gives you access to all the best coding models at the cheapest prices with a single API
-                key.
-              </text>
-              <text fg={theme.text}>
-                Go to <span style={{ fg: theme.primary }}>https://kilo.ai/gateway</span> to get a key
-              </text>
-              {/* kilocode_change end */}
-            </box>
-          ),
-        }[props.providerID] ?? undefined
+        props.providerID === "opencode" ? (
+          <box gap={1}>
+            {/* kilocode_change start */}
+            <text fg={theme.textMuted}>
+              smartAI Gateway gives you access to all the best coding models at the cheapest prices with a single API key.
+            </text>
+            <text fg={theme.text}>
+              Go to <span style={{ fg: theme.primary }}>http://localhost:8083</span> to get a key
+            </text>
+            {/* kilocode_change end */}
+          </box>
+        ) : undefined
       }
       onConfirm={async (value) => {
         if (!value) return

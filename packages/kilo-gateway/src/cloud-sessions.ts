@@ -1,4 +1,5 @@
 import { buildKiloHeaders } from "./headers.js"
+import { KILO_API_BASE } from "./api/constants.js"
 
 export const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
 
@@ -6,7 +7,7 @@ export interface DrizzleDb {
   insert(table: object): { values(data: object): { onConflictDoNothing(): { run(): void } } }
 }
 
-const INGEST_BASE = process.env.KILO_SESSION_INGEST_URL ?? "https://ingest.kilosessions.ai"
+const INGEST_BASE = process.env.KILO_SESSION_INGEST_URL ?? KILO_API_BASE
 
 function exportUrl(sessionId: string) {
   return UUID_RE.test(sessionId)

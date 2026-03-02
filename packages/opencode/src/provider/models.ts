@@ -8,7 +8,7 @@ import { lazy } from "@/util/lazy"
 import { Config } from "../config/config" // kilocode_change
 import { ModelCache } from "./model-cache" // kilocode_change
 import { Auth } from "../auth" // kilocode_change
-import { KILO_OPENROUTER_BASE } from "@kilocode/kilo-gateway" // kilocode_change
+import { KILO_OPENROUTER_BASE, KILO_API_BASE } from "@kilocode/kilo-gateway" // kilocode_change
 import { Filesystem } from "../util/filesystem"
 
 // Try to import bundled snapshot (generated at build time)
@@ -149,8 +149,8 @@ export namespace ModelsDev {
         ...(kiloOrgId ? { kilocodeOrganizationId: kiloOrgId } : {}),
       }
       const defaultBaseURL = kiloOrgId
-        ? `https://api.kilo.ai/api/organizations/${kiloOrgId}`
-        : "https://api.kilo.ai/api/openrouter"
+        ? `${KILO_API_BASE}/api/organizations/${kiloOrgId}`
+        : KILO_OPENROUTER_BASE
       const providerBaseURL = normalizedBaseURL ?? defaultBaseURL
       const ensureTrailingSlash = (value: string): string => (value.endsWith("/") ? value : `${value}/`)
       const kiloModels = await ModelCache.fetch("kilo", kiloFetchOptions).catch(() => ({}))

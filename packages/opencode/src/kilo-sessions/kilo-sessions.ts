@@ -85,7 +85,7 @@ export namespace KiloSessions {
       const valid = await authValid(token)
       if (!valid) return undefined
 
-      const base = process.env["KILO_SESSION_INGEST_URL"] ?? "https://ingest.kilosessions.ai"
+      const base = process.env["KILO_SESSION_INGEST_URL"] ?? KILO_API_BASE
       const baseHeaders: Record<string, string> = {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
@@ -251,7 +251,7 @@ export namespace KiloSessions {
       throw new Error(`Unable to share session ${sessionId}: server did not return a public id`)
     }
 
-    const url = `https://app.kilo.ai/s/${result.public_id}`
+    const url = `${KILO_API_BASE}/s/${result.public_id}`
 
     await Storage.write(["session_share", sessionId], {
       ...current,

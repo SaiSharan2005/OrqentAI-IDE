@@ -6,8 +6,8 @@
 /** Environment variable for custom Kilo API URL */
 export const ENV_KILO_API_URL = "KILO_API_URL"
 
-/** Default Kilo API URL */
-export const DEFAULT_KILO_API_URL = "https://api.kilo.ai"
+/** Default Kilo API URL — points to SmartAI Governance Service */
+export const DEFAULT_KILO_API_URL = "http://localhost:8083"
 
 /** Base URL for Kilo API - can be overridden by KILO_API_URL env var */
 export const KILO_API_BASE = process.env[ENV_KILO_API_URL] || DEFAULT_KILO_API_URL
