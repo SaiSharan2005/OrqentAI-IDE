@@ -1,4 +1,4 @@
-import { Component, Show, createSignal, createMemo, createEffect, onMount } from "solid-js"
+import { Component, Show, For, createSignal, createMemo, createEffect, onMount } from "solid-js"
 import { Button } from "@kilocode/kilo-ui/button"
 import { Card } from "@kilocode/kilo-ui/card"
 import { Icon } from "@kilocode/kilo-ui/icon"
@@ -171,12 +171,99 @@ const ProfileView: Component<ProfileViewProps> = (props) => {
                   style={{
                     "font-size": "12px",
                     color: "var(--vscode-descriptionForeground)",
-                    margin: 0,
+                    margin: "0 0 2px 0",
                   }}
                 >
                   {data().profile.email}
                 </p>
+                <Show when={data().profile.companyName || data().profile.role}>
+                  <p
+                    style={{
+                      "font-size": "12px",
+                      color: "var(--vscode-descriptionForeground)",
+                      margin: "4px 0 0 0",
+                    }}
+                  >
+                    <Show when={data().profile.companyName}>
+                      <span style={{ "font-weight": "500" }}>{data().profile.companyName}</span>
+                    </Show>
+                    <Show when={data().profile.companyName && data().profile.role}>
+                      <span> · </span>
+                    </Show>
+                    <Show when={data().profile.role}>
+                      <span>{data().profile.role}</span>
+                    </Show>
+                  </p>
+                </Show>
               </Card>
+
+              {/* Projects */}
+              <Show when={data().profile.projects && data().profile.projects!.length > 0}>
+                <Card>
+                  <p
+                    style={{
+                      "font-size": "11px",
+                      "text-transform": "uppercase",
+                      "letter-spacing": "0.5px",
+                      color: "var(--vscode-descriptionForeground)",
+                      margin: "0 0 8px 0",
+                    }}
+                  >
+                    Projects
+                  </p>
+                  <div style={{ display: "flex", "flex-direction": "column", gap: "8px" }}>
+                    <For each={data().profile.projects}>
+                      {(project) => (
+                        <div
+                          style={{
+                            padding: "8px",
+                            "border-radius": "4px",
+                            background: "var(--vscode-editor-background)",
+                            border: "1px solid var(--border-weak-base)",
+                          }}
+                        >
+                          <div style={{ display: "flex", "justify-content": "space-between", "align-items": "center" }}>
+                            <p
+                              style={{
+                                "font-size": "13px",
+                                "font-weight": "500",
+                                color: "var(--vscode-foreground)",
+                                margin: 0,
+                              }}
+                            >
+                              {project.name}
+                            </p>
+                            <span
+                              style={{
+                                "font-size": "10px",
+                                "text-transform": "uppercase",
+                                "letter-spacing": "0.5px",
+                                padding: "2px 6px",
+                                "border-radius": "3px",
+                                background: "var(--vscode-badge-background)",
+                                color: "var(--vscode-badge-foreground)",
+                              }}
+                            >
+                              {project.projectRole}
+                            </span>
+                          </div>
+                          <Show when={project.description}>
+                            <p
+                              style={{
+                                "font-size": "11px",
+                                color: "var(--vscode-descriptionForeground)",
+                                margin: "4px 0 0 0",
+                              }}
+                            >
+                              {project.description}
+                            </p>
+                          </Show>
+                        </div>
+                      )}
+                    </For>
+                  </div>
+                </Card>
+              </Show>
 
               {/* Organization selector */}
               <Show when={orgOptions().length > 0}>

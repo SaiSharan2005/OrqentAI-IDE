@@ -1,5 +1,5 @@
 import { select } from "@clack/prompts"
-import type { KilocodeProfile, Organization, KilocodeBalance } from "../types.js"
+import type { KilocodeProfile, Organization, KilocodeBalance, KilocodeProject } from "../types.js"
 import { KILO_API_BASE, DEFAULT_MODEL, DEFAULT_FREE_MODEL } from "./constants.js"
 
 /**
@@ -21,17 +21,21 @@ export async function fetchProfile(token: string): Promise<KilocodeProfile> {
   }
 
   const data = (await response.json()) as {
-    user?: { email?: string; name?: string }
+    user?: { email?: string; name?: string; role?: string; companyName?: string }
     email?: string
     name?: string
     organizations?: Organization[]
+    projects?: KilocodeProject[]
   }
-  // Backend returns { user: { email, name, ... }, organizations }
+  // Backend returns { user: { email, name, role, companyName }, organizations, projects }
   // Transform to flat KilocodeProfile structure
   return {
     email: data.user?.email ?? data.email ?? "",
     name: data.user?.name ?? data.name,
+    role: data.user?.role,
+    companyName: data.user?.companyName,
     organizations: data.organizations,
+    projects: data.projects,
   }
 }
 

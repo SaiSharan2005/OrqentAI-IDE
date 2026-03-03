@@ -80,10 +80,20 @@ export function createKiloRoutes(deps: KiloRoutesDeps) {
     role: z.string(),
   })
 
+  const Project = z.object({
+    publicId: z.string(),
+    name: z.string(),
+    description: z.string().optional(),
+    projectRole: z.string(),
+  })
+
   const Profile = z.object({
     email: z.string(),
     name: z.string().optional(),
+    role: z.string().optional(),
+    companyName: z.string().optional(),
     organizations: z.array(Organization).optional(),
+    projects: z.array(Project).optional(),
   })
 
   const Balance = z.object({

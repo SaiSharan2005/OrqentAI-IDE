@@ -210,10 +210,20 @@ export interface KilocodeOrganization {
   role: string
 }
 
+export interface KilocodeProject {
+  publicId: string
+  name: string
+  description?: string
+  projectRole: string
+}
+
 export interface KilocodeProfile {
   email: string
   name?: string
+  role?: string
+  companyName?: string
   organizations?: KilocodeOrganization[]
+  projects?: KilocodeProject[]
 }
 
 export interface KilocodeBalance {

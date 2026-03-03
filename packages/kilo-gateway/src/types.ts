@@ -24,10 +24,20 @@ export interface Organization {
   role: string
 }
 
+export interface KilocodeProject {
+  publicId: string
+  name: string
+  description?: string
+  projectRole: string
+}
+
 export interface KilocodeProfile {
   email: string
   name?: string
+  role?: string
+  companyName?: string
   organizations?: Organization[]
+  projects?: KilocodeProject[]
 }
 
 export interface KilocodeBalance {

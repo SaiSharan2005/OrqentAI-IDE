@@ -211,11 +211,21 @@ export interface KilocodeBalance {
   balance: number
 }
 
+export interface ProfileProject {
+  publicId: string
+  name: string
+  description?: string
+  projectRole: string
+}
+
 export interface ProfileData {
   profile: {
     email: string
     name?: string
+    role?: string
+    companyName?: string
     organizations?: Array<{ id: string; name: string; role: string }>
+    projects?: ProfileProject[]
   }
   balance: KilocodeBalance | null
   currentOrgId: string | null
