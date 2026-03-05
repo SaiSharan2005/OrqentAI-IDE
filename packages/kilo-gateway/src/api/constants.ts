@@ -61,6 +61,9 @@ export const ENV_EDITOR_NAME = "KILOCODE_EDITOR_NAME"
 /** Tester header value for suppressing warnings */
 export const TESTER_SUPPRESS_VALUE = "SUPPRESS"
 
+/** Base URL for Projects-configuration service */
+export const PROJECTS_API_BASE = process.env.PROJECTS_API_BASE ?? "http://localhost:8082"
+
 // kilocode_change start
 /** Header name for feature tracking */
 export const HEADER_FEATURE = "X-KILOCODE-FEATURE"

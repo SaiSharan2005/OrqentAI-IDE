@@ -582,6 +582,20 @@ export class HttpClient {
     return this.request<boolean>("POST", `/mcp/${encodeURIComponent(name)}/disconnect`, undefined, { directory })
   }
 
+  /**
+   * Fetch MCP server configurations for a project from the gateway.
+   */
+  async getProjectMcpConfig(
+    projectPublicId: string,
+    platform: string,
+  ): Promise<import("./types").ProjectMcpServer[]> {
+    const response = await this.request<{ mcpServers: import("./types").ProjectMcpServer[] }>(
+      "GET",
+      `/kilo/project/${encodeURIComponent(projectPublicId)}/mcp-config?platform=${encodeURIComponent(platform)}`,
+    )
+    return response?.mcpServers ?? []
+  }
+
   // ============================================
   // Worktree Diff Methods
   // ============================================

@@ -505,6 +505,13 @@ export namespace MCP {
       result[key] = s.status[key] ?? { status: "disabled" }
     }
 
+    // Include runtime-added MCPs (e.g. project-scoped) not in config file
+    for (const [key, st] of Object.entries(s.status)) {
+      if (!(key in result)) {
+        result[key] = st
+      }
+    }
+
     return result
   }
 

@@ -8,6 +8,7 @@
 import { fetchProfile, fetchBalance } from "../api/profile.js"
 import { fetchKilocodeNotifications, KilocodeNotificationSchema } from "../api/notifications.js"
 import { KILO_API_BASE, HEADER_FEATURE } from "../api/constants.js"
+import { fetchProjectMcpConfig } from "../api/project-mcp.js"
 import { buildKiloHeaders } from "../headers.js"
 import type { ImportDeps, DrizzleDb } from "../cloud-sessions.js"
 import { fetchCloudSession, fetchCloudSessionForImport, importSessionToDb } from "../cloud-sessions.js"
@@ -402,6 +403,52 @@ export function createKiloRoutes(deps: KiloRoutesDeps) {
         } catch (err: any) {
           console.error("[Kilo Gateway] cloud/session/import: unhandled error", err?.message ?? err)
           return c.json({ error: "Internal error" }, 500)
+        }
+      },
+    )
+    .get(
+      "/project/:projectPublicId/mcp-config",
+      describeRoute({
+        summary: "Get project MCP config",
+        description: "Fetch MCP server configurations for a project from the Projects-configuration service",
+        operationId: "kilo.project.mcpConfig",
+        responses: {
+          200: {
+            description: "MCP server configurations",
+            content: {
+              "application/json": {
+                schema: resolver(z.object({ mcpServers: z.array(z.unknown()) })),
+              },
+            },
+          },
+          ...errors(401, 404),
+        },
+      }),
+      validator("param", z.object({ projectPublicId: z.string() })),
+      validator("query", z.object({ platform: z.string().optional() })),
+      async (c: any) => {
+        try {
+          const auth = await Auth.get("kilo")
+          if (!auth) return c.json({ error: "Not authenticated with Kilo Gateway" }, 401)
+
+          const token = auth.type === "api" ? auth.key : auth.type === "oauth" ? auth.access : undefined
+          if (!token) return c.json({ error: "No valid token found" }, 401)
+
+          const organizationId = auth.type === "oauth" ? auth.accountId : undefined
+          const { projectPublicId } = c.req.valid("param")
+          const { platform } = c.req.valid("query")
+
+          const mcpServers = await fetchProjectMcpConfig(
+            token,
+            projectPublicId,
+            platform || "CLINE",
+            organizationId,
+          )
+
+          return c.json({ mcpServers })
+        } catch (err: any) {
+          console.error("[Kilo Gateway] project/mcp-config: error", err?.message ?? err)
+          return c.json({ error: "Failed to fetch project MCP config" }, 500)
         }
       },
     )

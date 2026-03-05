@@ -1,4 +1,4 @@
-import { Component, Show, For, createSignal, createMemo, createEffect, onMount } from "solid-js"
+import { Component, Show, For, createSignal, createMemo, createEffect, onMount, onCleanup } from "solid-js"
 import { Button } from "@kilocode/kilo-ui/button"
 import { Card } from "@kilocode/kilo-ui/card"
 import { Icon } from "@kilocode/kilo-ui/icon"
@@ -34,10 +34,32 @@ const ProfileView: Component<ProfileViewProps> = (props) => {
   const vscode = useVSCode()
   const language = useLanguage()
   const [target, setTarget] = createSignal<string | null>(null)
+  const [selectedProjectId, setSelectedProjectId] = createSignal<string | null>(null)
+  const [loadingProjectId, setLoadingProjectId] = createSignal<string | null>(null)
 
-  // Always fetch fresh profile+balance when navigating to this view
+  const handleMessage = (event: MessageEvent) => {
+    const msg = event.data
+    if (msg?.type === "projectMcpStatus") {
+      setLoadingProjectId(null)
+      if (!msg.error) {
+        setSelectedProjectId(msg.projectPublicId)
+      }
+    }
+  }
+
+  const handleSelectProject = (projectPublicId: string) => {
+    if (selectedProjectId() === projectPublicId) return
+    setLoadingProjectId(projectPublicId)
+    vscode.postMessage({ type: "selectProject", projectPublicId })
+  }
+
   onMount(() => {
+    window.addEventListener("message", handleMessage)
     vscode.postMessage({ type: "refreshProfile" })
+  })
+
+  onCleanup(() => {
+    window.removeEventListener("message", handleMessage)
   })
 
   // Reset pending target whenever profileData changes (success or failure both send a fresh profile)
@@ -213,53 +235,76 @@ const ProfileView: Component<ProfileViewProps> = (props) => {
                   </p>
                   <div style={{ display: "flex", "flex-direction": "column", gap: "8px" }}>
                     <For each={data().profile.projects}>
-                      {(project) => (
-                        <div
-                          style={{
-                            padding: "8px",
-                            "border-radius": "4px",
-                            background: "var(--vscode-editor-background)",
-                            border: "1px solid var(--border-weak-base)",
-                          }}
-                        >
-                          <div style={{ display: "flex", "justify-content": "space-between", "align-items": "center" }}>
-                            <p
-                              style={{
-                                "font-size": "13px",
-                                "font-weight": "500",
-                                color: "var(--vscode-foreground)",
-                                margin: 0,
-                              }}
-                            >
-                              {project.name}
-                            </p>
-                            <span
-                              style={{
-                                "font-size": "10px",
-                                "text-transform": "uppercase",
-                                "letter-spacing": "0.5px",
-                                padding: "2px 6px",
-                                "border-radius": "3px",
-                                background: "var(--vscode-badge-background)",
-                                color: "var(--vscode-badge-foreground)",
-                              }}
-                            >
-                              {project.projectRole}
-                            </span>
+                      {(project) => {
+                        const isActive = () => selectedProjectId() === project.publicId
+                        const isLoading = () => loadingProjectId() === project.publicId
+
+                        return (
+                          <div
+                            onClick={() => handleSelectProject(project.publicId)}
+                            style={{
+                              padding: "8px",
+                              "border-radius": "4px",
+                              background: isActive()
+                                ? "var(--vscode-list-activeSelectionBackground)"
+                                : "var(--vscode-editor-background)",
+                              border: isActive()
+                                ? "1px solid var(--vscode-focusBorder)"
+                                : "1px solid var(--border-weak-base)",
+                              cursor: isLoading() ? "wait" : "pointer",
+                              opacity: isLoading() && !isActive() ? "0.7" : "1",
+                              transition: "border-color 0.15s, background 0.15s",
+                            }}
+                          >
+                            <div style={{ display: "flex", "justify-content": "space-between", "align-items": "center" }}>
+                              <div style={{ display: "flex", "align-items": "center", gap: "6px" }}>
+                                <Show when={isLoading()}>
+                                  <span style={{ "font-size": "12px", "line-height": "1" }}>...</span>
+                                </Show>
+                                <Show when={isActive() && !isLoading()}>
+                                  <span style={{ "font-size": "12px", color: "var(--vscode-testing-iconPassed)", "line-height": "1" }}>&#10003;</span>
+                                </Show>
+                                <p
+                                  style={{
+                                    "font-size": "13px",
+                                    "font-weight": "500",
+                                    color: isActive()
+                                      ? "var(--vscode-list-activeSelectionForeground)"
+                                      : "var(--vscode-foreground)",
+                                    margin: 0,
+                                  }}
+                                >
+                                  {project.name}
+                                </p>
+                              </div>
+                              <span
+                                style={{
+                                  "font-size": "10px",
+                                  "text-transform": "uppercase",
+                                  "letter-spacing": "0.5px",
+                                  padding: "2px 6px",
+                                  "border-radius": "3px",
+                                  background: "var(--vscode-badge-background)",
+                                  color: "var(--vscode-badge-foreground)",
+                                }}
+                              >
+                                {project.projectRole}
+                              </span>
+                            </div>
+                            <Show when={project.description}>
+                              <p
+                                style={{
+                                  "font-size": "11px",
+                                  color: "var(--vscode-descriptionForeground)",
+                                  margin: "4px 0 0 0",
+                                }}
+                              >
+                                {project.description}
+                              </p>
+                            </Show>
                           </div>
-                          <Show when={project.description}>
-                            <p
-                              style={{
-                                "font-size": "11px",
-                                color: "var(--vscode-descriptionForeground)",
-                                margin: "4px 0 0 0",
-                              }}
-                            >
-                              {project.description}
-                            </p>
-                          </Show>
-                        </div>
-                      )}
+                        )
+                      }}
                     </For>
                   </div>
                 </Card>

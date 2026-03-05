@@ -488,6 +488,17 @@ export interface ProfileDataMessage {
   data: ProfileData | null
 }
 
+export interface ProjectMcpStatusMessage {
+  type: "projectMcpStatus"
+  projectPublicId: string
+  result?: {
+    written: string[]
+    failed: string[]
+    filePath: string
+  }
+  error?: string
+}
+
 export interface DeviceAuthStartedMessage {
   type: "deviceAuthStarted"
   code?: string
@@ -842,6 +853,7 @@ export type ExtensionMessage =
   | AgentManagerWorktreeDiffLoadingMessage
   | AgentManagerWorktreeStatsMessage
   | AgentManagerLocalStatsMessage
+  | ProjectMcpStatusMessage
 
 // ============================================
 // Messages FROM webview TO extension
@@ -1058,6 +1070,11 @@ export interface RequestNotificationsMessage {
 export interface DismissNotificationMessage {
   type: "dismissNotification"
   notificationId: string
+}
+
+export interface SelectProjectRequest {
+  type: "selectProject"
+  projectPublicId: string
 }
 
 export interface SyncSessionRequest {
@@ -1291,6 +1308,7 @@ export type WebviewMessage =
   | UpdateConfigMessage
   | RequestNotificationSettingsMessage
   | ResetAllSettingsRequest
+  | SelectProjectRequest
   | SyncSessionRequest
   | CreateWorktreeSessionRequest
   | RequestNotificationsMessage

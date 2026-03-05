@@ -360,6 +360,22 @@ export interface Config {
   experimental?: ExperimentalConfig
 }
 
+// Project MCP server configuration from Projects-configuration service
+export interface ProjectMcpServer {
+  name: string
+  platform: string
+  command: string
+  args: string
+  envKeys: string
+  authToken: string
+}
+
+export interface ProjectMcpResult {
+  written: string[]
+  failed: string[]
+  filePath: string
+}
+
 // Cloud session from the Kilo cloud API (cli_sessions_v2)
 export interface CloudSessionInfo {
   session_id: string

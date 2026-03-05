@@ -22,6 +22,7 @@ import {
   mapSSEEventToWebviewMessage,
 } from "./kilo-provider-utils"
 import { isEventFromForeignProject } from "./services/cli-backend/sse-utils"
+import { applyProjectMcpConfigs, getCachedConfig, setCachedConfig } from "./services/cli-backend/mcp-project-config"
 
 export class KiloProvider implements vscode.WebviewViewProvider, TelemetryPropertiesProvider {
   public static readonly viewType = "kilo-code.new.sidebarView"
@@ -354,6 +355,11 @@ export class KiloProvider implements vscode.WebviewViewProvider, TelemetryProper
           break
         case "refreshProfile":
           await this.handleRefreshProfile()
+          break
+        case "selectProject":
+          this.handleSelectProject(message.projectPublicId).catch((e) =>
+            console.error("[Kilo New] handleSelectProject failed:", e),
+          )
           break
         case "openExternal":
           if (message.url) {
@@ -1630,6 +1636,37 @@ export class KiloProvider implements vscode.WebviewViewProvider, TelemetryProper
       type: "profileData",
       data: profileData,
     })
+  }
+
+  /**
+   * Handle project selection: fetch MCP configs and write them to .kilocode/mcp.json.
+   */
+  private async handleSelectProject(projectPublicId: string): Promise<void> {
+    const client = this.httpClient
+    if (!client) {
+      this.postMessage({ type: "projectMcpStatus" as any, projectPublicId, error: "Not connected" })
+      return
+    }
+
+    try {
+      const platform = "CLINE"
+      const cacheKey = `${projectPublicId}:${platform}`
+
+      let servers = getCachedConfig(cacheKey)
+      if (!servers) {
+        servers = await client.getProjectMcpConfig(projectPublicId, platform)
+        setCachedConfig(cacheKey, servers)
+      }
+
+      const directory = this.getWorkspaceDirectory(this.currentSession?.id)
+      const result = await applyProjectMcpConfigs(projectPublicId, servers, directory)
+      console.log("[Kilo New] handleSelectProject: wrote", result.written.length, "MCPs to", result.filePath)
+
+      this.postMessage({ type: "projectMcpStatus" as any, projectPublicId, result })
+    } catch (err: any) {
+      console.error("[Kilo New] handleSelectProject error:", err?.message)
+      this.postMessage({ type: "projectMcpStatus" as any, projectPublicId, error: err?.message ?? "Unknown error" })
+    }
   }
 
   /**
