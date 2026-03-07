@@ -77,6 +77,7 @@ export class ServerManager {
           KILO_APP_VERSION: this.context.extension.packageJSON.version,
           KILO_VSCODE_VERSION: vscode.version,
           KILO_API_URL: "http://localhost:8083", // SmartAI Governance Service
+          PROJECTS_API_BASE: "http://localhost:8082", // SmartAI Projects-configuration Service
         },
         stdio: ["ignore", "pipe", "pipe"],
       })
