@@ -12,7 +12,7 @@ import type { ProfileData, DeviceAuthState } from "../../types/messages"
 export type { ProfileData }
 
 export interface ProfileViewProps {
-  profileData: ProfileData | null | undefinedx
+  profileData: ProfileData | null | undefined
   deviceAuth: DeviceAuthState
   onLogin: () => void
   onBack?: () => void

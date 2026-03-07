@@ -596,6 +596,45 @@ export class HttpClient {
     return response?.mcpServers ?? []
   }
 
+  /**
+   * Fetch agent configurations for a project from the gateway.
+   */
+  async getProjectAgents(
+    projectPublicId: string,
+  ): Promise<import("./types").ProjectAgent[]> {
+    const response = await this.request<{ agents: import("./types").ProjectAgent[] }>(
+      "GET",
+      `/kilo/project/${encodeURIComponent(projectPublicId)}/agents`,
+    )
+    return response?.agents ?? []
+  }
+
+  /**
+   * Fetch rule configurations for a project from the gateway.
+   */
+  async getProjectRules(
+    projectPublicId: string,
+  ): Promise<import("./types").ProjectRule[]> {
+    const response = await this.request<{ rules: import("./types").ProjectRule[] }>(
+      "GET",
+      `/kilo/project/${encodeURIComponent(projectPublicId)}/rules`,
+    )
+    return response?.rules ?? []
+  }
+
+  /**
+   * Fetch workflow configurations for a project from the gateway.
+   */
+  async getProjectWorkflows(
+    projectPublicId: string,
+  ): Promise<import("./types").ProjectWorkflow[]> {
+    const response = await this.request<{ workflows: import("./types").ProjectWorkflow[] }>(
+      "GET",
+      `/kilo/project/${encodeURIComponent(projectPublicId)}/workflows`,
+    )
+    return response?.workflows ?? []
+  }
+
   // ============================================
   // Worktree Diff Methods
   // ============================================

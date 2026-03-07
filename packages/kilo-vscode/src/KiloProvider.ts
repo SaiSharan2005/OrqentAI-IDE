@@ -23,6 +23,9 @@ import {
 } from "./kilo-provider-utils"
 import { isEventFromForeignProject } from "./services/cli-backend/sse-utils"
 import { applyProjectMcpConfigs, getCachedConfig, setCachedConfig } from "./services/cli-backend/mcp-project-config"
+import { applyProjectAgentConfigs } from "./services/cli-backend/agents-project-config"
+import { applyProjectRuleConfigs } from "./services/cli-backend/rules-project-config"
+import { applyProjectWorkflowConfigs } from "./services/cli-backend/workflows-project-config"
 
 export class KiloProvider implements vscode.WebviewViewProvider, TelemetryPropertiesProvider {
   public static readonly viewType = "kilo-code.new.sidebarView"
@@ -1639,7 +1642,8 @@ export class KiloProvider implements vscode.WebviewViewProvider, TelemetryProper
   }
 
   /**
-   * Handle project selection: fetch MCP configs and write them to .kilocode/mcp.json.
+   * Handle project selection: fetch configs and write them to .kilocode/.
+   * Fetches MCPs, agents, rules, and workflows in parallel.
    */
   private async handleSelectProject(projectPublicId: string): Promise<void> {
     const client = this.httpClient
@@ -1651,18 +1655,38 @@ export class KiloProvider implements vscode.WebviewViewProvider, TelemetryProper
     try {
       const platform = "CLINE"
       const cacheKey = `${projectPublicId}:${platform}`
+      const directory = this.getWorkspaceDirectory(this.currentSession?.id)
 
-      let servers = getCachedConfig(cacheKey)
-      if (!servers) {
-        servers = await client.getProjectMcpConfig(projectPublicId, platform)
+      // Fetch all configs in parallel
+      const [servers, agents, rules, workflows] = await Promise.all([
+        getCachedConfig(cacheKey) ?? client.getProjectMcpConfig(projectPublicId, platform),
+        client.getProjectAgents(projectPublicId),
+        client.getProjectRules(projectPublicId),
+        client.getProjectWorkflows(projectPublicId),
+      ])
+
+      // Cache MCP config
+      if (!getCachedConfig(cacheKey)) {
         setCachedConfig(cacheKey, servers)
       }
 
-      const directory = this.getWorkspaceDirectory(this.currentSession?.id)
-      const result = await applyProjectMcpConfigs(projectPublicId, servers, directory)
-      console.log("[Kilo New] handleSelectProject: wrote", result.written.length, "MCPs to", result.filePath)
+      // Write all configs in parallel
+      const [mcpResult, agentsResult, rulesResult, workflowsResult] = await Promise.all([
+        applyProjectMcpConfigs(projectPublicId, servers, directory),
+        applyProjectAgentConfigs(agents, directory),
+        applyProjectRuleConfigs(rules, directory),
+        applyProjectWorkflowConfigs(workflows, directory),
+      ])
 
-      this.postMessage({ type: "projectMcpStatus" as any, projectPublicId, result })
+      console.log(
+        "[Kilo New] handleSelectProject: wrote",
+        mcpResult.written.length, "MCPs,",
+        agentsResult.written.length, "agents,",
+        rulesResult.written.length, "rules,",
+        workflowsResult.written.length, "workflows",
+      )
+
+      this.postMessage({ type: "projectMcpStatus" as any, projectPublicId, result: mcpResult })
     } catch (err: any) {
       console.error("[Kilo New] handleSelectProject error:", err?.message)
       this.postMessage({ type: "projectMcpStatus" as any, projectPublicId, error: err?.message ?? "Unknown error" })

@@ -376,6 +376,92 @@ export interface ProjectMcpResult {
   filePath: string
 }
 
+// Project agent configuration from Projects-configuration service
+export interface ProjectAgentLinkedMcp {
+  publicId: string
+  name: string
+}
+
+export interface ProjectAgentLinkedRule {
+  name: string
+  content: string
+}
+
+export interface ProjectAgent {
+  name: string
+  description: string
+  systemPrompt: string
+  model: string
+  temperature: number
+  maxTokens: number
+  linkedMcpServers: ProjectAgentLinkedMcp[]
+  linkedRules: ProjectAgentLinkedRule[]
+  source: string
+}
+
+export interface ProjectAgentResult {
+  written: string[]
+  failed: string[]
+  dirPath: string
+}
+
+// Project rule configuration from Projects-configuration service
+export interface ProjectRule {
+  name: string
+  description: string
+  content: string
+  source: string
+}
+
+export interface ProjectRuleResult {
+  written: string[]
+  failed: string[]
+  dirPath: string
+}
+
+// Project workflow configuration from Projects-configuration service
+export interface ProjectWorkflowAgentDetail {
+  publicId: string
+  name: string
+  description: string
+  systemPrompt: string
+  model: string
+  temperature: number
+  maxTokens: number
+}
+
+export interface ProjectWorkflowNode {
+  nodePublicId: string
+  nodeType: string
+  label: string
+  conditionExpression: string | null
+  stepOrder: number
+  agent: ProjectWorkflowAgentDetail | null
+}
+
+export interface ProjectWorkflowEdge {
+  sourceNodePublicId: string
+  targetNodePublicId: string
+  edgeType: string
+  label: string | null
+  edgeOrder: number
+}
+
+export interface ProjectWorkflow {
+  name: string
+  description: string
+  category: string
+  source: string
+  nodes: ProjectWorkflowNode[]
+  edges: ProjectWorkflowEdge[]
+}
+
+export interface ProjectWorkflowResult {
+  written: string[]
+  failed: string[]
+  dirPath: string
+}
+
 // Cloud session from the Kilo cloud API (cli_sessions_v2)
 export interface CloudSessionInfo {
   session_id: string

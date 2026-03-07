@@ -9,6 +9,9 @@ import { fetchProfile, fetchBalance } from "../api/profile.js"
 import { fetchKilocodeNotifications, KilocodeNotificationSchema } from "../api/notifications.js"
 import { KILO_API_BASE, HEADER_FEATURE } from "../api/constants.js"
 import { fetchProjectMcpConfig } from "../api/project-mcp.js"
+import { fetchProjectAgents } from "../api/project-agents.js"
+import { fetchProjectRules } from "../api/project-rules.js"
+import { fetchProjectWorkflows } from "../api/project-workflows.js"
 import { buildKiloHeaders } from "../headers.js"
 import type { ImportDeps, DrizzleDb } from "../cloud-sessions.js"
 import { fetchCloudSession, fetchCloudSessionForImport, importSessionToDb } from "../cloud-sessions.js"
@@ -449,6 +452,120 @@ export function createKiloRoutes(deps: KiloRoutesDeps) {
         } catch (err: any) {
           console.error("[Kilo Gateway] project/mcp-config: error", err?.message ?? err)
           return c.json({ error: "Failed to fetch project MCP config" }, 500)
+        }
+      },
+    )
+    .get(
+      "/project/:projectPublicId/agents",
+      describeRoute({
+        summary: "Get project agents",
+        description: "Fetch agent configurations for a project from the Projects-configuration service",
+        operationId: "kilo.project.agents",
+        responses: {
+          200: {
+            description: "Agent configurations",
+            content: {
+              "application/json": {
+                schema: resolver(z.object({ agents: z.array(z.unknown()) })),
+              },
+            },
+          },
+          ...errors(401, 404),
+        },
+      }),
+      validator("param", z.object({ projectPublicId: z.string() })),
+      async (c: any) => {
+        try {
+          const auth = await Auth.get("kilo")
+          if (!auth) return c.json({ error: "Not authenticated with Kilo Gateway" }, 401)
+
+          const token = auth.type === "api" ? auth.key : auth.type === "oauth" ? auth.access : undefined
+          if (!token) return c.json({ error: "No valid token found" }, 401)
+
+          const organizationId = auth.type === "oauth" ? auth.accountId : undefined
+          const { projectPublicId } = c.req.valid("param")
+
+          const agents = await fetchProjectAgents(token, projectPublicId, organizationId)
+          return c.json({ agents })
+        } catch (err: any) {
+          console.error("[Kilo Gateway] project/agents: error", err?.message ?? err)
+          return c.json({ error: "Failed to fetch project agents" }, 500)
+        }
+      },
+    )
+    .get(
+      "/project/:projectPublicId/rules",
+      describeRoute({
+        summary: "Get project rules",
+        description: "Fetch rule configurations for a project from the Projects-configuration service",
+        operationId: "kilo.project.rules",
+        responses: {
+          200: {
+            description: "Rule configurations",
+            content: {
+              "application/json": {
+                schema: resolver(z.object({ rules: z.array(z.unknown()) })),
+              },
+            },
+          },
+          ...errors(401, 404),
+        },
+      }),
+      validator("param", z.object({ projectPublicId: z.string() })),
+      async (c: any) => {
+        try {
+          const auth = await Auth.get("kilo")
+          if (!auth) return c.json({ error: "Not authenticated with Kilo Gateway" }, 401)
+
+          const token = auth.type === "api" ? auth.key : auth.type === "oauth" ? auth.access : undefined
+          if (!token) return c.json({ error: "No valid token found" }, 401)
+
+          const organizationId = auth.type === "oauth" ? auth.accountId : undefined
+          const { projectPublicId } = c.req.valid("param")
+
+          const rules = await fetchProjectRules(token, projectPublicId, organizationId)
+          return c.json({ rules })
+        } catch (err: any) {
+          console.error("[Kilo Gateway] project/rules: error", err?.message ?? err)
+          return c.json({ error: "Failed to fetch project rules" }, 500)
+        }
+      },
+    )
+    .get(
+      "/project/:projectPublicId/workflows",
+      describeRoute({
+        summary: "Get project workflows",
+        description: "Fetch workflow configurations for a project from the Projects-configuration service",
+        operationId: "kilo.project.workflows",
+        responses: {
+          200: {
+            description: "Workflow configurations",
+            content: {
+              "application/json": {
+                schema: resolver(z.object({ workflows: z.array(z.unknown()) })),
+              },
+            },
+          },
+          ...errors(401, 404),
+        },
+      }),
+      validator("param", z.object({ projectPublicId: z.string() })),
+      async (c: any) => {
+        try {
+          const auth = await Auth.get("kilo")
+          if (!auth) return c.json({ error: "Not authenticated with Kilo Gateway" }, 401)
+
+          const token = auth.type === "api" ? auth.key : auth.type === "oauth" ? auth.access : undefined
+          if (!token) return c.json({ error: "No valid token found" }, 401)
+
+          const organizationId = auth.type === "oauth" ? auth.accountId : undefined
+          const { projectPublicId } = c.req.valid("param")
+
+          const workflows = await fetchProjectWorkflows(token, projectPublicId, organizationId)
+          return c.json({ workflows })
+        } catch (err: any) {
+          console.error("[Kilo Gateway] project/workflows: error", err?.message ?? err)
+          return c.json({ error: "Failed to fetch project workflows" }, 500)
         }
       },
     )
