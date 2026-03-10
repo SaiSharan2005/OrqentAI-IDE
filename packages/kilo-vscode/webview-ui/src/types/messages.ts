@@ -948,6 +948,10 @@ export interface OpenExternalRequest {
   url: string
 }
 
+export interface OpenDashboardRequest {
+  type: "openDashboard"
+}
+
 export interface OpenFileRequest {
   type: "openFile"
   filePath: string
@@ -1285,6 +1289,7 @@ export type WebviewMessage =
   | LogoutRequest
   | RefreshProfileRequest
   | OpenExternalRequest
+  | OpenDashboardRequest
   | OpenFileRequest
   | CancelLoginRequest
   | SetOrganizationRequest

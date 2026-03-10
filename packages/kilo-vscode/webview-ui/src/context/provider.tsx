@@ -20,7 +20,7 @@ interface ProviderContextValue {
   findModel: (selection: ModelSelection | null) => EnrichedModel | undefined
 }
 
-const KILO_AUTO: ModelSelection = { providerID: "kilo", modelID: "kilo/auto" }
+const AUTO_MODEL_SELECTION: ModelSelection = { providerID: "kilo", modelID: "smartAI/Auto" }
 
 const ProviderContext = createContext<ProviderContextValue>()
 
@@ -30,7 +30,7 @@ export const ProviderProvider: ParentComponent = (props) => {
   const [providers, setProviders] = createSignal<Record<string, Provider>>({})
   const [connected, setConnected] = createSignal<string[]>([])
   const [defaults, setDefaults] = createSignal<Record<string, string>>({})
-  const [defaultSelection, setDefaultSelection] = createSignal<ModelSelection>(KILO_AUTO)
+  const [defaultSelection, setDefaultSelection] = createSignal<ModelSelection>(AUTO_MODEL_SELECTION)
 
   const models = createMemo<EnrichedModel[]>(() => flattenModels(providers()))
 

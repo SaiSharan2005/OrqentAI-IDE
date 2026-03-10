@@ -113,7 +113,7 @@ const ProfileView: Component<ProfileViewProps> = (props) => {
   }
 
   const handleDashboard = () => {
-    vscode.postMessage({ type: "openExternal", url: "http://localhost:8083/profile" })
+    vscode.postMessage({ type: "openDashboard" })
   }
 
   const handleCancelLogin = () => {

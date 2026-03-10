@@ -2,7 +2,7 @@
   "name": "smartai-code",
   "displayName": "smartAI: AI Coding Agent, Copilot, and Autocomplete",
   "description": "Open Source AI coding agent that generates code from natural language, automates tasks, and runs terminal commands. Features inline autocomplete, browser automation, automated refactoring, and custom modes for planning, coding, and debugging. Supports 500+ AI models including Claude (Anthropic), Gemini, Grok, GPT, Codex and GLM.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "icon": "assets/icons/logo-outline-black.png",
   "galleryBanner": {
     "color": "#FFFFFF",
@@ -180,47 +180,47 @@
       {
         "command": "kilo-code.new.agentManager.jumpTo1",
         "title": "Agent Manager: Jump to Item 1",
-        "category": "Kilo Code"
+        "category": "smartAI"
       },
       {
         "command": "kilo-code.new.agentManager.jumpTo2",
         "title": "Agent Manager: Jump to Item 2",
-        "category": "Kilo Code"
+        "category": "smartAI"
       },
       {
         "command": "kilo-code.new.agentManager.jumpTo3",
         "title": "Agent Manager: Jump to Item 3",
-        "category": "Kilo Code"
+        "category": "smartAI"
       },
       {
         "command": "kilo-code.new.agentManager.jumpTo4",
         "title": "Agent Manager: Jump to Item 4",
-        "category": "Kilo Code"
+        "category": "smartAI"
       },
       {
         "command": "kilo-code.new.agentManager.jumpTo5",
         "title": "Agent Manager: Jump to Item 5",
-        "category": "Kilo Code"
+        "category": "smartAI"
       },
       {
         "command": "kilo-code.new.agentManager.jumpTo6",
         "title": "Agent Manager: Jump to Item 6",
-        "category": "Kilo Code"
+        "category": "smartAI"
       },
       {
         "command": "kilo-code.new.agentManager.jumpTo7",
         "title": "Agent Manager: Jump to Item 7",
-        "category": "Kilo Code"
+        "category": "smartAI"
       },
       {
         "command": "kilo-code.new.agentManager.jumpTo8",
         "title": "Agent Manager: Jump to Item 8",
-        "category": "Kilo Code"
+        "category": "smartAI"
       },
       {
         "command": "kilo-code.new.agentManager.jumpTo9",
         "title": "Agent Manager: Jump to Item 9",
-        "category": "Kilo Code"
+        "category": "smartAI"
       },
       {
         "command": "kilo-code.new.generateCommitMessage",
@@ -576,7 +576,7 @@
         },
         "kilo-code.new.model.modelID": {
           "type": "string",
-          "default": "kilo/auto",
+          "default": "smartAI/Auto",
           "description": "Default model ID for new sessions"
         },
         "kilo-code.new.autocomplete.enableAutoTrigger": {

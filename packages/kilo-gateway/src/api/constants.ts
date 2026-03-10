@@ -6,8 +6,8 @@
 /** Environment variable for custom Kilo API URL */
 export const ENV_KILO_API_URL = "KILO_API_URL"
 
-/** Default Kilo API URL — points to SmartAI Governance Service */
-export const DEFAULT_KILO_API_URL = "http://localhost:8083"
+/** Default Kilo API URL — overridden by KILO_API_URL env var from server-manager */
+export const DEFAULT_KILO_API_URL = "http://localhost:8081/gateway/governance-service"
 
 /** Base URL for Kilo API - can be overridden by KILO_API_URL env var */
 export const KILO_API_BASE = process.env[ENV_KILO_API_URL] || DEFAULT_KILO_API_URL
@@ -19,10 +19,10 @@ export const KILO_OPENROUTER_BASE = `${KILO_API_BASE}/api/openrouter`
 export const POLL_INTERVAL_MS = 3000
 
 /** Default model for authenticated users */
-export const DEFAULT_MODEL = "kilo/auto"
+export const DEFAULT_MODEL = "smartAI/Auto"
 
 /** Default model for anonymous/free usage */
-export const DEFAULT_FREE_MODEL = "kilo/auto-free"
+export const DEFAULT_FREE_MODEL = "smartAI/Auto-free"
 
 /** Token expiration duration in milliseconds (1 year) */
 export const TOKEN_EXPIRATION_MS = 365 * 24 * 60 * 60 * 1000
@@ -61,8 +61,8 @@ export const ENV_EDITOR_NAME = "KILOCODE_EDITOR_NAME"
 /** Tester header value for suppressing warnings */
 export const TESTER_SUPPRESS_VALUE = "SUPPRESS"
 
-/** Base URL for Projects-configuration service */
-export const PROJECTS_API_BASE = process.env.PROJECTS_API_BASE ?? "http://localhost:8082"
+/** Base URL for Projects-configuration service — overridden by PROJECTS_API_BASE env var from server-manager */
+export const PROJECTS_API_BASE = process.env.PROJECTS_API_BASE ?? "http://localhost:8081/gateway/project-config-service"
 
 // kilocode_change start
 /** Header name for feature tracking */

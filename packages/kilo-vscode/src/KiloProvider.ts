@@ -26,6 +26,7 @@ import { applyProjectMcpConfigs, getCachedConfig, setCachedConfig } from "./serv
 import { applyProjectAgentConfigs } from "./services/cli-backend/agents-project-config"
 import { applyProjectRuleConfigs } from "./services/cli-backend/rules-project-config"
 import { applyProjectWorkflowConfigs } from "./services/cli-backend/workflows-project-config"
+import { SMARTAI_DASHBOARD_URL, DEFAULT_MODEL_ID } from "./smartai-env.js"
 
 export class KiloProvider implements vscode.WebviewViewProvider, TelemetryPropertiesProvider {
   public static readonly viewType = "kilo-code.new.sidebarView"
@@ -368,6 +369,9 @@ export class KiloProvider implements vscode.WebviewViewProvider, TelemetryProper
           if (message.url) {
             vscode.env.openExternal(vscode.Uri.parse(message.url))
           }
+          break
+        case "openDashboard":
+          vscode.env.openExternal(vscode.Uri.parse(`${SMARTAI_DASHBOARD_URL}/profile`))
           break
         case "openFile":
           if (message.filePath) {
@@ -960,7 +964,7 @@ export class KiloProvider implements vscode.WebviewViewProvider, TelemetryProper
 
       const config = vscode.workspace.getConfiguration("kilo-code.new.model")
       const providerID = config.get<string>("providerID", "kilo")
-      const modelID = config.get<string>("modelID", "kilo/auto")
+      const modelID = config.get<string>("modelID", DEFAULT_MODEL_ID)
 
       const message = {
         type: "providersLoaded",
