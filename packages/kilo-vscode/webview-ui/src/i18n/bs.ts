@@ -259,7 +259,7 @@ export const dict = {
   "dialog.directory.empty": "Nema pronađenih foldera",
 
   "dialog.server.title": "Serveri",
-  "dialog.server.description": "Promijeni na koji se smartAI server ova aplikacija povezuje.",
+  "dialog.server.description": "Promijeni na koji se OrqentAI server ova aplikacija povezuje.",
   "dialog.server.search.placeholder": "Pretraži servere",
   "dialog.server.empty": "Još nema servera",
   "dialog.server.add.title": "Dodaj server",
@@ -397,7 +397,7 @@ export const dict = {
   "error.page.action.checking": "Provjera...",
   "error.page.action.checkUpdates": "Provjeri ažuriranja",
   "error.page.action.updateTo": "Ažuriraj na {{version}}",
-  "error.page.report.prefix": "Molimo prijavi ovu grešku smartAI timu",
+  "error.page.report.prefix": "Molimo prijavi ovu grešku OrqentAI timu",
   "error.page.report.discord": "na Discordu",
   "error.page.version": "Verzija: {{version}}",
 
@@ -415,7 +415,7 @@ export const dict = {
   "error.chain.didYouMean": "Da li si mislio: {{suggestions}}",
   "error.chain.modelNotFound": "Model nije pronađen: {{provider}}/{{model}}",
   "error.chain.checkConfig": "Provjeri konfiguraciju (opencode.json) - nazive provajdera/modela",
-  "error.chain.mcpFailed": 'MCP server "{{name}}" nije uspio. Napomena: smartAI još ne podržava MCP autentifikaciju.',
+  "error.chain.mcpFailed": 'MCP server "{{name}}" nije uspio. Napomena: OrqentAI još ne podržava MCP autentifikaciju.',
   "error.chain.providerAuthFailed": "Autentifikacija provajdera nije uspjela ({{provider}}): {{message}}",
   "error.chain.providerInitFailed":
     'Neuspjelo inicijalizovanje provajdera "{{provider}}". Provjeri kredencijale i konfiguraciju.',
@@ -525,12 +525,12 @@ export const dict = {
   "sidebar.workspaces.enable": "Omogući radne prostore",
   "sidebar.workspaces.disable": "Onemogući radne prostore",
   "sidebar.gettingStarted.title": "Početak",
-  "sidebar.gettingStarted.line1": "smartAI uključuje besplatne modele, tako da možeš odmah početi.",
+  "sidebar.gettingStarted.line1": "OrqentAI uključuje besplatne modele, tako da možeš odmah početi.",
   "sidebar.gettingStarted.line2": "Poveži bilo kojeg provajdera da koristiš modele, npr. Claude, GPT, Gemini itd.",
   "sidebar.project.recentSessions": "Nedavne sesije",
   "sidebar.project.viewAllSessions": "Prikaži sve sesije",
 
-  "app.name.desktop": "smartAI Desktop",
+  "app.name.desktop": "OrqentAI Desktop",
 
   "settings.section.desktop": "Desktop",
   "settings.section.server": "Server",
@@ -545,7 +545,7 @@ export const dict = {
   "settings.general.row.language.title": "Jezik",
   "settings.general.row.language.description": "Promijeni jezik prikaza u Kilo-u",
   "settings.general.row.appearance.title": "Izgled",
-  "settings.general.row.appearance.description": "Prilagodi kako smartAI izgleda na tvom uređaju",
+  "settings.general.row.appearance.description": "Prilagodi kako OrqentAI izgleda na tvom uređaju",
   "settings.general.row.theme.title": "Tema",
   "settings.general.row.theme.description": "Prilagodi temu Kilo-a.",
   "settings.general.row.font.title": "Font",
@@ -555,7 +555,7 @@ export const dict = {
   "settings.general.row.releaseNotes.description": 'Prikaži iskačuće prozore "Šta je novo" nakon ažuriranja',
 
   "settings.updates.row.startup.title": "Provjeri ažuriranja pri pokretanju",
-  "settings.updates.row.startup.description": "Automatski provjerava ažuriranja kada se smartAI pokrene",
+  "settings.updates.row.startup.description": "Automatski provjerava ažuriranja kada se OrqentAI pokrene",
   "settings.updates.row.check.title": "Provjeri ažuriranja",
   "settings.updates.row.check.description": "Ručno provjeri ažuriranja i instaliraj ako su dostupna",
   "settings.updates.action.checkNow": "Provjeri sada",
@@ -759,7 +759,7 @@ export const dict = {
   "deviceAuth.toast.urlCopied": "URL kopiran u međuspremnik",
   "deviceAuth.toast.codeCopied": "Kod kopiran u međuspremnik",
   "deviceAuth.status.initiating": "Pokretanje prijave...",
-  "deviceAuth.title": "Prijavite se u smartAI",
+  "deviceAuth.title": "Prijavite se u OrqentAI",
   "deviceAuth.step1": "Korak 1: Otvorite ovaj URL",
   "deviceAuth.action.copyUrl": "Kopiraj URL",
   "deviceAuth.action.openBrowser": "Otvori preglednik",
@@ -777,7 +777,7 @@ export const dict = {
 
   "profile.title": "Profil",
   "profile.notLoggedIn": "Niste prijavljeni",
-  "profile.action.login": "Prijavite se putem smartAI",
+  "profile.action.login": "Prijavite se putem OrqentAI",
   "profile.balance.title": "Stanje",
   "profile.balance.refresh": "Osvježi stanje",
   "profile.action.dashboard": "Kontrolna ploča",
@@ -796,11 +796,11 @@ export const dict = {
   "settings.prompts.title": "Upiti",
   "settings.experimental.title": "Eksperimentalno",
   "settings.language.title": "Jezik",
-  "settings.aboutKiloCode.title": "O smartAI-u",
+  "settings.aboutKiloCode.title": "O OrqentAI-u",
 
   "session.messages.empty": "Započnite razgovor unosom poruke ispod.",
   "session.messages.welcome":
-    "smartAI je AI asistent za programiranje. Zatražite da gradi funkcionalnosti, ispravlja greške ili objasni vašu bazu koda.",
+    "OrqentAI je AI asistent za programiranje. Zatražite da gradi funkcionalnosti, ispravlja greške ili objasni vašu bazu koda.",
   "session.messages.scrollToBottom": "Pomakni se na dno",
   "session.status.writingResponse": "Pisanje odgovora…",
   "session.status.retrying": "Ponovni pokušaj (pokušaj {{ attempt }})… {{ message }}",
@@ -833,14 +833,14 @@ export const dict = {
   "settings.aboutKiloCode.port.label": "Port:",
   "settings.aboutKiloCode.versionInfo": "Informacije o verziji",
   "settings.aboutKiloCode.version.label": "Verzija:",
-  "settings.aboutKiloCode.extensionName": "smartAI ekstenzija",
+  "settings.aboutKiloCode.extensionName": "OrqentAI ekstenzija",
   "settings.aboutKiloCode.community": "Zajednica i podrška",
   "settings.aboutKiloCode.feedback.prefix": "Ako imate pitanja ili povratne informacije, slobodno otvorite issue na",
   "settings.aboutKiloCode.feedback.or": "ili",
   "settings.aboutKiloCode.support.prefix": "Za pitanja o naplati ili računu, kontaktirajte korisničku podršku na",
   "settings.aboutKiloCode.resetSettings.title": "Resetovanje postavki",
   "settings.aboutKiloCode.resetSettings.description":
-    "Resetujte sve postavke smartAI ekstenzije na zadane vrijednosti. Ovo ne utiče na CLI ili backend konfiguraciju.",
+    "Resetujte sve postavke OrqentAI ekstenzije na zadane vrijednosti. Ovo ne utiče na CLI ili backend konfiguraciju.",
   "settings.aboutKiloCode.resetSettings.button": "Resetuj sve postavke",
 
   "settings.agentBehaviour.subtab.modes": "Modovi",
@@ -860,7 +860,7 @@ export const dict = {
   "settings.browser.headless.title": "Headless način",
   "settings.browser.headless.description": "Pokreni u headless načinu (bez vidljivog prozora preglednika).",
 
-  "settings.language.description": 'Odaberite jezik za smartAI sučelje. "Auto" koristi jezik prikaza VS Code-a.',
+  "settings.language.description": 'Odaberite jezik za OrqentAI sučelje. "Auto" koristi jezik prikaza VS Code-a.',
   "settings.language.auto": "Auto (VS Code jezik)",
   "settings.language.current": "Trenutni:",
 

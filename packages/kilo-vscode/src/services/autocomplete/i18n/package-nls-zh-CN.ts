@@ -1,9 +1,9 @@
 // zh-CN package.nls translations for autocomplete
 
 export const dict = {
-  "autocomplete.input.title": "smartAI 幽灵写手",
+  "autocomplete.input.title": "OrqentAI 幽灵写手",
   "autocomplete.input.placeholder": "描述您想要编程的内容...",
-  "autocomplete.commands.generateSuggestions": "smartAI：生成建议编辑",
+  "autocomplete.commands.generateSuggestions": "OrqentAI：生成建议编辑",
   "autocomplete.commands.displaySuggestions": "显示建议编辑",
   "autocomplete.commands.cancelSuggestions": "取消建议编辑",
   "autocomplete.commands.applyCurrentSuggestion": "应用当前建议编辑",

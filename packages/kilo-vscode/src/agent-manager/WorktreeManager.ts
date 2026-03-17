@@ -237,9 +237,9 @@ export class WorktreeManager {
   async ensureGitExclude(): Promise<void> {
     const gitDir = await this.resolveGitDir()
     const excludePath = path.join(gitDir, "info", "exclude")
-    await this.addExcludeEntry(excludePath, ".kilocode/worktrees/", "smartAI agent worktrees")
-    await this.addExcludeEntry(excludePath, ".kilocode/agent-manager.json", "smartAI Agent Manager state")
-    await this.addExcludeEntry(excludePath, ".kilocode/setup-script", "smartAI worktree setup script")
+    await this.addExcludeEntry(excludePath, ".kilocode/worktrees/", "OrqentAI agent worktrees")
+    await this.addExcludeEntry(excludePath, ".kilocode/agent-manager.json", "OrqentAI Agent Manager state")
+    await this.addExcludeEntry(excludePath, ".kilocode/setup-script", "OrqentAI worktree setup script")
   }
 
   private async ensureWorktreeExclude(worktreePath: string): Promise<void> {
@@ -253,7 +253,7 @@ export class WorktreeManager {
       await this.addExcludeEntry(
         path.join(mainGitDir, "info", "exclude"),
         `${KILOCODE_DIR}/`,
-        "smartAI session metadata",
+        "OrqentAI session metadata",
       )
     } catch (error) {
       this.log(`Warning: Failed to update git exclude for worktree: ${error}`)

@@ -14,26 +14,26 @@ export class KiloCodeActionProvider implements vscode.CodeActionProvider {
 
     const actions: vscode.CodeAction[] = []
 
-    const add = new vscode.CodeAction("Add to smartAI", vscode.CodeActionKind.RefactorRewrite)
-    add.command = { command: "kilo-code.new.addToContext", title: "Add to smartAI" }
+    const add = new vscode.CodeAction("Add to OrqentAI", vscode.CodeActionKind.RefactorRewrite)
+    add.command = { command: "kilo-code.new.addToContext", title: "Add to OrqentAI" }
     actions.push(add)
 
     const hasDiagnostics = context.diagnostics.length > 0
 
     if (hasDiagnostics) {
-      const fix = new vscode.CodeAction("Fix with smartAI", vscode.CodeActionKind.QuickFix)
-      fix.command = { command: "kilo-code.new.fixCode", title: "Fix with smartAI" }
+      const fix = new vscode.CodeAction("Fix with OrqentAI", vscode.CodeActionKind.QuickFix)
+      fix.command = { command: "kilo-code.new.fixCode", title: "Fix with OrqentAI" }
       fix.isPreferred = true
       actions.push(fix)
     }
 
     if (!hasDiagnostics) {
-      const explain = new vscode.CodeAction("Explain with smartAI", vscode.CodeActionKind.RefactorRewrite)
-      explain.command = { command: "kilo-code.new.explainCode", title: "Explain with smartAI" }
+      const explain = new vscode.CodeAction("Explain with OrqentAI", vscode.CodeActionKind.RefactorRewrite)
+      explain.command = { command: "kilo-code.new.explainCode", title: "Explain with OrqentAI" }
       actions.push(explain)
 
-      const improve = new vscode.CodeAction("Improve with smartAI", vscode.CodeActionKind.RefactorRewrite)
-      improve.command = { command: "kilo-code.new.improveCode", title: "Improve with smartAI" }
+      const improve = new vscode.CodeAction("Improve with OrqentAI", vscode.CodeActionKind.RefactorRewrite)
+      improve.command = { command: "kilo-code.new.improveCode", title: "Improve with OrqentAI" }
       actions.push(improve)
     }
 

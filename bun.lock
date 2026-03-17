@@ -224,7 +224,7 @@
     },
     "packages/kilo-vscode": {
       "name": "smartai-code",
-      "version": "7.0.33",
+      "version": "7.0.37",
       "dependencies": {
         "@anthropic-ai/sdk": "^0.39.0",
         "@kilocode/kilo-i18n": "workspace:*",

@@ -251,7 +251,7 @@ export const dict = {
   "dialog.directory.empty": "Папки не найдены",
 
   "dialog.server.title": "Серверы",
-  "dialog.server.description": "Переключите сервер smartAI к которому подключается приложение.",
+  "dialog.server.description": "Переключите сервер OrqentAI к которому подключается приложение.",
   "dialog.server.search.placeholder": "Поиск серверов",
   "dialog.server.empty": "Серверов пока нет",
   "dialog.server.add.title": "Добавить сервер",
@@ -361,7 +361,7 @@ export const dict = {
   "toast.session.listFailed.title": "Не удалось загрузить сессии для {{project}}",
 
   "toast.update.title": "Доступно обновление",
-  "toast.update.description": "Новая версия smartAI ({{version}}) доступна для установки.",
+  "toast.update.description": "Новая версия OrqentAI ({{version}}) доступна для установки.",
   "toast.update.action.installRestart": "Установить и перезапустить",
   "toast.update.action.notYet": "Пока нет",
 
@@ -391,7 +391,7 @@ export const dict = {
   "error.chain.modelNotFound": "Модель не найдена: {{provider}}/{{model}}",
   "error.chain.checkConfig": "Проверьте названия провайдера/модели в конфиге (opencode.json)",
   "error.chain.mcpFailed":
-    'MCP сервер "{{name}}" завершился с ошибкой. Обратите внимание, что smartAI пока не поддерживает MCP авторизацию.',
+    'MCP сервер "{{name}}" завершился с ошибкой. Обратите внимание, что OrqentAI пока не поддерживает MCP авторизацию.',
   "error.chain.providerAuthFailed": "Ошибка аутентификации провайдера ({{provider}}): {{message}}",
   "error.chain.providerInitFailed":
     'Не удалось инициализировать провайдера "{{provider}}". Проверьте учётные данные и конфигурацию.',
@@ -502,13 +502,13 @@ export const dict = {
   "sidebar.workspaces.enable": "Включить рабочие пространства",
   "sidebar.workspaces.disable": "Отключить рабочие пространства",
   "sidebar.gettingStarted.title": "Начало работы",
-  "sidebar.gettingStarted.line1": "smartAI включает бесплатные модели, чтобы вы могли начать сразу.",
+  "sidebar.gettingStarted.line1": "OrqentAI включает бесплатные модели, чтобы вы могли начать сразу.",
   "sidebar.gettingStarted.line2":
     "Подключите любого провайдера для использования моделей, включая Claude, GPT, Gemini и др.",
   "sidebar.project.recentSessions": "Недавние сессии",
   "sidebar.project.viewAllSessions": "Посмотреть все сессии",
 
-  "app.name.desktop": "smartAI Desktop",
+  "app.name.desktop": "OrqentAI Desktop",
   "settings.section.desktop": "Приложение",
   "settings.section.server": "Сервер",
   "settings.tab.general": "Основные",
@@ -522,7 +522,7 @@ export const dict = {
   "settings.general.row.language.title": "Язык",
   "settings.general.row.language.description": "Изменить язык отображения Kilo",
   "settings.general.row.appearance.title": "Внешний вид",
-  "settings.general.row.appearance.description": "Настройте как smartAI выглядит на вашем устройстве",
+  "settings.general.row.appearance.description": "Настройте как OrqentAI выглядит на вашем устройстве",
   "settings.general.row.theme.title": "Тема",
   "settings.general.row.theme.description": "Настройте оформление Kilo.",
   "settings.general.row.font.title": "Шрифт",
@@ -737,7 +737,7 @@ export const dict = {
   "deviceAuth.toast.urlCopied": "URL скопирован в буфер обмена",
   "deviceAuth.toast.codeCopied": "Код скопирован в буфер обмена",
   "deviceAuth.status.initiating": "Начинаем вход...",
-  "deviceAuth.title": "Войти в smartAI",
+  "deviceAuth.title": "Войти в OrqentAI",
   "deviceAuth.step1": "Шаг 1: Откройте этот URL",
   "deviceAuth.action.copyUrl": "Копировать URL",
   "deviceAuth.action.openBrowser": "Открыть браузер",
@@ -755,7 +755,7 @@ export const dict = {
 
   "profile.title": "Профиль",
   "profile.notLoggedIn": "Не авторизован",
-  "profile.action.login": "Войти через smartAI",
+  "profile.action.login": "Войти через OrqentAI",
   "profile.balance.title": "Баланс",
   "profile.balance.refresh": "Обновить баланс",
   "profile.action.dashboard": "Панель управления",
@@ -774,11 +774,11 @@ export const dict = {
   "settings.prompts.title": "Промпты",
   "settings.experimental.title": "Экспериментальное",
   "settings.language.title": "Язык",
-  "settings.aboutKiloCode.title": "О smartAI",
+  "settings.aboutKiloCode.title": "О OrqentAI",
 
   "session.messages.empty": "Начните разговор, введя сообщение ниже.",
   "session.messages.welcome":
-    "smartAI — это AI-помощник для программирования. Попросите его создать функции, исправить ошибки или объяснить вашу кодовую базу.",
+    "OrqentAI — это AI-помощник для программирования. Попросите его создать функции, исправить ошибки или объяснить вашу кодовую базу.",
   "session.messages.scrollToBottom": "Прокрутить вниз",
   "session.status.writingResponse": "Пишу ответ…",
   "session.status.retrying": "Повторная попытка ({{ attempt }})… {{ message }}",
@@ -811,14 +811,14 @@ export const dict = {
   "settings.aboutKiloCode.port.label": "Порт:",
   "settings.aboutKiloCode.versionInfo": "Информация о версии",
   "settings.aboutKiloCode.version.label": "Версия:",
-  "settings.aboutKiloCode.extensionName": "Расширение smartAI",
+  "settings.aboutKiloCode.extensionName": "Расширение OrqentAI",
   "settings.aboutKiloCode.community": "Сообщество и поддержка",
   "settings.aboutKiloCode.feedback.prefix": "Если у вас есть вопросы или отзывы, создайте issue на",
   "settings.aboutKiloCode.feedback.or": "или",
   "settings.aboutKiloCode.support.prefix": "По вопросам оплаты или аккаунта обращайтесь в службу поддержки по адресу",
   "settings.aboutKiloCode.resetSettings.title": "Сброс настроек",
   "settings.aboutKiloCode.resetSettings.description":
-    "Сбросить все настройки расширения smartAI до значений по умолчанию. Это не влияет на конфигурацию CLI или бэкенда.",
+    "Сбросить все настройки расширения OrqentAI до значений по умолчанию. Это не влияет на конфигурацию CLI или бэкенда.",
   "settings.aboutKiloCode.resetSettings.button": "Сбросить все настройки",
 
   "settings.agentBehaviour.subtab.modes": "Режимы",
@@ -838,7 +838,7 @@ export const dict = {
   "settings.browser.headless.title": "Безголовый режим",
   "settings.browser.headless.description": "Запуск в безголовом режиме (без видимого окна браузера).",
 
-  "settings.language.description": "Выберите язык интерфейса smartAI. «Авто» использует язык отображения VS Code.",
+  "settings.language.description": "Выберите язык интерфейса OrqentAI. «Авто» использует язык отображения VS Code.",
   "settings.language.auto": "Авто (язык VS Code)",
   "settings.language.current": "Текущий:",
 

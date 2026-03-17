@@ -250,7 +250,7 @@ export const dict = {
   "dialog.directory.empty": "لم يتم العثور على مجلدات",
 
   "dialog.server.title": "الخوادم",
-  "dialog.server.description": "تبديل خادم smartAI الذي يتصل به هذا التطبيق.",
+  "dialog.server.description": "تبديل خادم OrqentAI الذي يتصل به هذا التطبيق.",
   "dialog.server.search.placeholder": "البحث في الخوادم",
   "dialog.server.empty": "لا توجد خوادم بعد",
   "dialog.server.add.title": "إضافة خادم",
@@ -358,7 +358,7 @@ export const dict = {
   "toast.session.listFailed.title": "فشل تحميل الجلسات لـ {{project}}",
 
   "toast.update.title": "تحديث متاح",
-  "toast.update.description": "نسخة جديدة من smartAI ({{version}}) متاحة الآن للتثبيت.",
+  "toast.update.description": "نسخة جديدة من OrqentAI ({{version}}) متاحة الآن للتثبيت.",
   "toast.update.action.installRestart": "تثبيت وإعادة تشغيل",
   "toast.update.action.notYet": "ليس الآن",
 
@@ -387,7 +387,7 @@ export const dict = {
   "error.chain.didYouMean": "هل كنت تعني: {{suggestions}}",
   "error.chain.modelNotFound": "النموذج غير موجود: {{provider}}/{{model}}",
   "error.chain.checkConfig": "تحقق من أسماء الموفر/النموذج في التكوين (opencode.json)",
-  "error.chain.mcpFailed": 'فشل خادم MCP "{{name}}". لاحظ أن smartAI لا يدعم مصادقة MCP بعد.',
+  "error.chain.mcpFailed": 'فشل خادم MCP "{{name}}". لاحظ أن OrqentAI لا يدعم مصادقة MCP بعد.',
   "error.chain.providerAuthFailed": "فشلت مصادقة الموفر ({{provider}}): {{message}}",
   "error.chain.providerInitFailed": 'فشل تهيئة الموفر "{{provider}}". تحقق من بيانات الاعتماد والتكوين.',
   "error.chain.configJsonInvalid": "ملف التكوين في {{path}} ليس JSON(C) صالحًا",
@@ -493,12 +493,12 @@ export const dict = {
   "sidebar.workspaces.enable": "تمكين مساحات العمل",
   "sidebar.workspaces.disable": "تعطيل مساحات العمل",
   "sidebar.gettingStarted.title": "البدء",
-  "sidebar.gettingStarted.line1": "يتضمن smartAI نماذج مجانية حتى تتمكن من البدء فورًا.",
+  "sidebar.gettingStarted.line1": "يتضمن OrqentAI نماذج مجانية حتى تتمكن من البدء فورًا.",
   "sidebar.gettingStarted.line2": "قم بتوصيل أي موفر لاستخدام النماذج، بما في ذلك Claude و GPT و Gemini وما إلى ذلك.",
   "sidebar.project.recentSessions": "الجلسات الحديثة",
   "sidebar.project.viewAllSessions": "عرض جميع الجلسات",
 
-  "app.name.desktop": "smartAI Desktop",
+  "app.name.desktop": "OrqentAI Desktop",
   "settings.section.desktop": "سطح المكتب",
   "settings.section.server": "الخادم",
   "settings.tab.general": "عام",
@@ -512,7 +512,7 @@ export const dict = {
   "settings.general.row.language.title": "اللغة",
   "settings.general.row.language.description": "تغيير لغة العرض لـ Kilo",
   "settings.general.row.appearance.title": "المظهر",
-  "settings.general.row.appearance.description": "تخصيص كيفية ظهور smartAI على جهازك",
+  "settings.general.row.appearance.description": "تخصيص كيفية ظهور OrqentAI على جهازك",
   "settings.general.row.theme.title": "السمة",
   "settings.general.row.theme.description": "تخصيص سمة Kilo.",
   "settings.general.row.font.title": "الخط",
@@ -725,7 +725,7 @@ export const dict = {
   "deviceAuth.toast.urlCopied": "تم نسخ الرابط إلى الحافظة",
   "deviceAuth.toast.codeCopied": "تم نسخ الرمز إلى الحافظة",
   "deviceAuth.status.initiating": "جارٍ بدء تسجيل الدخول...",
-  "deviceAuth.title": "تسجيل الدخول إلى smartAI",
+  "deviceAuth.title": "تسجيل الدخول إلى OrqentAI",
   "deviceAuth.step1": "الخطوة 1: افتح هذا الرابط",
   "deviceAuth.action.copyUrl": "نسخ الرابط",
   "deviceAuth.action.openBrowser": "فتح المتصفح",
@@ -743,7 +743,7 @@ export const dict = {
 
   "profile.title": "الملف الشخصي",
   "profile.notLoggedIn": "لم يتم تسجيل الدخول",
-  "profile.action.login": "تسجيل الدخول باستخدام smartAI",
+  "profile.action.login": "تسجيل الدخول باستخدام OrqentAI",
   "profile.balance.title": "الرصيد",
   "profile.balance.refresh": "تحديث الرصيد",
   "profile.action.dashboard": "لوحة التحكم",
@@ -762,11 +762,11 @@ export const dict = {
   "settings.prompts.title": "الموجهات",
   "settings.experimental.title": "تجريبي",
   "settings.language.title": "اللغة",
-  "settings.aboutKiloCode.title": "حول smartAI",
+  "settings.aboutKiloCode.title": "حول OrqentAI",
 
   "session.messages.empty": "ابدأ محادثة بكتابة رسالة أدناه.",
   "session.messages.welcome":
-    "smartAI هو مساعد ترميز بالذكاء الاصطناعي. اطلب منه بناء ميزات أو إصلاح أخطاء أو شرح قاعدة الشيفرة.",
+    "OrqentAI هو مساعد ترميز بالذكاء الاصطناعي. اطلب منه بناء ميزات أو إصلاح أخطاء أو شرح قاعدة الشيفرة.",
   "session.messages.scrollToBottom": "التمرير إلى الأسفل",
   "session.status.writingResponse": "...جارٍ كتابة الرد",
   "session.status.retrying": "...إعادة المحاولة (المحاولة {{ attempt }})… {{ message }}",
@@ -799,14 +799,14 @@ export const dict = {
   "settings.aboutKiloCode.port.label": "المنفذ:",
   "settings.aboutKiloCode.versionInfo": "معلومات الإصدار",
   "settings.aboutKiloCode.version.label": "الإصدار:",
-  "settings.aboutKiloCode.extensionName": "إضافة smartAI",
+  "settings.aboutKiloCode.extensionName": "إضافة OrqentAI",
   "settings.aboutKiloCode.community": "المجتمع والدعم",
   "settings.aboutKiloCode.feedback.prefix": "إذا كان لديك أي أسئلة أو ملاحظات، لا تتردد في فتح مشكلة على",
   "settings.aboutKiloCode.feedback.or": "أو",
   "settings.aboutKiloCode.support.prefix": "لأسئلة الفوترة أو الحساب، تواصل مع دعم العملاء على",
   "settings.aboutKiloCode.resetSettings.title": "إعادة تعيين الإعدادات",
   "settings.aboutKiloCode.resetSettings.description":
-    "إعادة تعيين جميع إعدادات إضافة smartAI إلى قيمها الافتراضية. لا يؤثر هذا على تكوين CLI أو الواجهة الخلفية.",
+    "إعادة تعيين جميع إعدادات إضافة OrqentAI إلى قيمها الافتراضية. لا يؤثر هذا على تكوين CLI أو الواجهة الخلفية.",
   "settings.aboutKiloCode.resetSettings.button": "إعادة تعيين جميع الإعدادات",
 
   "settings.agentBehaviour.subtab.modes": "الأوضاع",
@@ -825,7 +825,7 @@ export const dict = {
   "settings.browser.headless.title": "الوضع بدون واجهة",
   "settings.browser.headless.description": "التشغيل في الوضع بدون واجهة (بدون نافذة متصفح مرئية).",
 
-  "settings.language.description": 'اختر اللغة لواجهة smartAI. "تلقائي" يستخدم لغة عرض VS Code.',
+  "settings.language.description": 'اختر اللغة لواجهة OrqentAI. "تلقائي" يستخدم لغة عرض VS Code.',
   "settings.language.auto": "تلقائي (لغة VS Code)",
   "settings.language.current": "الحالية:",
 

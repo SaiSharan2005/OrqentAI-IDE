@@ -360,7 +360,7 @@ export const dict = {
   "toast.session.listFailed.title": "Kunne ikke indlæse sessioner for {{project}}",
 
   "toast.update.title": "Opdatering tilgængelig",
-  "toast.update.description": "En ny version af smartAI ({{version}}) er nu tilgængelig til installation.",
+  "toast.update.description": "En ny version af OrqentAI ({{version}}) er nu tilgængelig til installation.",
   "toast.update.action.installRestart": "Installer og genstart",
   "toast.update.action.notYet": "Ikke endnu",
 
@@ -389,7 +389,7 @@ export const dict = {
   "error.chain.didYouMean": "Mente du: {{suggestions}}",
   "error.chain.modelNotFound": "Model ikke fundet: {{provider}}/{{model}}",
   "error.chain.checkConfig": "Tjek dine konfigurations (opencode.json) udbyder/modelnavne",
-  "error.chain.mcpFailed": 'MCP-server "{{name}}" fejlede. Bemærk, smartAI understøtter ikke MCP-godkendelse endnu.',
+  "error.chain.mcpFailed": 'MCP-server "{{name}}" fejlede. Bemærk, OrqentAI understøtter ikke MCP-godkendelse endnu.',
   "error.chain.providerAuthFailed": "Udbydergodkendelse mislykkedes ({{provider}}): {{message}}",
   "error.chain.providerInitFailed":
     'Kunne ikke initialisere udbyder "{{provider}}". Tjek legitimationsoplysninger og konfiguration.',
@@ -498,12 +498,12 @@ export const dict = {
   "sidebar.workspaces.enable": "Aktiver arbejdsområder",
   "sidebar.workspaces.disable": "Deaktiver arbejdsområder",
   "sidebar.gettingStarted.title": "Kom i gang",
-  "sidebar.gettingStarted.line1": "smartAI inkluderer gratis modeller så du kan starte med det samme.",
+  "sidebar.gettingStarted.line1": "OrqentAI inkluderer gratis modeller så du kan starte med det samme.",
   "sidebar.gettingStarted.line2": "Forbind enhver udbyder for at bruge modeller, inkl. Claude, GPT, Gemini osv.",
   "sidebar.project.recentSessions": "Seneste sessioner",
   "sidebar.project.viewAllSessions": "Vis alle sessioner",
 
-  "app.name.desktop": "smartAI Desktop",
+  "app.name.desktop": "OrqentAI Desktop",
   "settings.section.desktop": "Desktop",
   "settings.section.server": "Server",
   "settings.tab.general": "Generelt",
@@ -517,9 +517,9 @@ export const dict = {
   "settings.general.row.language.title": "Sprog",
   "settings.general.row.language.description": "Ændr visningssproget for Kilo",
   "settings.general.row.appearance.title": "Udseende",
-  "settings.general.row.appearance.description": "Tilpas hvordan smartAI ser ud på din enhed",
+  "settings.general.row.appearance.description": "Tilpas hvordan OrqentAI ser ud på din enhed",
   "settings.general.row.theme.title": "Tema",
-  "settings.general.row.theme.description": "Tilpas hvordan smartAI er temabestemt.",
+  "settings.general.row.theme.description": "Tilpas hvordan OrqentAI er temabestemt.",
   "settings.general.row.font.title": "Skrifttype",
   "settings.general.row.font.description": "Tilpas mono-skrifttypen brugt i kodeblokke",
 
@@ -527,7 +527,7 @@ export const dict = {
   "settings.general.row.releaseNotes.description": 'Vis "Hvad er nyt"-popups efter opdateringer',
 
   "settings.updates.row.startup.title": "Tjek for opdateringer ved opstart",
-  "settings.updates.row.startup.description": "Tjek automatisk for opdateringer, når smartAI starter",
+  "settings.updates.row.startup.description": "Tjek automatisk for opdateringer, når OrqentAI starter",
   "settings.updates.row.check.title": "Tjek for opdateringer",
   "settings.updates.row.check.description": "Tjek manuelt for opdateringer og installer, hvis tilgængelig",
   "settings.updates.action.checkNow": "Tjek nu",
@@ -731,7 +731,7 @@ export const dict = {
   "deviceAuth.toast.urlCopied": "URL kopieret til udklipsholder",
   "deviceAuth.toast.codeCopied": "Kode kopieret til udklipsholder",
   "deviceAuth.status.initiating": "Starter login...",
-  "deviceAuth.title": "Log ind på smartAI",
+  "deviceAuth.title": "Log ind på OrqentAI",
   "deviceAuth.step1": "Trin 1: Åbn denne URL",
   "deviceAuth.action.copyUrl": "Kopiér URL",
   "deviceAuth.action.openBrowser": "Åbn browser",
@@ -749,7 +749,7 @@ export const dict = {
 
   "profile.title": "Profil",
   "profile.notLoggedIn": "Ikke logget ind",
-  "profile.action.login": "Log ind med smartAI",
+  "profile.action.login": "Log ind med OrqentAI",
   "profile.balance.title": "Saldo",
   "profile.balance.refresh": "Opdatér saldo",
   "profile.action.dashboard": "Dashboard",
@@ -768,11 +768,11 @@ export const dict = {
   "settings.prompts.title": "Prompts",
   "settings.experimental.title": "Eksperimentelt",
   "settings.language.title": "Sprog",
-  "settings.aboutKiloCode.title": "Om smartAI",
+  "settings.aboutKiloCode.title": "Om OrqentAI",
 
   "session.messages.empty": "Start en samtale ved at skrive en besked nedenfor.",
   "session.messages.welcome":
-    "smartAI er en AI-kodningsassistent. Bed den om at bygge funktioner, rette fejl eller forklare din kodebase.",
+    "OrqentAI er en AI-kodningsassistent. Bed den om at bygge funktioner, rette fejl eller forklare din kodebase.",
   "session.messages.scrollToBottom": "Rul til bunden",
   "session.status.writingResponse": "Skriver svar…",
   "session.status.retrying": "Prøver igen (forsøg {{ attempt }})… {{ message }}",
@@ -805,7 +805,7 @@ export const dict = {
   "settings.aboutKiloCode.port.label": "Port:",
   "settings.aboutKiloCode.versionInfo": "Versionsinformation",
   "settings.aboutKiloCode.version.label": "Version:",
-  "settings.aboutKiloCode.extensionName": "smartAI-udvidelse",
+  "settings.aboutKiloCode.extensionName": "OrqentAI-udvidelse",
   "settings.aboutKiloCode.community": "Fællesskab og support",
   "settings.aboutKiloCode.feedback.prefix":
     "Hvis du har spørgsmål eller feedback, er du velkommen til at åbne en issue på",
@@ -813,7 +813,7 @@ export const dict = {
   "settings.aboutKiloCode.support.prefix": "For fakturerings- eller kontospørgsmål, kontakt kundesupport på",
   "settings.aboutKiloCode.resetSettings.title": "Nulstil indstillinger",
   "settings.aboutKiloCode.resetSettings.description":
-    "Nulstil alle smartAI-udvidelsesindstillinger til standardværdierne. Dette påvirker ikke CLI- eller backend-konfiguration.",
+    "Nulstil alle OrqentAI-udvidelsesindstillinger til standardværdierne. Dette påvirker ikke CLI- eller backend-konfiguration.",
   "settings.aboutKiloCode.resetSettings.button": "Nulstil alle indstillinger",
 
   "settings.agentBehaviour.subtab.modes": "Tilstande",
@@ -833,7 +833,7 @@ export const dict = {
   "settings.browser.headless.title": "Headless-tilstand",
   "settings.browser.headless.description": "Kør i headless-tilstand (intet synligt browservindue).",
 
-  "settings.language.description": 'Vælg sproget til smartAI-brugerfladen. "Auto" bruger VS Codes visningssprog.',
+  "settings.language.description": 'Vælg sproget til OrqentAI-brugerfladen. "Auto" bruger VS Codes visningssprog.',
   "settings.language.auto": "Auto (VS Code-sprog)",
   "settings.language.current": "Nuværende:",
 

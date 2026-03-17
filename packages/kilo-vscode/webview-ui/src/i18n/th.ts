@@ -255,7 +255,7 @@ export const dict = {
   "dialog.directory.empty": "ไม่พบโฟลเดอร์",
 
   "dialog.server.title": "เซิร์ฟเวอร์",
-  "dialog.server.description": "สลับเซิร์ฟเวอร์ smartAI ที่แอปนี้เชื่อมต่อด้วย",
+  "dialog.server.description": "สลับเซิร์ฟเวอร์ OrqentAI ที่แอปนี้เชื่อมต่อด้วย",
   "dialog.server.search.placeholder": "ค้นหาเซิร์ฟเวอร์",
   "dialog.server.empty": "ยังไม่มีเซิร์ฟเวอร์",
   "dialog.server.add.title": "เพิ่มเซิร์ฟเวอร์",
@@ -364,7 +364,7 @@ export const dict = {
   "toast.session.listFailed.title": "ไม่สามารถโหลดเซสชันสำหรับ {{project}}",
 
   "toast.update.title": "มีการอัปเดต",
-  "toast.update.description": "เวอร์ชันใหม่ของ smartAI ({{version}}) พร้อมใช้งานสำหรับติดตั้ง",
+  "toast.update.description": "เวอร์ชันใหม่ของ OrqentAI ({{version}}) พร้อมใช้งานสำหรับติดตั้ง",
   "toast.update.action.installRestart": "ติดตั้งและรีสตาร์ท",
   "toast.update.action.notYet": "ยังไม่",
 
@@ -392,7 +392,7 @@ export const dict = {
   "error.chain.didYouMean": "คุณหมายถึง: {{suggestions}}",
   "error.chain.modelNotFound": "ไม่พบโมเดล: {{provider}}/{{model}}",
   "error.chain.checkConfig": "ตรวจสอบการกำหนดค่าของคุณ (opencode.json) ชื่อผู้ให้บริการ/โมเดล",
-  "error.chain.mcpFailed": 'เซิร์ฟเวอร์ MCP "{{name}}" ล้มเหลว โปรดทราบว่า smartAI ยังไม่รองรับการตรวจสอบสิทธิ์ MCP',
+  "error.chain.mcpFailed": 'เซิร์ฟเวอร์ MCP "{{name}}" ล้มเหลว โปรดทราบว่า OrqentAI ยังไม่รองรับการตรวจสอบสิทธิ์ MCP',
   "error.chain.providerAuthFailed": "การตรวจสอบสิทธิ์ผู้ให้บริการล้มเหลว ({{provider}}): {{message}}",
   "error.chain.providerInitFailed": 'ไม่สามารถเริ่มต้นผู้ให้บริการ "{{provider}}" ตรวจสอบข้อมูลรับรองและการกำหนดค่า',
   "error.chain.configJsonInvalid": "ไฟล์กำหนดค่าที่ {{path}} ไม่ใช่ JSON(C) ที่ถูกต้อง",
@@ -500,12 +500,12 @@ export const dict = {
   "sidebar.workspaces.enable": "เปิดใช้งานพื้นที่ทำงาน",
   "sidebar.workspaces.disable": "ปิดใช้งานพื้นที่ทำงาน",
   "sidebar.gettingStarted.title": "เริ่มต้นใช้งาน",
-  "sidebar.gettingStarted.line1": "smartAI รวมถึงโมเดลฟรีเพื่อให้คุณเริ่มต้นได้ทันที",
+  "sidebar.gettingStarted.line1": "OrqentAI รวมถึงโมเดลฟรีเพื่อให้คุณเริ่มต้นได้ทันที",
   "sidebar.gettingStarted.line2": "เชื่อมต่อผู้ให้บริการใด ๆ เพื่อใช้โมเดล รวมถึง Claude, GPT, Gemini ฯลฯ",
   "sidebar.project.recentSessions": "เซสชันล่าสุด",
   "sidebar.project.viewAllSessions": "ดูเซสชันทั้งหมด",
 
-  "app.name.desktop": "smartAI Desktop",
+  "app.name.desktop": "OrqentAI Desktop",
 
   "settings.section.desktop": "เดสก์ท็อป",
   "settings.section.server": "เซิร์ฟเวอร์",
@@ -520,9 +520,9 @@ export const dict = {
   "settings.general.row.language.title": "ภาษา",
   "settings.general.row.language.description": "เปลี่ยนภาษาที่แสดงสำหรับ Kilo",
   "settings.general.row.appearance.title": "รูปลักษณ์",
-  "settings.general.row.appearance.description": "ปรับแต่งวิธีการที่ smartAI มีลักษณะบนอุปกรณ์ของคุณ",
+  "settings.general.row.appearance.description": "ปรับแต่งวิธีการที่ OrqentAI มีลักษณะบนอุปกรณ์ของคุณ",
   "settings.general.row.theme.title": "ธีม",
-  "settings.general.row.theme.description": "ปรับแต่งวิธีการที่ smartAI มีธีม",
+  "settings.general.row.theme.description": "ปรับแต่งวิธีการที่ OrqentAI มีธีม",
   "settings.general.row.font.title": "ฟอนต์",
   "settings.general.row.font.description": "ปรับแต่งฟอนต์โมโนที่ใช้ในบล็อกโค้ด",
 
@@ -723,7 +723,7 @@ export const dict = {
   "deviceAuth.toast.urlCopied": "คัดลอก URL ไปยังคลิปบอร์ดแล้ว",
   "deviceAuth.toast.codeCopied": "คัดลอกรหัสไปยังคลิปบอร์ดแล้ว",
   "deviceAuth.status.initiating": "กำลังเริ่มเข้าสู่ระบบ...",
-  "deviceAuth.title": "เข้าสู่ระบบ smartAI",
+  "deviceAuth.title": "เข้าสู่ระบบ OrqentAI",
   "deviceAuth.step1": "ขั้นตอนที่ 1: เปิด URL นี้",
   "deviceAuth.action.copyUrl": "คัดลอก URL",
   "deviceAuth.action.openBrowser": "เปิดเบราว์เซอร์",
@@ -741,7 +741,7 @@ export const dict = {
 
   "profile.title": "โปรไฟล์",
   "profile.notLoggedIn": "ยังไม่ได้เข้าสู่ระบบ",
-  "profile.action.login": "เข้าสู่ระบบด้วย smartAI",
+  "profile.action.login": "เข้าสู่ระบบด้วย OrqentAI",
   "profile.balance.title": "ยอดคงเหลือ",
   "profile.balance.refresh": "รีเฟรชยอดคงเหลือ",
   "profile.action.dashboard": "แดชบอร์ด",
@@ -760,10 +760,10 @@ export const dict = {
   "settings.prompts.title": "พรอมต์",
   "settings.experimental.title": "ทดลอง",
   "settings.language.title": "ภาษา",
-  "settings.aboutKiloCode.title": "เกี่ยวกับ smartAI",
+  "settings.aboutKiloCode.title": "เกี่ยวกับ OrqentAI",
 
   "session.messages.empty": "เริ่มการสนทนาโดยพิมพ์ข้อความด้านล่าง",
-  "session.messages.welcome": "smartAI เป็นผู้ช่วยเขียนโค้ด AI ขอให้สร้างฟีเจอร์ แก้ไขบัก หรืออธิบายโค้ดเบสของคุณ",
+  "session.messages.welcome": "OrqentAI เป็นผู้ช่วยเขียนโค้ด AI ขอให้สร้างฟีเจอร์ แก้ไขบัก หรืออธิบายโค้ดเบสของคุณ",
   "session.messages.scrollToBottom": "เลื่อนไปด้านล่าง",
   "session.status.writingResponse": "กำลังเขียนคำตอบ...",
   "session.status.retrying": "กำลังลองใหม่ (ครั้งที่ {{ attempt }})… {{ message }}",
@@ -796,14 +796,14 @@ export const dict = {
   "settings.aboutKiloCode.port.label": "พอร์ต:",
   "settings.aboutKiloCode.versionInfo": "ข้อมูลเวอร์ชัน",
   "settings.aboutKiloCode.version.label": "เวอร์ชัน:",
-  "settings.aboutKiloCode.extensionName": "ส่วนขยาย smartAI",
+  "settings.aboutKiloCode.extensionName": "ส่วนขยาย OrqentAI",
   "settings.aboutKiloCode.community": "ชุมชนและการสนับสนุน",
   "settings.aboutKiloCode.feedback.prefix": "หากคุณมีคำถามหรือข้อเสนอแนะ สามารถเปิด issue ได้ที่",
   "settings.aboutKiloCode.feedback.or": "หรือ",
   "settings.aboutKiloCode.support.prefix": "สำหรับคำถามเกี่ยวกับการเรียกเก็บเงินหรือบัญชี ติดต่อฝ่ายสนับสนุนลูกค้าที่",
   "settings.aboutKiloCode.resetSettings.title": "รีเซ็ตการตั้งค่า",
   "settings.aboutKiloCode.resetSettings.description":
-    "รีเซ็ตการตั้งค่าส่วนขยาย smartAI ทั้งหมดเป็นค่าเริ่มต้น ไม่ส่งผลกระทบต่อการกำหนดค่า CLI หรือแบ็กเอนด์",
+    "รีเซ็ตการตั้งค่าส่วนขยาย OrqentAI ทั้งหมดเป็นค่าเริ่มต้น ไม่ส่งผลกระทบต่อการกำหนดค่า CLI หรือแบ็กเอนด์",
   "settings.aboutKiloCode.resetSettings.button": "รีเซ็ตการตั้งค่าทั้งหมด",
 
   "settings.agentBehaviour.subtab.modes": "โหมด",
@@ -822,7 +822,7 @@ export const dict = {
   "settings.browser.headless.title": "โหมด Headless",
   "settings.browser.headless.description": "ทำงานในโหมด headless (ไม่มีหน้าต่างเบราว์เซอร์ที่มองเห็นได้)",
 
-  "settings.language.description": 'เลือกภาษาสำหรับ UI ของ smartAI "อัตโนมัติ" จะใช้ภาษาการแสดงผลของ VS Code',
+  "settings.language.description": 'เลือกภาษาสำหรับ UI ของ OrqentAI "อัตโนมัติ" จะใช้ภาษาการแสดงผลของ VS Code',
   "settings.language.auto": "อัตโนมัติ (ภาษา VS Code)",
   "settings.language.current": "ปัจจุบัน:",
 

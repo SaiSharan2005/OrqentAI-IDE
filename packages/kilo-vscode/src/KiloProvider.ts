@@ -1657,22 +1657,20 @@ export class KiloProvider implements vscode.WebviewViewProvider, TelemetryProper
     }
 
     try {
-      const platform = "CLINE"
+      const platform = "CLAUDE_CODE"
       const cacheKey = `${projectPublicId}:${platform}`
       const directory = this.getWorkspaceDirectory(this.currentSession?.id)
 
-      // Fetch all configs in parallel
+      // Always fetch fresh configs in parallel (no stale cache)
       const [servers, agents, rules, workflows] = await Promise.all([
-        getCachedConfig(cacheKey) ?? client.getProjectMcpConfig(projectPublicId, platform),
+        client.getProjectMcpConfig(projectPublicId, platform),
         client.getProjectAgents(projectPublicId),
         client.getProjectRules(projectPublicId),
         client.getProjectWorkflows(projectPublicId),
       ])
 
-      // Cache MCP config
-      if (!getCachedConfig(cacheKey)) {
-        setCachedConfig(cacheKey, servers)
-      }
+      // Update cache with fresh data
+      setCachedConfig(cacheKey, servers)
 
       // Write all configs in parallel
       const [mcpResult, agentsResult, rulesResult, workflowsResult] = await Promise.all([
@@ -1717,7 +1715,7 @@ export class KiloProvider implements vscode.WebviewViewProvider, TelemetryProper
   // kilocode_change start
   private async handleResetAllSettings(): Promise<void> {
     const confirmed = await vscode.window.showWarningMessage(
-      "Reset all smartAI extension settings to defaults?",
+      "Reset all OrqentAI extension settings to defaults?",
       { modal: true },
       "Reset",
     )
@@ -1963,7 +1961,7 @@ export class KiloProvider implements vscode.WebviewViewProvider, TelemetryProper
       scriptUri: webview.asWebviewUri(vscode.Uri.joinPath(this.extensionUri, "dist", "webview.js")),
       styleUri: webview.asWebviewUri(vscode.Uri.joinPath(this.extensionUri, "dist", "webview.css")),
       iconsBaseUri: webview.asWebviewUri(vscode.Uri.joinPath(this.extensionUri, "assets", "icons")),
-      title: "smartAI",
+      title: "OrqentAI",
       port: this.connectionService.getServerInfo()?.port,
       extraStyles: `.container { height: 100%; display: flex; flex-direction: column; height: 100vh; }`,
     })

@@ -1,14 +1,14 @@
 {
   "name": "smartai-code",
-  "displayName": "smartAI: AI Coding Agent, Copilot, and Autocomplete",
+  "displayName": "OrqentAI: AI Coding Agent, Copilot, and Autocomplete",
   "description": "Open Source AI coding agent that generates code from natural language, automates tasks, and runs terminal commands. Features inline autocomplete, browser automation, automated refactoring, and custom modes for planning, coding, and debugging. Supports 500+ AI models including Claude (Anthropic), Gemini, Grok, GPT, Codex and GLM.",
-  "version": "7.0.37",
+  "version": "7.0.38",
   "icon": "assets/icons/image.png",
   "galleryBanner": {
     "color": "#FFFFFF",
     "theme": "light"
   },
-  "publisher": "SmartAI",
+  "publisher": "OrqentAI",
   "repository": {
     "type": "git",
     "url": "https://github.com/Kilo-Org/kilocode.git",
@@ -18,7 +18,7 @@
     "vscode": "^1.108.0"
   },
   "author": {
-    "name": "smartAI"
+    "name": "OrqentAI"
   },
   "categories": [
     "AI",
@@ -29,8 +29,8 @@
     "Testing"
   ],
   "keywords": [
-    "smartAI",
-    "smartai",
+    "OrqentAI",
+    "orqentai",
     "claude",
     "dev",
     "mcp",
@@ -50,7 +50,7 @@
       "activitybar": [
         {
           "id": "kilo-code-sidebar",
-          "title": "smartAI (NEW)",
+          "title": "OrqentAI (NEW)",
           "icon": "assets/icons/kilo-light.png",
           "darkIcon": "assets/icons/kilo-dark.png"
         }
@@ -61,7 +61,7 @@
         {
           "type": "webview",
           "id": "kilo-code.new.sidebarView",
-          "name": "smartAI (NEW)"
+          "name": "OrqentAI (NEW)"
         }
       ]
     },
@@ -103,7 +103,7 @@
       },
       {
         "command": "kilo-code.new.openInTab",
-        "title": "smartAI (NEW)",
+        "title": "OrqentAI (NEW)",
         "icon": {
           "light": "assets/icons/kilo-light.svg",
           "dark": "assets/icons/kilo-dark.svg"
@@ -112,120 +112,120 @@
       {
         "command": "kilo-code.new.autocomplete.generateSuggestions",
         "title": "Generate Suggested Edits",
-        "category": "smartAI"
+        "category": "OrqentAI"
       },
       {
         "command": "kilo-code.new.agentManager.previousSession",
         "title": "Agent Manager: Previous Session",
-        "category": "smartAI"
+        "category": "OrqentAI"
       },
       {
         "command": "kilo-code.new.agentManager.nextSession",
         "title": "Agent Manager: Next Session",
-        "category": "smartAI"
+        "category": "OrqentAI"
       },
       {
         "command": "kilo-code.new.agentManager.previousTab",
         "title": "Agent Manager: Previous Tab",
-        "category": "smartAI"
+        "category": "OrqentAI"
       },
       {
         "command": "kilo-code.new.agentManager.nextTab",
         "title": "Agent Manager: Next Tab",
-        "category": "smartAI"
+        "category": "OrqentAI"
       },
       {
         "command": "kilo-code.new.agentManager.showTerminal",
         "title": "Agent Manager: Focus Terminal",
-        "category": "smartAI",
+        "category": "OrqentAI",
         "icon": "$(terminal)"
       },
       {
         "command": "kilo-code.new.agentManager.toggleDiff",
         "title": "Agent Manager: Toggle Diff Panel",
-        "category": "smartAI",
+        "category": "OrqentAI",
         "icon": "$(diff)"
       },
       {
         "command": "kilo-code.new.agentManager.focusPanel",
         "title": "Agent Manager: Focus Panel",
-        "category": "smartAI",
+        "category": "OrqentAI",
         "icon": "$(circuit-board)"
       },
       {
         "command": "kilo-code.new.agentManager.newTab",
         "title": "Agent Manager: New Tab",
-        "category": "smartAI"
+        "category": "OrqentAI"
       },
       {
         "command": "kilo-code.new.agentManager.closeTab",
         "title": "Agent Manager: Close Tab",
-        "category": "smartAI"
+        "category": "OrqentAI"
       },
       {
         "command": "kilo-code.new.agentManager.newWorktree",
         "title": "Agent Manager: New Worktree",
-        "category": "smartAI"
+        "category": "OrqentAI"
       },
       {
         "command": "kilo-code.new.agentManager.closeWorktree",
         "title": "Agent Manager: Close Worktree",
-        "category": "smartAI"
+        "category": "OrqentAI"
       },
       {
         "command": "kilo-code.new.agentManager.advancedWorktree",
         "title": "Agent Manager: Advanced New Worktree",
-        "category": "smartAI"
+        "category": "OrqentAI"
       },
       {
         "command": "kilo-code.new.agentManager.jumpTo1",
         "title": "Agent Manager: Jump to Item 1",
-        "category": "smartAI"
+        "category": "OrqentAI"
       },
       {
         "command": "kilo-code.new.agentManager.jumpTo2",
         "title": "Agent Manager: Jump to Item 2",
-        "category": "smartAI"
+        "category": "OrqentAI"
       },
       {
         "command": "kilo-code.new.agentManager.jumpTo3",
         "title": "Agent Manager: Jump to Item 3",
-        "category": "smartAI"
+        "category": "OrqentAI"
       },
       {
         "command": "kilo-code.new.agentManager.jumpTo4",
         "title": "Agent Manager: Jump to Item 4",
-        "category": "smartAI"
+        "category": "OrqentAI"
       },
       {
         "command": "kilo-code.new.agentManager.jumpTo5",
         "title": "Agent Manager: Jump to Item 5",
-        "category": "smartAI"
+        "category": "OrqentAI"
       },
       {
         "command": "kilo-code.new.agentManager.jumpTo6",
         "title": "Agent Manager: Jump to Item 6",
-        "category": "smartAI"
+        "category": "OrqentAI"
       },
       {
         "command": "kilo-code.new.agentManager.jumpTo7",
         "title": "Agent Manager: Jump to Item 7",
-        "category": "smartAI"
+        "category": "OrqentAI"
       },
       {
         "command": "kilo-code.new.agentManager.jumpTo8",
         "title": "Agent Manager: Jump to Item 8",
-        "category": "smartAI"
+        "category": "OrqentAI"
       },
       {
         "command": "kilo-code.new.agentManager.jumpTo9",
         "title": "Agent Manager: Jump to Item 9",
-        "category": "smartAI"
+        "category": "OrqentAI"
       },
       {
         "command": "kilo-code.new.generateCommitMessage",
         "title": "Generate Commit Message",
-        "category": "smartAI (NEW)",
+        "category": "OrqentAI (NEW)",
         "icon": {
           "light": "assets/icons/kilo-light.svg",
           "dark": "assets/icons/kilo-dark.svg"
@@ -234,52 +234,52 @@
       {
         "command": "kilo-code.new.explainCode",
         "title": "Explain Code",
-        "category": "smartAI"
+        "category": "OrqentAI"
       },
       {
         "command": "kilo-code.new.fixCode",
         "title": "Fix Code",
-        "category": "smartAI"
+        "category": "OrqentAI"
       },
       {
         "command": "kilo-code.new.improveCode",
         "title": "Improve Code",
-        "category": "smartAI"
+        "category": "OrqentAI"
       },
       {
         "command": "kilo-code.new.addToContext",
         "title": "Add to Context",
-        "category": "smartAI"
+        "category": "OrqentAI"
       },
       {
         "command": "kilo-code.new.terminalAddToContext",
         "title": "Add Terminal Content to Context",
-        "category": "smartAI"
+        "category": "OrqentAI"
       },
       {
         "command": "kilo-code.new.terminalFixCommand",
         "title": "Fix This Command",
-        "category": "smartAI"
+        "category": "OrqentAI"
       },
       {
         "command": "kilo-code.new.terminalExplainCommand",
         "title": "Explain This Command",
-        "category": "smartAI"
+        "category": "OrqentAI"
       },
       {
         "command": "kilo-code.new.focusChatInput",
         "title": "Focus Chat Input",
-        "category": "smartAI"
+        "category": "OrqentAI"
       }
     ],
     "submenus": [
       {
         "id": "kilo-code.new.editorContextMenu",
-        "label": "smartAI"
+        "label": "OrqentAI"
       },
       {
         "id": "kilo-code.new.terminalContextMenu",
-        "label": "smartAI"
+        "label": "OrqentAI"
       }
     ],
     "menus": {
@@ -524,12 +524,12 @@
       }
     ],
     "configuration": {
-      "title": "smartAI",
+      "title": "OrqentAI",
       "properties": {
         "kilo-code.new.language": {
           "type": "string",
           "default": "",
-          "description": "Override the UI language for smartAI (e.g. en, de, ja). Empty means use VS Code's display language.",
+          "description": "Override the UI language for OrqentAI (e.g. en, de, ja). Empty means use VS Code's display language.",
           "enum": [
             "",
             "en",
@@ -576,7 +576,7 @@
         },
         "kilo-code.new.model.modelID": {
           "type": "string",
-          "default": "smartAI/Auto",
+          "default": "OrqentAI/Auto",
           "description": "Default model ID for new sessions"
         },
         "kilo-code.new.autocomplete.enableAutoTrigger": {

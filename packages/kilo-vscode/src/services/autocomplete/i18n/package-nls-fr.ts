@@ -1,9 +1,9 @@
 // fr package.nls translations for autocomplete
 
 export const dict = {
-  "autocomplete.input.title": "Écrivain fantôme smartAI",
+  "autocomplete.input.title": "Écrivain fantôme OrqentAI",
   "autocomplete.input.placeholder": "Décrivez ce que vous voulez coder...",
-  "autocomplete.commands.generateSuggestions": "smartAI : Générer des Modifications Suggérées",
+  "autocomplete.commands.generateSuggestions": "OrqentAI : Générer des Modifications Suggérées",
   "autocomplete.commands.displaySuggestions": "Afficher les Modifications Suggérées",
   "autocomplete.commands.cancelSuggestions": "Annuler les Modifications Suggérées",
   "autocomplete.commands.applyCurrentSuggestion": "Appliquer la Modification Suggérée Actuelle",

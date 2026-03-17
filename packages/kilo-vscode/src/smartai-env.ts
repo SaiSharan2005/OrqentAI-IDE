@@ -1,5 +1,5 @@
 /**
- * SmartAI Environment Configuration
+ * OrqentAI Environment Configuration
  *
  * Change these URLs to switch between local and production.
  * This is the ONLY file you need to edit when switching environments.
@@ -22,4 +22,4 @@ export const SMARTAI_DASHBOARD_URL = (() => {
 })()
 
 // ── Default model (keep in sync with package.json kilo-code.new.model.modelID default) ──
-export const DEFAULT_MODEL_ID = "smartAI/Auto"
+export const DEFAULT_MODEL_ID = "OrqentAI/Auto"

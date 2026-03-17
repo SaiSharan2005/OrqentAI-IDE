@@ -1,6 +1,6 @@
 /** Default template for worktree setup scripts. */
 export const SETUP_SCRIPT_TEMPLATE = `#!/bin/bash
-# smartAI Worktree Setup Script
+# OrqentAI Worktree Setup Script
 # This script runs before the agent starts in a worktree (new sessions only).
 #
 # Available environment variables:

@@ -1,4 +1,4 @@
-# smartAI — AI Coding Agent, Copilot, and Autocomplete
+# OrqentAI — AI Coding Agent, Copilot, and Autocomplete
 
 An AI-powered coding assistant that generates code from natural language, automates tasks, and runs terminal commands — built for teams and enterprises.
 
@@ -16,13 +16,13 @@ An AI-powered coding assistant that generates code from natural language, automa
 
 ## Get Started
 
-1. Install the smartAI extension from the VS Code Marketplace
-2. Sign in with your smartAI account
+1. Install the OrqentAI extension from the VS Code Marketplace
+2. Sign in with your OrqentAI account
 3. Select a project and start coding with AI
 
 ## How It Works
 
-smartAI connects to your organization's SmartAI platform, giving your team:
+OrqentAI connects to your organization's OrqentAI platform, giving your team:
 
 - **Centralized billing and usage tracking** per developer
 - **Project-level AI configurations** — agents, rules, workflows, and MCP servers
@@ -43,7 +43,7 @@ smartAI connects to your organization's SmartAI platform, giving your team:
 ## Requirements
 
 - VS Code 1.108.0 or later
-- A smartAI account (sign up through the extension)
+- A OrqentAI account (sign up through the extension)
 
 ## Open Source
 

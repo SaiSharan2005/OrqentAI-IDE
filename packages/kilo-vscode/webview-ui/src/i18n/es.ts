@@ -251,7 +251,7 @@ export const dict = {
   "dialog.directory.empty": "No se encontraron carpetas",
 
   "dialog.server.title": "Servidores",
-  "dialog.server.description": "Cambiar a qué servidor de smartAI se conecta esta app.",
+  "dialog.server.description": "Cambiar a qué servidor de OrqentAI se conecta esta app.",
   "dialog.server.search.placeholder": "Buscar servidores",
   "dialog.server.empty": "No hay servidores aún",
   "dialog.server.add.title": "Añadir un servidor",
@@ -361,7 +361,7 @@ export const dict = {
   "toast.session.listFailed.title": "Fallo al cargar sesiones para {{project}}",
 
   "toast.update.title": "Actualización disponible",
-  "toast.update.description": "Una nueva versión de smartAI ({{version}}) está disponible para instalar.",
+  "toast.update.description": "Una nueva versión de OrqentAI ({{version}}) está disponible para instalar.",
   "toast.update.action.installRestart": "Instalar y reiniciar",
   "toast.update.action.notYet": "Todavía no",
 
@@ -390,7 +390,7 @@ export const dict = {
   "error.chain.didYouMean": "¿Quisiste decir: {{suggestions}}",
   "error.chain.modelNotFound": "Modelo no encontrado: {{provider}}/{{model}}",
   "error.chain.checkConfig": "Comprueba los nombres de proveedor/modelo en tu configuración (opencode.json)",
-  "error.chain.mcpFailed": 'El servidor MCP "{{name}}" falló. Nota, smartAI no soporta autenticación MCP todavía.',
+  "error.chain.mcpFailed": 'El servidor MCP "{{name}}" falló. Nota, OrqentAI no soporta autenticación MCP todavía.',
   "error.chain.providerAuthFailed": "Autenticación de proveedor fallida ({{provider}}): {{message}}",
   "error.chain.providerInitFailed":
     'Fallo al inicializar proveedor "{{provider}}". Comprueba credenciales y configuración.',
@@ -501,12 +501,12 @@ export const dict = {
   "sidebar.workspaces.enable": "Habilitar espacios de trabajo",
   "sidebar.workspaces.disable": "Deshabilitar espacios de trabajo",
   "sidebar.gettingStarted.title": "Empezando",
-  "sidebar.gettingStarted.line1": "smartAI incluye modelos gratuitos para que puedas empezar inmediatamente.",
+  "sidebar.gettingStarted.line1": "OrqentAI incluye modelos gratuitos para que puedas empezar inmediatamente.",
   "sidebar.gettingStarted.line2": "Conecta cualquier proveedor para usar modelos, inc. Claude, GPT, Gemini etc.",
   "sidebar.project.recentSessions": "Sesiones recientes",
   "sidebar.project.viewAllSessions": "Ver todas las sesiones",
 
-  "app.name.desktop": "smartAI Desktop",
+  "app.name.desktop": "OrqentAI Desktop",
   "settings.section.desktop": "Escritorio",
   "settings.section.server": "Servidor",
   "settings.tab.general": "General",
@@ -520,7 +520,7 @@ export const dict = {
   "settings.general.row.language.title": "Idioma",
   "settings.general.row.language.description": "Cambiar el idioma de visualización para Kilo",
   "settings.general.row.appearance.title": "Apariencia",
-  "settings.general.row.appearance.description": "Personaliza cómo se ve smartAI en tu dispositivo",
+  "settings.general.row.appearance.description": "Personaliza cómo se ve OrqentAI en tu dispositivo",
   "settings.general.row.theme.title": "Tema",
   "settings.general.row.theme.description": "Personaliza el tema de Kilo.",
   "settings.general.row.font.title": "Fuente",
@@ -737,7 +737,7 @@ export const dict = {
   "deviceAuth.toast.urlCopied": "URL copiada al portapapeles",
   "deviceAuth.toast.codeCopied": "Código copiado al portapapeles",
   "deviceAuth.status.initiating": "Iniciando sesión...",
-  "deviceAuth.title": "Iniciar sesión en smartAI",
+  "deviceAuth.title": "Iniciar sesión en OrqentAI",
   "deviceAuth.step1": "Paso 1: Abre esta URL",
   "deviceAuth.action.copyUrl": "Copiar URL",
   "deviceAuth.action.openBrowser": "Abrir navegador",
@@ -755,7 +755,7 @@ export const dict = {
 
   "profile.title": "Perfil",
   "profile.notLoggedIn": "No conectado",
-  "profile.action.login": "Iniciar sesión con smartAI",
+  "profile.action.login": "Iniciar sesión con OrqentAI",
   "profile.balance.title": "Saldo",
   "profile.balance.refresh": "Actualizar saldo",
   "profile.action.dashboard": "Panel",
@@ -774,11 +774,11 @@ export const dict = {
   "settings.prompts.title": "Prompts",
   "settings.experimental.title": "Experimental",
   "settings.language.title": "Idioma",
-  "settings.aboutKiloCode.title": "Acerca de smartAI",
+  "settings.aboutKiloCode.title": "Acerca de OrqentAI",
 
   "session.messages.empty": "Inicia una conversación escribiendo un mensaje a continuación.",
   "session.messages.welcome":
-    "smartAI es un asistente de programación con IA. Pídele que cree funcionalidades, corrija errores o explique tu código.",
+    "OrqentAI es un asistente de programación con IA. Pídele que cree funcionalidades, corrija errores o explique tu código.",
   "session.messages.scrollToBottom": "Desplazar al final",
   "session.status.writingResponse": "Escribiendo respuesta…",
   "session.status.retrying": "Reintentando (intento {{ attempt }})… {{ message }}",
@@ -811,14 +811,14 @@ export const dict = {
   "settings.aboutKiloCode.port.label": "Puerto:",
   "settings.aboutKiloCode.versionInfo": "Información de versión",
   "settings.aboutKiloCode.version.label": "Versión:",
-  "settings.aboutKiloCode.extensionName": "Extensión smartAI",
+  "settings.aboutKiloCode.extensionName": "Extensión OrqentAI",
   "settings.aboutKiloCode.community": "Comunidad y soporte",
   "settings.aboutKiloCode.feedback.prefix": "Si tienes preguntas o comentarios, abre un issue en",
   "settings.aboutKiloCode.feedback.or": "o",
   "settings.aboutKiloCode.support.prefix": "Para preguntas de facturación o cuenta, contacta al Soporte al Cliente en",
   "settings.aboutKiloCode.resetSettings.title": "Restablecer configuración",
   "settings.aboutKiloCode.resetSettings.description":
-    "Restablecer todas las configuraciones de la extensión smartAI a sus valores predeterminados. Esto no afecta la configuración del CLI o del backend.",
+    "Restablecer todas las configuraciones de la extensión OrqentAI a sus valores predeterminados. Esto no afecta la configuración del CLI o del backend.",
   "settings.aboutKiloCode.resetSettings.button": "Restablecer toda la configuración",
 
   "settings.agentBehaviour.subtab.modes": "Modos",
@@ -839,7 +839,7 @@ export const dict = {
   "settings.browser.headless.description": "Ejecutar en modo headless (sin ventana de navegador visible).",
 
   "settings.language.description":
-    'Elige el idioma de la interfaz de smartAI. "Auto" utiliza el idioma de visualización de VS Code.',
+    'Elige el idioma de la interfaz de OrqentAI. "Auto" utiliza el idioma de visualización de VS Code.',
   "settings.language.auto": "Auto (idioma de VS Code)",
   "settings.language.current": "Actual:",
 

@@ -3,7 +3,7 @@
 export const dict = {
   "autocomplete.input.title": "Druk op 'Enter' om te bevestigen of 'Escape' om te annuleren",
   "autocomplete.input.placeholder": "Beschrijf wat je wilt doen...",
-  "autocomplete.commands.generateSuggestions": "smartAI: Bewerkingssuggesties Genereren",
+  "autocomplete.commands.generateSuggestions": "OrqentAI: Bewerkingssuggesties Genereren",
   "autocomplete.commands.displaySuggestions": "Bewerkingssuggesties Weergeven",
   "autocomplete.commands.cancelSuggestions": "Bewerkingssuggesties Annuleren",
   "autocomplete.commands.applyCurrentSuggestion": "Huidige Bewerkingssuggestie Toepassen",
