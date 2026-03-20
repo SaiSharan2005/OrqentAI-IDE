@@ -852,7 +852,12 @@ export namespace Session {
         ) {
           return adjustedInputTokens + outputTokens + cacheReadInputTokens + cacheWriteInputTokens
         }
-        return input.usage.totalTokens
+        const raw = input.usage.totalTokens
+        // Some providers return NaN or undefined — fall back to computed total
+        if (raw == null || Number.isNaN(raw)) {
+          return adjustedInputTokens + outputTokens + cacheReadInputTokens + cacheWriteInputTokens
+        }
+        return raw
       })
 
       const tokens = {

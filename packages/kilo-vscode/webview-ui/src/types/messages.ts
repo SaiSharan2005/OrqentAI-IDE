@@ -213,6 +213,7 @@ export interface KilocodeBalance {
 
 export interface ProfileProject {
   publicId: string
+  companyPublicId?: string
   name: string
   description?: string
   projectRole: string
@@ -794,6 +795,72 @@ export interface AgentManagerSendInitialMessage {
   files?: Array<{ mime: string; url: string }>
 }
 
+// ============================================
+// COGNI Messages
+// ============================================
+
+// Extension → Webview: COGNI status response
+export interface CogniStatusMessage {
+  type: "cogniStatus"
+  data: {
+    initialized: boolean
+    service_count: number
+    file_count: number
+    function_count: number
+    requirement_count: number
+    services: Array<{ id: string; name: string; file_count: number }>
+  } | null
+  error?: string
+}
+
+// Extension → Webview: COGNI scan progress
+export interface CogniScanProgressMessage {
+  type: "cogniScanProgress"
+  phase: "reading" | "uploading"
+  filesRead: number
+  totalFiles: number
+  currentFile: string
+}
+
+// Extension → Webview: COGNI scan result
+export interface CogniScanResultMessage {
+  type: "cogniScanResult"
+  success: boolean
+  filesProcessed?: number
+  functionsFound?: number
+  filesSkipped?: number
+  error?: string
+}
+
+// Extension → Webview: folder picker result
+export interface CogniFolderPickedMessage {
+  type: "cogniFolderPicked"
+  folderPath: string
+}
+
+// Webview → Extension: request COGNI status
+export interface CogniGetStatusMessage {
+  type: "cogniGetStatus"
+  companyId: string
+  projectId: string
+}
+
+// Webview → Extension: request codebase scan
+export interface CogniScanMessage {
+  type: "cogniScan"
+  companyId: string
+  companyName: string
+  projectId: string
+  projectName: string
+  serviceName: string
+  folderPath: string
+}
+
+// Webview → Extension: request native folder picker
+export interface CogniPickFolderMessage {
+  type: "cogniPickFolder"
+}
+
 export type ExtensionMessage =
   | ReadyMessage
   | ConnectionStateMessage
@@ -854,6 +921,10 @@ export type ExtensionMessage =
   | AgentManagerWorktreeStatsMessage
   | AgentManagerLocalStatsMessage
   | ProjectMcpStatusMessage
+  | CogniStatusMessage
+  | CogniScanProgressMessage
+  | CogniScanResultMessage
+  | CogniFolderPickedMessage
 
 // ============================================
 // Messages FROM webview TO extension
@@ -1348,6 +1419,9 @@ export type WebviewMessage =
   | RequestWorktreeDiffMessage
   | StartDiffWatchMessage
   | StopDiffWatchMessage
+  | CogniGetStatusMessage
+  | CogniScanMessage
+  | CogniPickFolderMessage
 
 // ============================================
 // VS Code API type

@@ -28,12 +28,13 @@ registerExpandedTaskTool()
 registerVscodeToolOverrides()
 import SessionList from "./components/history/SessionList"
 import CloudSessionList from "./components/history/CloudSessionList"
+import { CogniView } from "./components/cogni/CogniView"
 import { NotificationsProvider } from "./context/notifications"
 import type { Message as SDKMessage, Part as SDKPart } from "@kilocode/sdk/v2"
 import "./styles/chat.css"
 
-type ViewType = "newTask" | "marketplace" | "history" | "cloudHistory" | "profile" | "settings"
-const VALID_VIEWS = new Set<string>(["newTask", "marketplace", "history", "cloudHistory", "profile", "settings"])
+type ViewType = "newTask" | "marketplace" | "history" | "cloudHistory" | "profile" | "cogni" | "settings"
+const VALID_VIEWS = new Set<string>(["newTask", "marketplace", "history", "cloudHistory", "profile", "cogni", "settings"])
 
 const DummyView: Component<{ title: string }> = (props) => {
   return (
@@ -173,6 +174,9 @@ const AppContent: Component = () => {
       case "cloudHistoryButtonClicked":
         setCurrentView("cloudHistory")
         break
+      case "cogniButtonClicked":
+        setCurrentView("cogni")
+        break
       case "profileButtonClicked":
         setCurrentView("profile")
         break
@@ -230,6 +234,9 @@ const AppContent: Component = () => {
               setCurrentView("newTask")
             }}
           />
+        </Match>
+        <Match when={currentView() === "cogni"}>
+          <CogniView profileData={server.profileData()} onBack={() => setCurrentView("newTask")} />
         </Match>
         <Match when={currentView() === "profile"}>
           <ProfileView

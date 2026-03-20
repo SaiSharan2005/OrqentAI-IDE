@@ -26,7 +26,10 @@ import { applyProjectMcpConfigs, getCachedConfig, setCachedConfig } from "./serv
 import { applyProjectAgentConfigs } from "./services/cli-backend/agents-project-config"
 import { applyProjectRuleConfigs } from "./services/cli-backend/rules-project-config"
 import { applyProjectWorkflowConfigs } from "./services/cli-backend/workflows-project-config"
-import { SMARTAI_DASHBOARD_URL, DEFAULT_MODEL_ID } from "./smartai-env.js"
+import { SMARTAI_DASHBOARD_URL, SMARTAI_COGNI_URL, DEFAULT_MODEL_ID } from "./smartai-env.js"
+import ignore from "ignore"
+import * as fs from "fs/promises"
+import { join, relative, extname } from "path"
 
 export class KiloProvider implements vscode.WebviewViewProvider, TelemetryPropertiesProvider {
   public static readonly viewType = "kilo-code.new.sidebarView"
@@ -522,6 +525,17 @@ export class KiloProvider implements vscode.WebviewViewProvider, TelemetryProper
           this.postMessage({ type: "variantsLoaded", variants })
           break
         }
+        case "cogniGetStatus":
+          this.handleCogniGetStatus(message.companyId, message.projectId)
+            .catch(e => this.postMessage({ type: "cogniStatus", data: null, error: String(e) }))
+          break
+        case "cogniScan":
+          this.handleCogniScan(message)
+            .catch(e => this.postMessage({ type: "cogniScanResult", success: false, error: String(e) }))
+          break
+        case "cogniPickFolder":
+          this.handleCogniPickFolder()
+          break
       }
     })
   }
@@ -1639,6 +1653,7 @@ export class KiloProvider implements vscode.WebviewViewProvider, TelemetryProper
 
     console.log("[Kilo New] KiloProvider: 🔄 Refreshing profile...")
     const profileData = await this.httpClient.getProfile()
+    console.log("[Kilo New] KiloProvider: 🔄 Refresh profile:", profileData ? "received" : "null")
     this.postMessage({
       type: "profileData",
       data: profileData,
@@ -1954,6 +1969,181 @@ export class KiloProvider implements vscode.WebviewViewProvider, TelemetryProper
       return workspaceFolders[0].uri.fsPath
     }
     return process.cwd()
+  }
+
+  // ── COGNI Handlers ──────────────────────────────────────────────────────────
+
+  private async handleCogniGetStatus(companyId: string, projectId: string): Promise<void> {
+    const url = `${SMARTAI_COGNI_URL}/api/status/${companyId}/${projectId}`
+    const response = await fetch(url)
+    if (!response.ok) {
+      throw new Error(`COGNI status request failed: ${response.status}`)
+    }
+    const data = await response.json()
+    this.postMessage({ type: "cogniStatus", data })
+  }
+
+  private async handleCogniPickFolder(): Promise<void> {
+    const result = await vscode.window.showOpenDialog({
+      canSelectFolders: true,
+      canSelectFiles: false,
+      canSelectMany: false,
+      openLabel: "Select Folder to Scan",
+      defaultUri: vscode.workspace.workspaceFolders?.[0]?.uri,
+    })
+    if (result?.[0]) {
+      this.postMessage({ type: "cogniFolderPicked", folderPath: result[0].fsPath })
+    }
+  }
+
+  private static readonly COGNI_SKIP_DIRS = new Set([
+    ".git", "node_modules", "dist", "build", ".next", "__pycache__",
+    ".venv", "venv", "target", ".idea", ".vscode",
+  ])
+  private static readonly COGNI_SUPPORTED_EXTENSIONS = new Set([
+    ".ts", ".tsx", ".js", ".jsx", ".py", ".java", ".go", ".rs",
+    ".c", ".cpp", ".h", ".hpp", ".cs", ".rb", ".php", ".swift",
+    ".kt", ".kts", ".scala", ".vue", ".svelte",
+  ])
+  private static readonly COGNI_MAX_FILE_SIZE = 1_000_000 // 1MB
+  private static readonly COGNI_CHUNK_SIZE = 100
+
+  private async handleCogniScan(message: {
+    companyId: string
+    companyName: string
+    projectId: string
+    projectName: string
+    serviceName: string
+    folderPath: string
+  }): Promise<void> {
+    // Phase 1: Collect file paths (fast — no file reads)
+    const filePaths = await this.cogniCollectFilePaths(message.folderPath)
+
+    // Phase 2: Read + upload in batches to avoid OOM
+    const totalFiles = filePaths.length
+    let totalFilesProcessed = 0
+    let totalFunctionsFound = 0
+    let totalFilesSkipped = 0
+    let batchIndex = 0
+    const totalBatches = Math.ceil(totalFiles / KiloProvider.COGNI_CHUNK_SIZE)
+
+    for (let i = 0; i < totalFiles; i += KiloProvider.COGNI_CHUNK_SIZE) {
+      batchIndex++
+      const pathBatch = filePaths.slice(i, i + KiloProvider.COGNI_CHUNK_SIZE)
+
+      // Read file contents for this batch only
+      const files: Array<{ file_name: string; content: string }> = []
+      for (const relPath of pathBatch) {
+        try {
+          const content = await fs.readFile(join(message.folderPath, relPath), "utf-8")
+          files.push({ file_name: relPath, content })
+        } catch {
+          // Skip unreadable files
+        }
+      }
+
+      this.postMessage({
+        type: "cogniScanProgress",
+        phase: "uploading",
+        filesRead: Math.min(i + KiloProvider.COGNI_CHUNK_SIZE, totalFiles),
+        totalFiles,
+        currentFile: `Uploading batch ${batchIndex}/${totalBatches}`,
+      })
+
+      if (files.length === 0) continue
+
+      const url = `${SMARTAI_COGNI_URL}/api/ingest/raw/${message.companyId}/${message.projectId}`
+      const response = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          service_name: message.serviceName,
+          company_name: message.companyName,
+          project_name: message.projectName,
+          files,
+        }),
+      })
+
+      if (!response.ok) {
+        const text = await response.text().catch(() => "")
+        throw new Error(`Upload failed (${response.status}): ${text}`)
+      }
+
+      const result = (await response.json()) as { files_processed?: number; functions_found?: number; files_skipped?: number }
+      totalFilesProcessed += result.files_processed ?? 0
+      totalFunctionsFound += result.functions_found ?? 0
+      totalFilesSkipped += result.files_skipped ?? 0
+    }
+
+    this.postMessage({
+      type: "cogniScanResult",
+      success: true,
+      filesProcessed: totalFilesProcessed,
+      functionsFound: totalFunctionsFound,
+      filesSkipped: totalFilesSkipped,
+    })
+  }
+
+  private async cogniCollectFilePaths(dirPath: string): Promise<string[]> {
+    // Load .gitignore if present
+    const ig = ignore()
+    try {
+      const content = await fs.readFile(join(dirPath, ".gitignore"), "utf-8")
+      ig.add(content)
+    } catch {
+      // No .gitignore
+    }
+
+    const result: string[] = []
+    let lastProgressTime = 0
+
+    const walk = async (currentDir: string) => {
+      let entries
+      try {
+        entries = await fs.readdir(currentDir, { withFileTypes: true })
+      } catch {
+        return
+      }
+
+      for (const entry of entries) {
+        const fullPath = join(currentDir, entry.name)
+        const relativePath = relative(dirPath, fullPath).replace(/\\/g, "/")
+
+        if (entry.isDirectory()) {
+          if (KiloProvider.COGNI_SKIP_DIRS.has(entry.name)) continue
+          if (ig.ignores(relativePath + "/")) continue
+          await walk(fullPath)
+        } else if (entry.isFile()) {
+          const ext = extname(entry.name).toLowerCase()
+          if (!KiloProvider.COGNI_SUPPORTED_EXTENSIONS.has(ext)) continue
+          if (ig.ignores(relativePath)) continue
+
+          try {
+            const stat = await fs.stat(fullPath)
+            if (stat.size > KiloProvider.COGNI_MAX_FILE_SIZE) continue
+            result.push(relativePath)
+
+            // Throttle progress to at most once per 200ms
+            const now = Date.now()
+            if (now - lastProgressTime > 200) {
+              lastProgressTime = now
+              this.postMessage({
+                type: "cogniScanProgress",
+                phase: "reading",
+                filesRead: result.length,
+                totalFiles: 0,
+                currentFile: relativePath,
+              })
+            }
+          } catch {
+            // Skip inaccessible files
+          }
+        }
+      }
+    }
+
+    await walk(dirPath)
+    return result
   }
 
   private _getHtmlForWebview(webview: vscode.Webview): string {

@@ -64,6 +64,9 @@ export function activate(context: vscode.ExtensionContext) {
     vscode.commands.registerCommand("kilo-code.new.cloudHistoryButtonClicked", () => {
       provider.postMessage({ type: "action", action: "cloudHistoryButtonClicked" })
     }),
+    vscode.commands.registerCommand("kilo-code.new.cogniButtonClicked", () => {
+      provider.postMessage({ type: "action", action: "cogniButtonClicked" })
+    }),
     vscode.commands.registerCommand("kilo-code.new.profileButtonClicked", () => {
       provider.postMessage({ type: "action", action: "profileButtonClicked" })
     }),

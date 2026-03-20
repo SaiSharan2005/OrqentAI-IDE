@@ -212,6 +212,7 @@ export interface KilocodeOrganization {
 
 export interface KilocodeProject {
   publicId: string
+  companyPublicId?: string
   name: string
   description?: string
   projectRole: string

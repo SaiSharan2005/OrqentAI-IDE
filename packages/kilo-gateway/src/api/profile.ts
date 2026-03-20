@@ -20,13 +20,12 @@ export async function fetchProfile(token: string): Promise<KilocodeProfile> {
     throw new Error(`Failed to fetch profile: ${response.status}`)
   }
 
-  const data = (await response.json()) as {
-    user?: { email?: string; name?: string; role?: string; companyName?: string }
-    email?: string
-    name?: string
-    organizations?: Organization[]
-    projects?: KilocodeProject[]
-  }
+  const raw = await response.json()
+
+  // SmartAI backend wraps responses in ApiResponse: { status, message, data: { user, organizations, projects } }
+  // Unwrap if present, otherwise use raw response
+  const data = (raw as any).data ?? raw
+
   // Backend returns { user: { email, name, role, companyName }, organizations, projects }
   // Transform to flat KilocodeProfile structure
   return {
