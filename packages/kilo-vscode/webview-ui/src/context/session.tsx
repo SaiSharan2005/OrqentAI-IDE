@@ -468,6 +468,21 @@ export const SessionProvider: ParentComponent = (props) => {
   }
 
   function handleMessageCreated(message: Message) {
+    // kilocode_change start - detect model fallback from SmartAI governance
+    // Skip for Auto model (backend always resolves to a different real model)
+    if (message.role === "assistant" && message.modelID && message.finish) {
+      const sel = selected()
+      if (sel && sel.providerID === "kilo" && sel.modelID !== "OrqentAI/Auto" && message.modelID !== sel.modelID) {
+        showToast({
+          variant: "default",
+          title: "Model switched",
+          description: `"${sel.modelID}" is rate-limited. Using "${message.modelID}" instead.`,
+          duration: 8000,
+        })
+        selectModel("kilo", message.modelID)
+      }
+    }
+    // kilocode_change end
     setStore("messages", message.sessionID, (msgs = []) => {
       // Check if message already exists (update case)
       const existingIndex = msgs.findIndex((m) => m.id === message.id)

@@ -12,6 +12,7 @@ import { Popover } from "@kilocode/kilo-ui/popover"
 import { Button } from "@kilocode/kilo-ui/button"
 import { useProvider, EnrichedModel } from "../../context/provider"
 import { useSession } from "../../context/session"
+import { useServer } from "../../context/server"
 import { useLanguage } from "../../context/language"
 import type { ModelSelection } from "../../types/messages"
 import { KILO_GATEWAY_ID, providerSortKey, isFree, buildTriggerLabel } from "./model-selector-utils"
@@ -40,8 +41,24 @@ export interface ModelSelectorBaseProps {
 
 export const ModelSelectorBase: Component<ModelSelectorBaseProps> = (props) => {
   const { connected, models, findModel } = useProvider()
+  const server = useServer()
   const language = useLanguage()
   const selectedModel = () => findModel(props.value)
+
+  // kilocode_change start - check if user has credits for paid models
+  const hasCredits = createMemo(() => {
+    const pd = server.profileData()
+    if (!pd || pd.balance == null) return true
+    return pd.balance.balance > 0
+  })
+
+  const isModelLocked = (model: EnrichedModel): boolean => {
+    if (hasCredits()) return false
+    if (isFree(model)) return false
+    if (model.id.endsWith(":free")) return false
+    return true
+  }
+  // kilocode_change end
 
   const [open, setOpen] = createSignal(false)
   const [search, setSearch] = createSignal("")
@@ -107,6 +124,7 @@ export const ModelSelectorBase: Component<ModelSelectorBaseProps> = (props) => {
   })
 
   function pick(model: EnrichedModel) {
+    if (isModelLocked(model)) return // kilocode_change - block paid models with no credits
     props.onSelect(model.providerID, model.id)
     setOpen(false)
   }
@@ -243,13 +261,22 @@ export const ModelSelectorBase: Component<ModelSelectorBaseProps> = (props) => {
                 <For each={group.models}>
                   {(model) => (
                     <div
-                      class={`model-selector-item${flatIndex(model) === activeIndex() ? " active" : ""}${isSelected(model) ? " selected" : ""}`}
+                      class={`model-selector-item${flatIndex(model) === activeIndex() ? " active" : ""}${isSelected(model) ? " selected" : ""}${isModelLocked(model) ? " locked" : ""}`}
                       role="option"
                       aria-selected={isSelected(model)}
+                      aria-disabled={isModelLocked(model)}
                       onClick={() => pick(model)}
                       onMouseEnter={() => setActiveIndex(flatIndex(model))}
+                      title={isModelLocked(model) ? "Credits required" : model.id}
                     >
                       <span class="model-selector-item-name">{model.name}</span>
+                      <Show when={isModelLocked(model)}>
+                        <span class="model-selector-lock" title="Credits required">
+                          <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor">
+                            <path d="M11 5V4a3 3 0 0 0-6 0v1H4a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1h-1zm-4-1a1 1 0 1 1 2 0v1H7V4z" />
+                          </svg>
+                        </span>
+                      </Show>
                       <Show when={isFree(model)}>
                         <span class="model-selector-tag">{language.t("model.tag.free")}</span>
                       </Show>

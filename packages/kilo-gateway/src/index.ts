@@ -6,7 +6,7 @@ export { KiloAuthPlugin, default } from "./plugin.js"
 // ============================================================================
 // Provider
 // ============================================================================
-export { createKilo } from "./provider.js"
+export { createKilo, getLastFallback } from "./provider.js"
 export { createKiloDebug } from "./provider-debug.js"
 export { kiloCustomLoader } from "./loader.js"
 export { buildKiloHeaders, getEditorNameHeader, getFeatureHeader, DEFAULT_HEADERS } from "./headers.js" // kilocode_change - added getFeatureHeader

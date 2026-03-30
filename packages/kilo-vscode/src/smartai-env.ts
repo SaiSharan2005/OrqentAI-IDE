@@ -15,13 +15,9 @@ export const SMARTAI_GATEWAY_URL = "http://localhost:8081"
 export const SMARTAI_GOVERNANCE_URL = `${SMARTAI_GATEWAY_URL}/gateway/governance-service`
 export const SMARTAI_PROJECT_CONFIG_URL = `${SMARTAI_GATEWAY_URL}/gateway/project-config-service`
 // Direct to COGNI backend for now (TODO: route through gateway with JWT auth)
-export const SMARTAI_COGNI_URL = "http://localhost:8001"
-// Dashboard runs on port 3080 (production) or 3000 (local)
-export const SMARTAI_DASHBOARD_URL = (() => {
-  const url = new URL(SMARTAI_GATEWAY_URL)
-  url.port = url.port === "9081" ? "3080" : "3000"
-  return url.origin
-})()
+export const SMARTAI_COGNI_URL = "http://localhost:3000/cogni"
+// Dashboard URL
+export const SMARTAI_DASHBOARD_URL = "http://localhost:3080"
 
 // ── Default model (keep in sync with package.json kilo-code.new.model.modelID default) ──
 export const DEFAULT_MODEL_ID = "OrqentAI/Auto"

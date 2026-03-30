@@ -6,6 +6,18 @@ import { buildKiloHeaders, DEFAULT_HEADERS } from "./headers.js"
 import { KILO_API_BASE, ANONYMOUS_API_KEY } from "./api/constants.js"
 
 /**
+ * Tracks the last model fallback that occurred due to rate limiting.
+ * Read-once: calling getLastFallback() clears the stored value.
+ */
+let _lastFallback: { requested: string; actual: string } | null = null
+
+export function getLastFallback(): { requested: string; actual: string } | null {
+  const fb = _lastFallback
+  _lastFallback = null
+  return fb
+}
+
+/**
  * Create a KiloCode provider instance
  *
  * This provider wraps the OpenRouter SDK with KiloCode-specific configuration
@@ -60,10 +72,22 @@ export function createKilo(options: KiloProviderOptions = {}): SDK {
       headers.set("Authorization", `Bearer ${apiKey}`)
     }
 
-    return originalFetch(input, {
+    const response = await originalFetch(input, {
       ...init,
       headers,
     })
+
+    // Detect model fallback from SmartAI governance service
+    const fallbackHeader = response.headers.get("x-model-fallback")
+    if (fallbackHeader === "true") {
+      const requested = response.headers.get("x-model-requested") ?? ""
+      const actual = response.headers.get("x-model-used") ?? ""
+      if (requested && actual && requested !== actual) {
+        _lastFallback = { requested, actual }
+      }
+    }
+
+    return response
   }
 
   // Create OpenRouter provider with KiloCode configuration

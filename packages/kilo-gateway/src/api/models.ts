@@ -119,6 +119,20 @@ export async function fetchKiloModels(options?: {
       models[model.id] = transformedModel
     }
 
+    // kilocode_change - inject virtual "OrqentAI/Auto" model for auto-resolution
+    models["OrqentAI/Auto"] = {
+      id: "OrqentAI/Auto",
+      name: "Auto",
+      family: "orqentai",
+      release_date: new Date().toISOString().split("T")[0],
+      attachment: false,
+      reasoning: false,
+      temperature: true,
+      tool_call: true,
+      cost: { input: 0, output: 0 },
+      limit: { context: 262144, input: 262144, output: 8192 },
+    }
+
     return models
   } catch (error) {
     console.error("Error fetching Kilo models:", error)

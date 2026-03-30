@@ -16,6 +16,7 @@ import { SessionCompaction } from "./compaction"
 import { PermissionNext } from "@/permission/next"
 import { Question } from "@/question"
 import { Telemetry } from "@kilocode/kilo-telemetry" // kilocode_change
+import { getLastFallback } from "@kilocode/kilo-gateway" // kilocode_change - model fallback detection
 
 export namespace SessionProcessor {
   const DOOM_LOOP_THRESHOLD = 3
@@ -268,6 +269,16 @@ export namespace SessionProcessor {
                       cost: usage.cost,
                       completionTime: Math.round(performance.now() - stepStart),
                     })
+                  }
+                  // kilocode_change end
+                  // kilocode_change start - detect model fallback from SmartAI governance
+                  const fallback = getLastFallback()
+                  if (fallback) {
+                    log.info("model fallback detected", {
+                      requested: fallback.requested,
+                      actual: fallback.actual,
+                    })
+                    input.assistantMessage.modelID = fallback.actual
                   }
                   // kilocode_change end
                   input.assistantMessage.finish = value.finishReason
