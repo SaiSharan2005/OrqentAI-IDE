@@ -29,6 +29,7 @@ import { MessageV2 } from "../../session/message-v2"
 import { SessionPrompt } from "@/session/prompt"
 import { KILO_API_BASE } from "@kilocode/kilo-gateway" // kilocode_change
 import { $ } from "bun"
+import { setTimeout as sleep } from "node:timers/promises"
 
 type GitHubAuthor = {
   login: string
@@ -241,8 +242,6 @@ export const GithubInstallCommand = cmd({
                 step2,
                 "",
                 "    3. Go to a GitHub issue and comment `/kilo summarize` to see the agent in action", // kilocode_change
-                "",
-                "   Learn more about the GitHub agent - https://kilo.ai/docs/github/#usage-examples", // kilocode_change
               ].join("\n"),
             )
           }
@@ -354,7 +353,7 @@ export const GithubInstallCommand = cmd({
               }
 
               retries++
-              await Bun.sleep(1000)
+              await sleep(1000)
             } while (true)
 
             s.stop("Installed GitHub app")
@@ -1385,7 +1384,7 @@ Co-authored-by: ${actor} <${actor}@users.noreply.github.com>"`
         } catch (e) {
           if (retries > 0) {
             console.log(`Retrying after ${delayMs}ms...`)
-            await Bun.sleep(delayMs)
+            await sleep(delayMs)
             return withRetry(fn, retries - 1, delayMs)
           }
           throw e

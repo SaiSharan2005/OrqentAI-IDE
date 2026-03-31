@@ -7,11 +7,13 @@
 
 import { fetchProfile, fetchBalance } from "../api/profile.js"
 import { fetchKilocodeNotifications, KilocodeNotificationSchema } from "../api/notifications.js"
+import { fetchOrganizationModes, clearModesCache } from "../api/modes.js"
 import { KILO_API_BASE, HEADER_FEATURE } from "../api/constants.js"
 import { fetchProjectMcpConfig } from "../api/project-mcp.js"
 import { fetchProjectAgents } from "../api/project-agents.js"
 import { fetchProjectRules } from "../api/project-rules.js"
 import { fetchProjectWorkflows } from "../api/project-workflows.js"
+import { fetchCogniStatus, cogniRawIngest } from "../api/cogni.js"
 import { buildKiloHeaders } from "../headers.js"
 import type { ImportDeps, DrizzleDb } from "../cloud-sessions.js"
 import { fetchCloudSession, fetchCloudSessionForImport, importSessionToDb } from "../cloud-sessions.js"
@@ -23,6 +25,7 @@ type Validator = any
 type Resolver = any
 type Errors = any
 type Auth = any
+type ModelCache = { clear: (providerID: string) => void }
 type Z = any
 
 interface KiloRoutesDeps extends ImportDeps {
@@ -32,6 +35,7 @@ interface KiloRoutesDeps extends ImportDeps {
   resolver: Resolver
   errors: Errors
   Auth: Auth
+  ModelCache: ModelCache
   z: Z
 }
 
@@ -76,6 +80,7 @@ export function createKiloRoutes(deps: KiloRoutesDeps) {
     Bus,
     SessionCreatedEvent,
     Identifier,
+    ModelCache,
   } = deps
 
   const Organization = z.object({
@@ -108,6 +113,27 @@ export function createKiloRoutes(deps: KiloRoutesDeps) {
     profile: Profile,
     balance: Balance.nullable(),
     currentOrgId: z.string().nullable(),
+  })
+
+  const FimStreamChunk = z.object({
+    choices: z
+      .array(
+        z.object({
+          delta: z
+            .object({
+              content: z.string().optional(),
+            })
+            .optional(),
+        }),
+      )
+      .optional(),
+    usage: z
+      .object({
+        prompt_tokens: z.number().optional(),
+        completion_tokens: z.number().optional(),
+      })
+      .optional(),
+    cost: z.number().optional(),
   })
 
   return new Hono()
@@ -193,7 +219,83 @@ export function createKiloRoutes(deps: KiloRoutesDeps) {
           ...(organizationId && { accountId: organizationId }),
         })
 
+        ModelCache.clear("kilo")
+        clearModesCache()
+
         return c.json(true)
+      },
+    )
+    .get(
+      "/modes",
+      describeRoute({
+        summary: "Get organization custom modes",
+        description: "Fetch custom modes defined for the current organization",
+        operationId: "kilo.modes",
+        responses: {
+          200: {
+            description: "Organization modes list",
+            content: {
+              "application/json": {
+                schema: resolver(
+                  z.object({
+                    modes: z.array(
+                      z.object({
+                        id: z.string(),
+                        organization_id: z.string(),
+                        name: z.string(),
+                        slug: z.string(),
+                        created_by: z.string(),
+                        created_at: z.string(),
+                        updated_at: z.string(),
+                        config: z.object({
+                          roleDefinition: z.string().optional(),
+                          whenToUse: z.string().optional(),
+                          description: z.string().optional(),
+                          customInstructions: z.string().optional(),
+                          groups: z
+                            .array(
+                              z.union([
+                                z.string(),
+                                z.tuple([
+                                  z.string(),
+                                  z.object({ fileRegex: z.string().optional(), description: z.string().optional() }),
+                                ]),
+                              ]),
+                            )
+                            .optional(),
+                        }),
+                      }),
+                    ),
+                  }),
+                ),
+              },
+            },
+          },
+        },
+      }),
+      async (c: any) => {
+        const auth = await Auth.get("kilo")
+
+        if (!auth || auth.type !== "oauth") {
+          return c.json({ modes: [] })
+        }
+
+        const token = auth.access
+        if (!token) {
+          return c.json({ modes: [] })
+        }
+
+        const orgId = auth.accountId
+        if (!orgId) {
+          return c.json({ modes: [] })
+        }
+
+        try {
+          const modes = await fetchOrganizationModes(token, orgId)
+          return c.json({ modes })
+        } catch {
+          return c.json({ modes: [] })
+        }
       },
     )
     .post(
@@ -207,7 +309,7 @@ export function createKiloRoutes(deps: KiloRoutesDeps) {
             description: "Streaming FIM completion response",
             content: {
               "text/event-stream": {
-                schema: resolver(z.any()),
+                schema: resolver(FimStreamChunk),
               },
             },
           },
@@ -247,10 +349,10 @@ export function createKiloRoutes(deps: KiloRoutesDeps) {
         const endpoint = new URL("fim/completions", baseApiUrl)
 
         const headers = {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-            ...buildKiloHeaders(undefined, { kilocodeOrganizationId: organizationId }),
-            [HEADER_FEATURE]: "autocomplete",
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+          ...buildKiloHeaders(undefined, { kilocodeOrganizationId: organizationId }),
+          [HEADER_FEATURE]: "autocomplete",
         }
 
         const response = await fetch(endpoint, {
@@ -675,6 +777,72 @@ export function createKiloRoutes(deps: KiloRoutesDeps) {
         } catch (err: any) {
           console.error("[Kilo Gateway] cloud-sessions: unhandled error", err?.message ?? err)
           return c.json({ error: "Internal error" }, 500)
+        }
+      },
+    )
+    // ── COGNI Knowledge Graph routes ──────────────────────────────────
+    .get(
+      "/cogni/status/:companyId/:projectId",
+      describeRoute({
+        summary: "Get COGNI status",
+        description: "Fetch COGNI knowledge graph status for a project",
+        operationId: "kilo.cogni.status",
+        responses: {
+          200: {
+            description: "COGNI status",
+            content: { "application/json": { schema: resolver(z.object({}).passthrough()) } },
+          },
+          ...errors(401, 500),
+        },
+      }),
+      validator("param", z.object({ companyId: z.string(), projectId: z.string() })),
+      async (c: any) => {
+        try {
+          const auth = await Auth.get("kilo")
+          if (!auth) return c.json({ error: "Not authenticated with Kilo Gateway" }, 401)
+
+          const token = auth.type === "api" ? auth.key : auth.type === "oauth" ? auth.access : undefined
+          if (!token) return c.json({ error: "No valid token found" }, 401)
+
+          const { companyId, projectId } = c.req.valid("param")
+          const status = await fetchCogniStatus(token, companyId, projectId)
+          return c.json(status)
+        } catch (err: any) {
+          console.error("[Kilo Gateway] cogni/status: error", err?.message ?? err)
+          return c.json({ error: "Failed to fetch COGNI status" }, 500)
+        }
+      },
+    )
+    .post(
+      "/cogni/ingest/raw/:companyId/:projectId",
+      describeRoute({
+        summary: "Ingest raw files into COGNI",
+        description: "Send raw source files to COGNI for knowledge graph ingestion",
+        operationId: "kilo.cogni.ingest.raw",
+        responses: {
+          200: {
+            description: "Ingest result",
+            content: { "application/json": { schema: resolver(z.object({}).passthrough()) } },
+          },
+          ...errors(401, 500),
+        },
+      }),
+      validator("param", z.object({ companyId: z.string(), projectId: z.string() })),
+      async (c: any) => {
+        try {
+          const auth = await Auth.get("kilo")
+          if (!auth) return c.json({ error: "Not authenticated with Kilo Gateway" }, 401)
+
+          const token = auth.type === "api" ? auth.key : auth.type === "oauth" ? auth.access : undefined
+          if (!token) return c.json({ error: "No valid token found" }, 401)
+
+          const { companyId, projectId } = c.req.valid("param")
+          const rawBody = await c.req.text()
+          const result = await cogniRawIngest(token, companyId, projectId, rawBody)
+          return c.json(result)
+        } catch (err: any) {
+          console.error("[Kilo Gateway] cogni/ingest: error", err?.message ?? err)
+          return c.json({ error: "Failed to ingest into COGNI" }, 500)
         }
       },
     )

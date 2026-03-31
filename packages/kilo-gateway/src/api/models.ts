@@ -1,7 +1,23 @@
 import { z } from "zod"
 import { getKiloUrlFromToken } from "../auth/token.js"
 import { DEFAULT_HEADERS } from "../headers.js"
-import { KILO_API_BASE, KILO_OPENROUTER_BASE, MODELS_FETCH_TIMEOUT_MS } from "./constants.js"
+import { KILO_API_BASE, KILO_OPENROUTER_BASE, MODELS_FETCH_TIMEOUT_MS, PROMPTS, AI_SDK_PROVIDERS, DEFAULT_MODEL, DEFAULT_FREE_MODEL } from "./constants.js"
+
+/** Static virtual models for auto-resolution — allocated once at module load. */
+const AUTO_MODEL_BASE = {
+  family: "orqentai",
+  release_date: new Date().toISOString().split("T")[0],
+  attachment: false,
+  reasoning: false,
+  temperature: true,
+  tool_call: true,
+  cost: { input: 0, output: 0 },
+  limit: { context: 262144, input: 262144, output: 8192 },
+}
+const AUTO_MODELS: Record<string, any> = {
+  [DEFAULT_MODEL]: { ...AUTO_MODEL_BASE, id: DEFAULT_MODEL, name: "Auto" },
+  [DEFAULT_FREE_MODEL]: { ...AUTO_MODEL_BASE, id: DEFAULT_FREE_MODEL, name: "Auto (Free)", isFree: true },
+}
 
 /**
  * OpenRouter model schema
@@ -30,14 +46,13 @@ const openRouterModelSchema = z.object({
   top_provider: z.object({ max_completion_tokens: z.number().nullish() }).optional(),
   supported_parameters: z.array(z.string()).optional(),
   preferredIndex: z.number().optional(),
+  isFree: z.boolean().optional(),
   opencode: z
     .object({
       family: z.string().optional(),
-      prompt: z
-        .enum(["codex", "gemini", "beast", "anthropic", "trinity", "anthropic_without_todo"])
-        .optional()
-        .catch(undefined),
+      prompt: z.enum(PROMPTS).optional().catch(undefined),
       variants: z.record(z.string(), z.record(z.string(), z.any())).optional(),
+      ai_sdk_provider: z.enum(AI_SDK_PROVIDERS).optional().catch(undefined),
     })
     .optional(),
 })
@@ -49,12 +64,15 @@ const openRouterModelsResponseSchema = z.object({
 type OpenRouterModel = z.infer<typeof openRouterModelSchema>
 
 /**
- * Parse API price string to number (e.g. "0.00001" -> 0.00001)
+ * Parse API price string to number, converting from per-token to per-million-tokens.
+ * The API returns prices in $/token, but downstream cost calculation (getUsage)
+ * divides by 1,000,000 expecting $/M tokens.
  */
 function parseApiPrice(price: string | null | undefined): number | undefined {
   if (!price) return undefined
   const parsed = parseFloat(price)
-  return isNaN(parsed) ? undefined : parsed
+  if (isNaN(parsed)) return undefined
+  return parsed * 1_000_000 // Convert $/token → $/M tokens
 }
 
 /**
@@ -119,19 +137,7 @@ export async function fetchKiloModels(options?: {
       models[model.id] = transformedModel
     }
 
-    // kilocode_change - inject virtual "OrqentAI/Auto" model for auto-resolution
-    models["OrqentAI/Auto"] = {
-      id: "OrqentAI/Auto",
-      name: "Auto",
-      family: "orqentai",
-      release_date: new Date().toISOString().split("T")[0],
-      attachment: false,
-      reasoning: false,
-      temperature: true,
-      tool_call: true,
-      cost: { input: 0, output: 0 },
-      limit: { context: 262144, input: 262144, output: 8192 },
-    }
+    Object.assign(models, AUTO_MODELS)
 
     return models
   } catch (error) {
@@ -175,7 +181,9 @@ function transformToModelDevFormat(model: OpenRouterModel): any {
     recommendedIndex: model.preferredIndex,
     variants: model.opencode?.variants,
     prompt: model.opencode?.prompt,
+    ai_sdk_provider: model.opencode?.ai_sdk_provider,
     tool_call: supportsTools,
+    isFree: model.isFree,
     ...(inputPrice !== undefined &&
       outputPrice !== undefined && {
         cost: {

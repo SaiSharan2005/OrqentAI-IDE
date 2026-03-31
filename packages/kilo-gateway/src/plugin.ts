@@ -45,7 +45,7 @@ export const KiloAuthPlugin: Plugin = async (ctx) => {
       methods: [
         {
           type: "oauth",
-          label: "Kilo Gateway (Device Authorization)",
+          label: "OrqentAI Gateway (Device Authorization)",
           async authorize() {
             // Use the TUI-compatible version that returns immediately
             // This works with both TUI dialogs and Web UI

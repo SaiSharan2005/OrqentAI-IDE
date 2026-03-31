@@ -9,7 +9,7 @@ export const dict = {
   "kilocode:autocomplete.statusBar.tooltip.noCredits":
     "**Hesabınızda kredi yok**\n\nOrqentAI hesabınızda kredi bulunmuyor. Otomatik tamamlamayı kullanmak için lütfen hesabınıza kredi ekleyin.\n\n[Ayarları Aç](command:kilo-code.settingsButtonClicked)",
   "kilocode:autocomplete.statusBar.tooltip.noUsableProvider":
-    "**Otomatik tamamlama modeli yapılandırılmadı**\n\nOtomatik tamamlamayı etkinleştirmek için desteklenen sağlayıcılardan biriyle bir profil ekleyin: {{providers}}.\n\n[Ayarları Aç](command:kilo-code.settingsButtonClicked)",
+    "**Otomatik tamamlama modeli yapılandırılmadı**\n\nOtomatik tamamlamayı etkinleştirmek için desteklenen sağlayıcılardan biriyle bir profil ekleyin: {{providers}}.\n\n[Ayarları Aç]({{command}})",
   "kilocode:autocomplete.statusBar.tooltip.sessionTotal": "Oturum toplam maliyeti:",
   "kilocode:autocomplete.statusBar.tooltip.provider": "Sağlayıcı:",
   "kilocode:autocomplete.statusBar.tooltip.model": "Model:",
@@ -44,4 +44,9 @@ export const dict = {
     "OrqentAI Autocomplete, GitHub Copilot ile bir çakışma nedeniyle engelleniyor. Bunu düzeltmek için Copilot'un satır içi önerilerini devre dışı bırakmalısın.",
   "kilocode:autocomplete.incompatibilityExtensionPopup.disableCopilot": "Copilot'u Devre Dışı Bırak",
   "kilocode:autocomplete.incompatibilityExtensionPopup.disableInlineAssist": "Autocomplete'i Devre Dışı Bırak",
+  "kilocode:autocomplete.creditsExhausted.message":
+    "Hesabında kalan kredin olmadığı için Kilo Code Autocomplete duraklatıldı. Otomatik tamamlamayı sürdürmek için kredi ekle.",
+  "kilocode:autocomplete.creditsExhausted.addCredits": "Kredi Ekle",
+  "kilocode:autocomplete.authError.message":
+    "Bir kimlik doğrulama hatası nedeniyle Kilo Code Autocomplete duraklatıldı. Lütfen tekrar giriş yap.",
 }

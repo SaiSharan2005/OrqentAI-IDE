@@ -1,4 +1,5 @@
-// nl runtime translations for autocomplete
+// Dutch runtime translations for autocomplete (kilocode:autocomplete.* namespace)
+// Source: src/i18n/locales/nl/kilocode.json → "autocomplete" section
 
 export const dict = {
   "kilocode:autocomplete.statusBar.enabled": "$(kilo-logo) Autocomplete",
@@ -9,14 +10,14 @@ export const dict = {
   "kilocode:autocomplete.statusBar.tooltip.noCredits":
     "**Geen tegoed op je account**\n\nJe OrqentAI account heeft geen tegoed. Om autocomplete te gebruiken, voeg tegoed toe aan je account.\n\n[Instellingen openen](command:kilo-code.settingsButtonClicked)",
   "kilocode:autocomplete.statusBar.tooltip.noUsableProvider":
-    "**Geen autocomplete model geconfigureerd**\n\nOm autocomplete in te schakelen, voeg een profiel toe met een van deze ondersteunde providers: {{providers}}.\n\n[Instellingen openen](command:kilo-code.settingsButtonClicked)",
+    "**Geen autocomplete-model geconfigureerd**\n\nVoeg een profiel toe met een van deze ondersteunde providers om autocomplete in te schakelen: {{providers}}.\n\n[Instellingen openen]({{command}})",
   "kilocode:autocomplete.statusBar.tooltip.sessionTotal": "Totale sessiekosten:",
   "kilocode:autocomplete.statusBar.tooltip.provider": "Provider:",
   "kilocode:autocomplete.statusBar.tooltip.model": "Model:",
   "kilocode:autocomplete.statusBar.tooltip.profile": "Profiel: ",
   "kilocode:autocomplete.statusBar.tooltip.defaultProfile": "Standaard",
   "kilocode:autocomplete.statusBar.tooltip.completionSummary":
-    "{{count}} voltooiingen uitgevoerd tussen {{startTime}} en {{endTime}}, voor een totale kostprijs van {{cost}}.",
+    "{{count}} aanvullingen uitgevoerd tussen {{startTime}} en {{endTime}}, voor totale kosten van {{cost}}.",
   "kilocode:autocomplete.statusBar.tooltip.providerInfo":
     "Automatische aanvullingen geleverd door {{model}} via {{provider}}.",
   "kilocode:autocomplete.statusBar.cost.zero": "$0.00",

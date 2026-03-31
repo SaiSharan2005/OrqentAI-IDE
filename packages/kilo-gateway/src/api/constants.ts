@@ -19,10 +19,10 @@ export const KILO_OPENROUTER_BASE = `${KILO_API_BASE}/api/openrouter`
 export const POLL_INTERVAL_MS = 3000
 
 /** Default model for authenticated users */
-export const DEFAULT_MODEL = "smartAI/Auto"
+export const DEFAULT_MODEL = "OrqentAI/Auto"
 
 /** Default model for anonymous/free usage */
-export const DEFAULT_FREE_MODEL = "smartAI/Auto-free"
+export const DEFAULT_FREE_MODEL = "OrqentAI/Auto-free"
 
 /** Token expiration duration in milliseconds (1 year) */
 export const TOKEN_EXPIRATION_MS = 365 * 24 * 60 * 60 * 1000
@@ -58,16 +58,23 @@ export const DEFAULT_EDITOR_NAME = "Kilo CLI"
 /** Environment variable name for custom editor name */
 export const ENV_EDITOR_NAME = "KILOCODE_EDITOR_NAME"
 
+/** Environment variable name for version (set by CLI at startup) */
+export const ENV_VERSION = "KILOCODE_VERSION"
+
 /** Tester header value for suppressing warnings */
 export const TESTER_SUPPRESS_VALUE = "SUPPRESS"
 
 /** Base URL for Projects-configuration service — overridden by PROJECTS_API_BASE env var from server-manager */
 export const PROJECTS_API_BASE = process.env.PROJECTS_API_BASE ?? "http://localhost:8081/gateway/project-config-service"
-
-// kilocode_change start
 /** Header name for feature tracking */
 export const HEADER_FEATURE = "X-KILOCODE-FEATURE"
 
 /** Environment variable name for feature override */
 export const ENV_FEATURE = "KILOCODE_FEATURE"
-// kilocode_change end
+
+/** Base URL for COGNI Knowledge Graph service */
+export const COGNI_API_BASE = process.env.COGNI_API_BASE ?? "http://localhost:8001"
+
+export const PROMPTS = ["codex", "gemini", "beast", "anthropic", "trinity", "anthropic_without_todo"] as const
+
+export const AI_SDK_PROVIDERS = ["anthropic", "openai", "openai-compatible", "openrouter"] as const

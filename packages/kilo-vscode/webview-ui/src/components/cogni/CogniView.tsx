@@ -223,7 +223,7 @@ export const CogniView: Component<CogniViewProps> = (props) => {
               <For each={status()!.services}>
                 {(s) => (
                   <div style={serviceCardStyle}>
-                    <span style={{ fontWeight: 500 }}>{s.name}</span>
+                    <span style={{ "font-weight": "500" }}>{s.name}</span>
                     <span style={badgeStyle}>{s.file_count} files</span>
                   </div>
                 )}
@@ -343,8 +343,8 @@ export const CogniView: Component<CogniViewProps> = (props) => {
 
 const StatCard: Component<{ label: string; value: number }> = (props) => (
   <div style={statCardStyle}>
-    <div style={{ "font-size": "18px", "font-weight": "600", color: "var(--vscode-foreground)" }}>{props.value}</div>
-    <div style={{ "font-size": "11px", color: "var(--vscode-descriptionForeground)" }}>{props.label}</div>
+    <div style={{ "font-size": "22px", "font-weight": "700", color: "var(--vscode-editor-foreground)" }}>{props.value}</div>
+    <div style={{ "font-size": "11px", color: "var(--vscode-descriptionForeground)", "margin-top": "2px" }}>{props.label}</div>
   </div>
 )
 
@@ -469,7 +469,7 @@ const serviceCardStyle: Record<string, string> = {
 
 const badgeStyle: Record<string, string> = {
   "font-size": "11px",
-  color: "var(--vscode-descriptionForeground)",
+  color: "var(--vscode-badge-foreground)",
   padding: "2px 6px",
   background: "var(--vscode-badge-background)",
   "border-radius": "10px",

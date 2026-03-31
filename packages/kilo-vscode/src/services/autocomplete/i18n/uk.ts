@@ -9,7 +9,7 @@ export const dict = {
   "kilocode:autocomplete.statusBar.tooltip.noCredits":
     "**На вашому рахунку немає кредитів**\n\nНа вашому рахунку OrqentAI немає кредитів. Щоб використовувати автодоповнення, будь ласка, поповніть рахунок.\n\n[Відкрити Налаштування](command:kilo-code.settingsButtonClicked)",
   "kilocode:autocomplete.statusBar.tooltip.noUsableProvider":
-    "**Модель автодоповнення не налаштована**\n\nЩоб увімкнути автодоповнення, додайте профіль з одним із підтримуваних провайдерів: {{providers}}.\n\n[Відкрити Налаштування](command:kilo-code.settingsButtonClicked)",
+    "**Модель автодоповнення не налаштована**\n\nЩоб увімкнути автодоповнення, додайте профіль з одним із підтримуваних провайдерів: {{providers}}.\n\n[Відкрити Налаштування]({{command}})",
   "kilocode:autocomplete.statusBar.tooltip.sessionTotal": "Загальна вартість сесії:",
   "kilocode:autocomplete.statusBar.tooltip.provider": "Провайдер:",
   "kilocode:autocomplete.statusBar.tooltip.model": "Модель:",
@@ -43,4 +43,9 @@ export const dict = {
     "OrqentAI Autocomplete блокується конфліктом з GitHub Copilot. Щоб виправити це, ти повинен вимкнути вбудовані пропозиції Copilot.",
   "kilocode:autocomplete.incompatibilityExtensionPopup.disableCopilot": "Вимкнути Copilot",
   "kilocode:autocomplete.incompatibilityExtensionPopup.disableInlineAssist": "Вимкнути Autocomplete",
+  "kilocode:autocomplete.creditsExhausted.message":
+    "Kilo Code Autocomplete призупинено, оскільки на твоєму обліковому записі не залишилося кредитів. Додай кредити, щоб відновити автодоповнення.",
+  "kilocode:autocomplete.creditsExhausted.addCredits": "Додати кредити",
+  "kilocode:autocomplete.authError.message":
+    "Kilo Code Autocomplete призупинено через помилку автентифікації. Будь ласка, увійди знову.",
 }

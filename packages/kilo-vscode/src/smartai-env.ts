@@ -14,8 +14,6 @@ export const SMARTAI_GATEWAY_URL = "http://localhost:8081"
 // ── Derived URLs (do not edit) ──
 export const SMARTAI_GOVERNANCE_URL = `${SMARTAI_GATEWAY_URL}/gateway/governance-service`
 export const SMARTAI_PROJECT_CONFIG_URL = `${SMARTAI_GATEWAY_URL}/gateway/project-config-service`
-// Direct to COGNI backend for now (TODO: route through gateway with JWT auth)
-export const SMARTAI_COGNI_URL = "http://localhost:3000/cogni"
 // Dashboard URL
 export const SMARTAI_DASHBOARD_URL = "http://localhost:3080"
 

@@ -9,7 +9,7 @@ export { KiloAuthPlugin, default } from "./plugin.js"
 export { createKilo, getLastFallback } from "./provider.js"
 export { createKiloDebug } from "./provider-debug.js"
 export { kiloCustomLoader } from "./loader.js"
-export { buildKiloHeaders, getEditorNameHeader, getFeatureHeader, DEFAULT_HEADERS } from "./headers.js" // kilocode_change - added getFeatureHeader
+export { buildKiloHeaders, getEditorNameHeader, getFeatureHeader, DEFAULT_HEADERS } from "./headers.js"
 
 // ============================================================================
 // Auth
@@ -34,6 +34,12 @@ export {
   promptOrganizationSelection,
 } from "./api/profile.js"
 export { fetchKiloModels } from "./api/models.js"
+export {
+  fetchOrganizationModes,
+  clearModesCache,
+  type OrganizationMode,
+  type OrganizationModeConfig,
+} from "./api/modes.js"
 export { fetchKilocodeNotifications, type KilocodeNotification } from "./api/notifications.js"
 
 // ============================================================================
@@ -60,6 +66,7 @@ export type {
   PollOptions,
   PollResult,
   // Provider types
+  KiloProvider,
   KiloProviderOptions,
   KiloMetadata,
   CustomLoaderResult,
@@ -93,6 +100,9 @@ export {
   HEADER_FEATURE,
   DEFAULT_EDITOR_NAME,
   ENV_EDITOR_NAME,
+  ENV_VERSION,
   TESTER_SUPPRESS_VALUE,
   ENV_FEATURE,
+  PROMPTS,
+  AI_SDK_PROVIDERS,
 } from "./api/constants.js"
