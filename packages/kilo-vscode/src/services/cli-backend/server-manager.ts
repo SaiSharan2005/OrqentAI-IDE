@@ -6,7 +6,7 @@ import * as path from "path"
 import * as vscode from "vscode"
 import { t } from "./i18n"
 import { parseServerPort } from "./server-utils"
-import { SMARTAI_GOVERNANCE_URL, SMARTAI_PROJECT_CONFIG_URL } from "../../smartai-env.js"
+import { getGovernanceUrl, getProjectConfigUrl, getCogniUrl } from "../../smartai-env.js"
 
 export interface ServerInstance {
   port: number
@@ -81,8 +81,9 @@ export class ServerManager {
           KILO_MACHINE_ID: vscode.env.machineId,
           KILO_APP_VERSION: this.context.extension.packageJSON.version,
           KILO_VSCODE_VERSION: vscode.version,
-          KILO_API_URL: SMARTAI_GOVERNANCE_URL,
-          PROJECTS_API_BASE: SMARTAI_PROJECT_CONFIG_URL,
+          KILO_API_URL: getGovernanceUrl(),
+          PROJECTS_API_BASE: getProjectConfigUrl(),
+          COGNI_API_BASE: getCogniUrl(),
         },
         stdio: ["ignore", "pipe", "pipe"],
         detached: true,

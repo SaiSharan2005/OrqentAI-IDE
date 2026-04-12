@@ -1,21 +1,40 @@
 /**
  * OrqentAI Environment Configuration
  *
- * Change these URLs to switch between local and production.
- * This is the ONLY file you need to edit when switching environments.
+ * Production URL is the default. For local development, set the
+ * environment variable ORQENTAI_GATEWAY_URL before launching VS Code:
+ *
+ *   ORQENTAI_GATEWAY_URL=http://localhost:8081 code .
  */
 
-// ── Production (uncomment below, comment local) ──
-// export const SMARTAI_GATEWAY_URL = "http://18.60.129.9:9081"
+// ── Production (default) ──
+const PRODUCTION_GATEWAY_URL = "http://18.60.129.9:9081"
 
-// ── Local ──
-export const SMARTAI_GATEWAY_URL = "http://localhost:8081"
+// ── Gateway URL (env var override for local dev) ──
+const GATEWAY_URL = process.env.ORQENTAI_GATEWAY_URL || PRODUCTION_GATEWAY_URL
 
-// ── Derived URLs (do not edit) ──
-export const SMARTAI_GOVERNANCE_URL = `${SMARTAI_GATEWAY_URL}/gateway/governance-service`
-export const SMARTAI_PROJECT_CONFIG_URL = `${SMARTAI_GATEWAY_URL}/gateway/project-config-service`
-// Dashboard URL
-export const SMARTAI_DASHBOARD_URL = "http://localhost:3080"
+export function getGatewayUrl(): string {
+  return GATEWAY_URL
+}
+
+export function getGovernanceUrl(): string {
+  return `${GATEWAY_URL}/gateway/governance-service`
+}
+
+export function getProjectConfigUrl(): string {
+  return `${GATEWAY_URL}/gateway/project-config-service`
+}
+
+export function getCogniUrl(): string {
+  return `${GATEWAY_URL}/gateway/cogni-service`
+}
+
+export function getDashboardUrl(): string {
+  if (GATEWAY_URL.includes("localhost")) {
+    return "http://localhost:3080"
+  }
+  return GATEWAY_URL.replace(/:\d+$/, ":3080")
+}
 
 // ── Default model (keep in sync with package.json kilo-code.new.model.modelID default) ──
 export const DEFAULT_MODEL_ID = "OrqentAI/Auto"

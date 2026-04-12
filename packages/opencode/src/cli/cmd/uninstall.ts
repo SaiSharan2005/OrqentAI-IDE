@@ -55,7 +55,7 @@ export const UninstallCommand = {
     UI.empty()
     UI.println(UI.logo("  "))
     UI.empty()
-    prompts.intro("Uninstall smartAI") // kilocode_change
+    prompts.intro("Uninstall OrqentAI") // kilocode_change
 
     const method = await Installation.method()
     prompts.log.info(`Installation method: ${method}`)
@@ -233,7 +233,7 @@ async function executeUninstall(method: Installation.Method, targets: RemovalTar
   }
 
   UI.empty()
-  prompts.log.success("Thank you for using smartAI!") // kilocode_change
+  prompts.log.success("Thank you for using OrqentAI!") // kilocode_change
 }
 
 async function getShellConfigFile(): Promise<string | null> {

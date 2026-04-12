@@ -1,7 +1,7 @@
 export const dict = {
-  // smartAI Gateway provider translations
+  // OrqentAI Gateway provider translations
   "provider.connect.kiloGateway.line1":
-    "smartAI Gateway zapewnia dostęp do wyselekcjonowanego zestawu niezawodnych, zoptymalizowanych modeli dla agentów kodowania.",
+    "OrqentAI Gateway zapewnia dostęp do wyselekcjonowanego zestawu niezawodnych, zoptymalizowanych modeli dla agentów kodowania.",
   "provider.connect.kiloGateway.line2":
     "Za pomocą jednego klucza API uzyskasz dostęp do modeli takich jak Claude, GPT, Gemini, GLM i innych.",
   "provider.connect.kiloGateway.visit.prefix": "Odwiedź ",

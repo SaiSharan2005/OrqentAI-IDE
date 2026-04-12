@@ -39,7 +39,7 @@ export const Default: Story = {
         <br />
         {`<link rel="manifest" href="/site.webmanifest">`}
         <br />
-        {`<meta name="apple-mobile-web-app-title" content="smartAI">`}
+        {`<meta name="apple-mobile-web-app-title" content="OrqentAI">`}
       </div>
     </div>
   ),

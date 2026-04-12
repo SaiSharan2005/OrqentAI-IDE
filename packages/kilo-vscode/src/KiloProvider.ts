@@ -37,7 +37,7 @@ import { applyProjectMcpConfigs, getCachedConfig, setCachedConfig } from "./serv
 import { applyProjectAgentConfigs } from "./services/cli-backend/agents-project-config"
 import { applyProjectRuleConfigs } from "./services/cli-backend/rules-project-config"
 import { applyProjectWorkflowConfigs } from "./services/cli-backend/workflows-project-config"
-import { SMARTAI_DASHBOARD_URL, DEFAULT_MODEL_ID } from "./smartai-env.js"
+import { getDashboardUrl, DEFAULT_MODEL_ID } from "./smartai-env.js"
 import ignore from "ignore"
 import * as fs from "fs/promises"
 import { join, relative, extname } from "path"
@@ -598,7 +598,7 @@ export class KiloProvider implements vscode.WebviewViewProvider, TelemetryProper
           }
           break
         case "openDashboard":
-          vscode.env.openExternal(vscode.Uri.parse(`${SMARTAI_DASHBOARD_URL}/profile`))
+          vscode.env.openExternal(vscode.Uri.parse(`${getDashboardUrl()}/profile`))
           break
         case "openSettingsPanel":
           vscode.commands.executeCommand("kilo-code.new.settingsButtonClicked", message.tab)

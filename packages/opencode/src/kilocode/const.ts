@@ -2,6 +2,6 @@ import { Installation } from "@/installation"
 
 export const DEFAULT_HEADERS = {
   "HTTP-Referer": "https://kilocode.ai",
-  "X-Title": "smartAI",
-  "User-Agent": `smartAI/${Installation.VERSION}`,
+  "X-Title": "OrqentAI",
+  "User-Agent": `OrqentAI/${Installation.VERSION}`,
 }

@@ -15,7 +15,7 @@ export const ContributingNav: NavSection[] = [
       },
       {
         href: "/contributing/cline-to-kilo-migration",
-        children: "Cline to smartAI Migration",
+        children: "Cline to OrqentAI Migration",
       },
     ],
   },

@@ -1,6 +1,6 @@
 export const dict = {
-  // smartAI Gateway provider translations
-  "provider.connect.kiloGateway.line1": "smartAI Gateway 為您提供一組精選的可靠優化模型，專為編碼代理設計。",
+  // OrqentAI Gateway provider translations
+  "provider.connect.kiloGateway.line1": "OrqentAI Gateway 為您提供一組精選的可靠優化模型，專為編碼代理設計。",
   "provider.connect.kiloGateway.line2": "只需一個 API 金鑰，您就可以使用 Claude、GPT、Gemini、GLM 等模型。",
   "provider.connect.kiloGateway.visit.prefix": "訪問 ",
   "provider.connect.kiloGateway.visit.link": "kilo.ai",

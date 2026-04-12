@@ -1,5 +1,5 @@
 // kilocode_change - new file
-// smartAI-specific translations and overrides
+// OrqentAI-specific translations and overrides
 // Keys here will override any matching keys from upstream translations
 export const dict = {
   // OrqentAI Gateway provider translations
@@ -16,7 +16,7 @@ export const dict = {
   "dialog.provider.kilo.note": "Access 500+ AI models",
 
   // Add any upstream overrides below this line
-  // Example: "some.upstream.key": "smartAI-specific override value",
+  // Example: "some.upstream.key": "OrqentAI-specific override value",
 
   // Reasoning block label
   "ui.permission.run": "Run",

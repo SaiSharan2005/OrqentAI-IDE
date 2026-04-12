@@ -1,7 +1,7 @@
 export const dict = {
-  // smartAI Gateway provider translations
+  // OrqentAI Gateway provider translations
   "provider.connect.kiloGateway.line1":
-    "smartAI Gateway omogućava pristup pažljivo odabranom skupu pouzdanih modela optimizovanih za rad sa agentima za kodiranje.",
+    "OrqentAI Gateway omogućava pristup pažljivo odabranom skupu pouzdanih modela optimizovanih za rad sa agentima za kodiranje.",
   "provider.connect.kiloGateway.line2":
     "Sa jednim API ključem dobijate pristup modelima kao što su Claude, GPT, Gemini, GLM i drugi.",
   "provider.connect.kiloGateway.visit.prefix": "Posjetite ",
@@ -15,7 +15,7 @@ export const dict = {
   // Desktop translations
   "desktop.menu.reloadWebview": "Ponovno učitavanje webview-a",
   "desktop.updater.installFailed.message": "Neuspjelo instaliranje ažuriranja",
-  "desktop.cli.installed.message": "CLI je instaliran u {{path}}\n\nRestartuj terminal da bi koristio komandu 'smartAI'.",
+  "desktop.cli.installed.message": "CLI je instaliran u {{path}}\n\nRestartuj terminal da bi koristio komandu 'OrqentAI'.",
 
   // Reasoning block label
   "ui.permission.run": "Pokreni",

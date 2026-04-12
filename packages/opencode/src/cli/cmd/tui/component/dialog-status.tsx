@@ -52,7 +52,7 @@ export function DialogStatus() {
         </text>
       </box>
       {/* kilocode_change start */}
-      <text fg={theme.textMuted}>smartAI v{Installation.VERSION}</text>
+      <text fg={theme.textMuted}>OrqentAI v{Installation.VERSION}</text>
       {/* kilocode_change end */}
       {/* kilocode_change start */}
       <box>

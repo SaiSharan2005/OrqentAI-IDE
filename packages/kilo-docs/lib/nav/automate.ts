@@ -19,7 +19,7 @@ export const AutomateNav: NavSection[] = [
     ],
   },
   {
-    title: "Extending smartAI",
+    title: "Extending OrqentAI",
     links: [
       { href: "/automate/extending/local-models", children: "Local Models" },
       {
@@ -37,7 +37,7 @@ export const AutomateNav: NavSection[] = [
           { href: "/automate/mcp/overview", children: "MCP Overview" },
           {
             href: "/automate/mcp/using-in-kilo-code",
-            children: "Using MCP in smartAI",
+            children: "Using MCP in OrqentAI",
           },
           { href: "/automate/mcp/using-in-cli", children: "Using MCP in CLI" },
           { href: "/automate/mcp/what-is-mcp", children: "What is MCP" },

@@ -296,7 +296,7 @@ export function Sidebar(props: { sessionID: string; overlay?: boolean }) {
                   </text>
                 </box>
                 {/* kilocode_change start */}
-                <text fg={theme.textMuted}>smartAI includes free models so you can start immediately.</text>
+                <text fg={theme.textMuted}>OrqentAI includes free models so you can start immediately.</text>
                 {/* kilocode_change end */}
                 <text fg={theme.textMuted}>
                   Connect from 75+ providers to use other models, including Claude, GPT, Gemini etc
@@ -316,7 +316,7 @@ export function Sidebar(props: { sessionID: string; overlay?: boolean }) {
           <text fg={theme.textMuted}>
             <span style={{ fg: theme.success }}>•</span>{" "}
             <span style={{ fg: theme.text }}>
-              <b>smartAI</b>
+              <b>OrqentAI</b>
             </span>{" "}
             <span>{Installation.VERSION}</span>
           </text>

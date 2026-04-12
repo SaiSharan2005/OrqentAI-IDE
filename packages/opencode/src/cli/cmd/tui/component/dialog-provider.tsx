@@ -242,7 +242,7 @@ function ApiMethod(props: ApiMethodProps) {
           <box gap={1}>
             {/* kilocode_change start */}
             <text fg={theme.textMuted}>
-              smartAI Gateway gives you access to all the best coding models at the cheapest prices with a single API key.
+              OrqentAI Gateway gives you access to all the best coding models at the cheapest prices with a single API key.
             </text>
             <text fg={theme.text}>
               Go to <span style={{ fg: theme.primary }}>http://localhost:8083</span> to get a key

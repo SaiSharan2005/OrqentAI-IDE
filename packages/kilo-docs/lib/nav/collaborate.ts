@@ -9,7 +9,7 @@ export const CollaborateNav: NavSection[] = [
     ],
   },
   {
-    title: "smartAI for Teams",
+    title: "OrqentAI for Teams",
     links: [
       { href: "/collaborate/teams/about-plans", children: "About Plans" },
       {

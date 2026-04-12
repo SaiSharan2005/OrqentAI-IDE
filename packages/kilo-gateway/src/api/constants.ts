@@ -72,8 +72,8 @@ export const HEADER_FEATURE = "X-KILOCODE-FEATURE"
 /** Environment variable name for feature override */
 export const ENV_FEATURE = "KILOCODE_FEATURE"
 
-/** Base URL for COGNI Knowledge Graph service */
-export const COGNI_API_BASE = process.env.COGNI_API_BASE ?? "http://localhost:8001"
+/** Base URL for COGNI Knowledge Graph service — routed through Auth Gateway */
+export const COGNI_API_BASE = process.env.COGNI_API_BASE ?? "http://localhost:8081/gateway/cogni-service"
 
 export const PROMPTS = ["codex", "gemini", "beast", "anthropic", "trinity", "anthropic_without_todo"] as const
 

@@ -1,7 +1,7 @@
 export const dict = {
-  // smartAI Gateway provider translations
+  // OrqentAI Gateway provider translations
   "provider.connect.kiloGateway.line1":
-    "smartAI Gateway ให้คุณเข้าถึงชุดโมเดลที่คัดสรรมาอย่างดีและเชื่อถือได้สำหรับตัวแทนเขียนโค้ด",
+    "OrqentAI Gateway ให้คุณเข้าถึงชุดโมเดลที่คัดสรรมาอย่างดีและเชื่อถือได้สำหรับตัวแทนเขียนโค้ด",
   "provider.connect.kiloGateway.line2":
     "ด้วย API key เดียว คุณจะสามารถเข้าถึงโมเดลต่างๆ เช่น Claude, GPT, Gemini, GLM และอื่นๆ",
   "provider.connect.kiloGateway.visit.prefix": "เยี่ยมชม ",

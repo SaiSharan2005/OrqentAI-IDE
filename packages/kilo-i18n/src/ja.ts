@@ -1,7 +1,7 @@
 export const dict = {
-  // smartAI Gateway provider translations
+  // OrqentAI Gateway provider translations
   "provider.connect.kiloGateway.line1":
-    "smartAI Gatewayは、コーディングエージェント向けに厳選された信頼性の高い最適化モデルへのアクセスを提供します。",
+    "OrqentAI Gatewayは、コーディングエージェント向けに厳選された信頼性の高い最適化モデルへのアクセスを提供します。",
   "provider.connect.kiloGateway.line2": "1つのAPIキーで、Claude、GPT、Gemini、GLMなどのモデルにアクセスできます。",
   "provider.connect.kiloGateway.visit.prefix": "",
   "provider.connect.kiloGateway.visit.link": "kilo.ai",

@@ -48,7 +48,7 @@ export function Tips(props: { tip?: string }) {
   )
 }
 
-// Curated tips for smartAI CLI
+// Curated tips for OrqentAI CLI
 const TIPS = [
   "Type {highlight}@{/highlight} followed by a filename to fuzzy search and attach files",
   "Start a message with {highlight}!{/highlight} to run shell commands directly (e.g., {highlight}!ls -la{/highlight})",
@@ -109,7 +109,7 @@ const TIPS = [
   "Use {highlight}kilo --continue{/highlight} to resume the last session",
   "Use {highlight}kilo run -f file.ts{/highlight} to attach files via CLI",
   "Use {highlight}--format json{/highlight} for machine-readable output in scripts",
-  "Run {highlight}kilo serve{/highlight} for headless API access to smartAI",
+  "Run {highlight}kilo serve{/highlight} for headless API access to OrqentAI",
   "Use {highlight}kilo run --attach{/highlight} to connect to a running server",
   "Run {highlight}kilo upgrade{/highlight} to update to the latest version",
   "Run {highlight}kilo auth list{/highlight} to see all configured providers",

@@ -21,11 +21,11 @@ export const Default: Story = {
     <Accordion collapsible defaultValue={["item-1"]}>
       <Accordion.Item value="item-1">
         <Accordion.Header>
-          <Accordion.Trigger>What is smartAI?</Accordion.Trigger>
+          <Accordion.Trigger>What is OrqentAI?</Accordion.Trigger>
         </Accordion.Header>
         <Accordion.Content>
           <div style={{ padding: "8px 16px" }}>
-            smartAI is an AI-powered coding assistant that helps you write, debug, and understand code.
+            OrqentAI is an AI-powered coding assistant that helps you write, debug, and understand code.
           </div>
         </Accordion.Content>
       </Accordion.Item>
@@ -35,7 +35,7 @@ export const Default: Story = {
         </Accordion.Header>
         <Accordion.Content>
           <div style={{ padding: "8px 16px" }}>
-            smartAI uses large language models to understand your codebase and provide intelligent suggestions.
+            OrqentAI uses large language models to understand your codebase and provide intelligent suggestions.
           </div>
         </Accordion.Content>
       </Accordion.Item>
@@ -45,7 +45,7 @@ export const Default: Story = {
         </Accordion.Header>
         <Accordion.Content>
           <div style={{ padding: "8px 16px" }}>
-            smartAI supports all major programming languages including TypeScript, Python, Go, Rust, and more.
+            OrqentAI supports all major programming languages including TypeScript, Python, Go, Rust, and more.
           </div>
         </Accordion.Content>
       </Accordion.Item>

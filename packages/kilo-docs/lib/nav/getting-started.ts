@@ -18,7 +18,7 @@ export const GettingStartedNav: NavSection[] = [
       },
       {
         href: "/getting-started/using-kilo-for-free",
-        children: "Using smartAI for Free",
+        children: "Using OrqentAI for Free",
       },
       {
         href: "/getting-started/byok",

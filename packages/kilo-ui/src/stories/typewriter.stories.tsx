@@ -25,7 +25,7 @@ export const Long: Story = {
 }
 
 export const AsHeading: Story = {
-  render: () => <Typewriter as="h2" text="Welcome to smartAI" />,
+  render: () => <Typewriter as="h2" text="Welcome to OrqentAI" />,
 }
 
 export const WithClass: Story = {

@@ -39,8 +39,8 @@ const preview: Preview = {
         title: "Theme",
         icon: "paintbrush",
         items: [
-          { value: "kilo", title: "smartAI" },
-          { value: "kilo-vscode", title: "smartAI VSCode" },
+          { value: "kilo", title: "OrqentAI" },
+          { value: "kilo-vscode", title: "OrqentAI VSCode" },
         ],
         dynamicTitle: true,
       },
