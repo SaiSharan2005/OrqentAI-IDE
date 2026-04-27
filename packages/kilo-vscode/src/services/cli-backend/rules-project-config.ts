@@ -6,6 +6,7 @@
 import * as fs from "fs"
 import * as path from "path"
 import type { ProjectRule, ProjectRuleResult } from "./types"
+import { assertConcreteVersion } from "./version-assert"
 
 export type { ProjectRule, ProjectRuleResult }
 
@@ -56,12 +57,15 @@ export async function applyProjectRuleConfigs(
       }
 
       try {
+        assertConcreteVersion("rule", rule.name, rule.version)
+
         const slug = slugify(rule.name)
         const filePath = path.join(rulesDir, `${slug}.md`)
 
         const lines: string[] = []
         lines.push("---")
         lines.push(`name: "${rule.name}"`)
+        lines.push(`version: "${rule.version}"`)
         if (rule.description) lines.push(`description: "${rule.description}"`)
         lines.push(`source: "${rule.source}"`)
         lines.push("---")

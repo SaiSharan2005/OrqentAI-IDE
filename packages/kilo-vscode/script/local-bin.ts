@@ -128,8 +128,10 @@ async function ensureBuiltBinary(): Promise<string> {
   }
 
   // Ensure dependencies are installed before building.
+  // ELECTRON_SKIP_BINARY_DOWNLOAD=1 prevents electron's postinstall from downloading
+  // its binary, which fails in local dev environments without network access to GitHub.
   log("Installing dependencies in opencode package...")
-  await $`bun install --frozen-lockfile`.cwd(opencodeDir)
+  await $`bun install --frozen-lockfile`.env({ ...process.env, ELECTRON_SKIP_BINARY_DOWNLOAD: "1" }).cwd(opencodeDir)
 
   // Build using the opencode package script.
   await $`bun run build --single`.cwd(opencodeDir)

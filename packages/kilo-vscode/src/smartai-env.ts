@@ -9,9 +9,10 @@
 
 // ── Production (default) ──
 const PRODUCTION_GATEWAY_URL = "http://18.60.129.9:9081"
+const LOCAL_GATEWAY_URL = "http://localhost:8081"
 
 // ── Gateway URL (env var override for local dev) ──
-const GATEWAY_URL = process.env.ORQENTAI_GATEWAY_URL || PRODUCTION_GATEWAY_URL
+const GATEWAY_URL = process.env.ORQENTAI_GATEWAY_URL || LOCAL_GATEWAY_URL
 
 export function getGatewayUrl(): string {
   return GATEWAY_URL

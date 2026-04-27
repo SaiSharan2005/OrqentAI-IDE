@@ -6,6 +6,7 @@
 import * as fs from "fs"
 import * as path from "path"
 import type { ProjectAgent, ProjectAgentResult } from "./types"
+import { assertConcreteVersion } from "./version-assert"
 
 export type { ProjectAgent, ProjectAgentResult }
 
@@ -25,8 +26,11 @@ function slugify(name: string): string {
  */
 function buildFrontmatter(agent: ProjectAgent): string {
   const lines: string[] = []
+  assertConcreteVersion("agent", agent.name, agent.version)
+
   lines.push("---")
   lines.push(`name: "${agent.name}"`)
+  lines.push(`version: "${agent.version}"`)
   if (agent.description) lines.push(`description: "${agent.description}"`)
   if (agent.model) lines.push(`model: "${agent.model}"`)
   if (agent.temperature != null) lines.push(`temperature: ${agent.temperature}`)

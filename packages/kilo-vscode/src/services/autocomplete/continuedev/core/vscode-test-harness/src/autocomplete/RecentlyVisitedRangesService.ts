@@ -89,7 +89,7 @@ export class RecentlyVisitedRangesService {
     // Get most recent snippets from each file in cache
     for (const filepath of Array.from(this.cache.keys())) {
       const snippets = (this.cache.get(filepath) || [])
-        .sort((a, b) => b.timestamp - a.timestamp)
+        .sort((a: AutocompleteCodeSnippet & { timestamp: number }, b: AutocompleteCodeSnippet & { timestamp: number }) => b.timestamp - a.timestamp)
         .slice(0, this.maxSnippetsPerFile)
       allSnippets = [...allSnippets, ...snippets]
     }

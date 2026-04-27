@@ -7,6 +7,7 @@
 import * as fs from "fs"
 import * as path from "path"
 import type { ProjectWorkflow, ProjectWorkflowNode, ProjectWorkflowEdge, ProjectWorkflowResult } from "./types"
+import { assertConcreteVersion } from "./version-assert"
 
 export type { ProjectWorkflow, ProjectWorkflowResult }
 
@@ -24,11 +25,14 @@ function slugify(name: string): string {
  * Build the workflow.md content from workflow data.
  */
 function buildWorkflowMarkdown(workflow: ProjectWorkflow): string {
+  assertConcreteVersion("workflow", workflow.name, workflow.version)
+
   const lines: string[] = []
 
   // Frontmatter
   lines.push("---")
   lines.push(`name: "${workflow.name}"`)
+  lines.push(`version: "${workflow.version}"`)
   if (workflow.description) lines.push(`description: "${workflow.description}"`)
   if (workflow.category) lines.push(`category: "${workflow.category}"`)
   lines.push(`source: "${workflow.source}"`)

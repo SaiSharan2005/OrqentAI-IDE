@@ -220,6 +220,7 @@ export interface ProjectAgentLinkedRule {
 
 export interface ProjectAgent {
   name: string
+  version: string
   description: string
   systemPrompt: string
   model: string
@@ -239,6 +240,7 @@ export interface ProjectAgentResult {
 // Project rule configuration from Projects-configuration service
 export interface ProjectRule {
   name: string
+  version: string
   description: string
   content: string
   source: string
@@ -280,6 +282,7 @@ export interface ProjectWorkflowEdge {
 
 export interface ProjectWorkflow {
   name: string
+  version: string
   description: string
   category: string
   source: string

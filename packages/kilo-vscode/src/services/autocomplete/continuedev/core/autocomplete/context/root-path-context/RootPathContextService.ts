@@ -138,7 +138,7 @@ export class RootPathContextService {
       const foundInCache = this.cache.get(key)
       const newSnippets = foundInCache ?? (await this.getSnippetsForNode(filepath, astNode))
 
-      const formattedSnippets: AutocompleteCodeSnippet[] = newSnippets.map((item) => ({
+      const formattedSnippets: AutocompleteCodeSnippet[] = newSnippets.map((item: RankedSnippet) => ({
         filepath: item.filepath,
         content: item.contents,
         type: AutocompleteSnippetType.Code,
