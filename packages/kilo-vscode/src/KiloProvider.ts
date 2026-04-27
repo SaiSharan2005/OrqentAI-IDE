@@ -2447,46 +2447,37 @@ export class KiloProvider implements vscode.WebviewViewProvider, TelemetryProper
       const cacheKey = `${projectPublicId}:${platform}`
       const directory = this.getWorkspaceDirectory(this.currentSession?.id)
 
-      // Fetch fresh configs in parallel — allSettled so one failed resource doesn't blank the rest
-      const fetched = await Promise.allSettled([
+      // settled() unwraps a single PromiseSettledResult: warns on rejection, returns value or fallback.
+      const settled = <T>(r: PromiseSettledResult<T>, label: string, fallback: T): T => {
+        if (r.status === "rejected") console.warn(`[Kilo] ${label} failed:`, r.reason?.message ?? r.reason)
+        return r.status === "fulfilled" ? r.value : fallback
+      }
+      const emptyConfigResult = { written: [] as string[], failed: [] as string[], dirPath: "" }
+      const emptyMcpResult = { written: [] as string[], failed: [] as string[], filePath: "" }
+
+      const [serversFetch, agentsFetch, rulesFetch, workflowsFetch] = await Promise.allSettled([
         client.getProjectMcpConfig(projectPublicId, platform),
         client.getProjectAgents(projectPublicId),
         client.getProjectRules(projectPublicId),
         client.getProjectWorkflows(projectPublicId),
       ])
-      const [serversFetch, agentsFetch, rulesFetch, workflowsFetch] = fetched
+      const servers = settled(serversFetch, "MCP fetch", [])
+      const agents = settled(agentsFetch, "Agents fetch", [])
+      const rules = settled(rulesFetch, "Rules fetch", [])
+      const workflows = settled(workflowsFetch, "Workflows fetch", [])
 
-      if (serversFetch.status === "rejected") console.warn("[Kilo] MCP fetch failed:", serversFetch.reason?.message ?? serversFetch.reason)
-      if (agentsFetch.status === "rejected") console.warn("[Kilo] Agents fetch failed:", agentsFetch.reason?.message ?? agentsFetch.reason)
-      if (rulesFetch.status === "rejected") console.warn("[Kilo] Rules fetch failed:", rulesFetch.reason?.message ?? rulesFetch.reason)
-      if (workflowsFetch.status === "rejected") console.warn("[Kilo] Workflows fetch failed:", workflowsFetch.reason?.message ?? workflowsFetch.reason)
-
-      const servers = serversFetch.status === "fulfilled" ? serversFetch.value : []
-      const agents = agentsFetch.status === "fulfilled" ? agentsFetch.value : []
-      const rules = rulesFetch.status === "fulfilled" ? rulesFetch.value : []
-      const workflows = workflowsFetch.status === "fulfilled" ? workflowsFetch.value : []
-
-      // Update cache with fresh data (only if MCP fetch succeeded)
       if (serversFetch.status === "fulfilled") setCachedConfig(cacheKey, servers)
 
-      // Write all configs in parallel — allSettled so a bad-version throw on one writer doesn't blank the rest
-      const written = await Promise.allSettled([
+      const [mcpWrite, agentsWrite, rulesWrite, workflowsWrite] = await Promise.allSettled([
         applyProjectMcpConfigs(projectPublicId, servers, directory),
         applyProjectAgentConfigs(agents, directory),
         applyProjectRuleConfigs(rules, directory),
         applyProjectWorkflowConfigs(workflows, directory),
       ])
-      const [mcpWrite, agentsWrite, rulesWrite, workflowsWrite] = written
-
-      if (mcpWrite.status === "rejected") console.warn("[Kilo] MCP write failed:", mcpWrite.reason?.message ?? mcpWrite.reason)
-      if (agentsWrite.status === "rejected") console.warn("[Kilo] Agents write failed:", agentsWrite.reason?.message ?? agentsWrite.reason)
-      if (rulesWrite.status === "rejected") console.warn("[Kilo] Rules write failed:", rulesWrite.reason?.message ?? rulesWrite.reason)
-      if (workflowsWrite.status === "rejected") console.warn("[Kilo] Workflows write failed:", workflowsWrite.reason?.message ?? workflowsWrite.reason)
-
-      const mcpResult = mcpWrite.status === "fulfilled" ? mcpWrite.value : { written: [], failed: [], dirPath: "" }
-      const agentsResult = agentsWrite.status === "fulfilled" ? agentsWrite.value : { written: [], failed: [], dirPath: "" }
-      const rulesResult = rulesWrite.status === "fulfilled" ? rulesWrite.value : { written: [], failed: [], dirPath: "" }
-      const workflowsResult = workflowsWrite.status === "fulfilled" ? workflowsWrite.value : { written: [], failed: [], dirPath: "" }
+      const mcpResult = settled(mcpWrite, "MCP write", emptyMcpResult)
+      const agentsResult = settled(agentsWrite, "Agents write", emptyConfigResult)
+      const rulesResult = settled(rulesWrite, "Rules write", emptyConfigResult)
+      const workflowsResult = settled(workflowsWrite, "Workflows write", emptyConfigResult)
 
       console.log(
         "[Kilo New] handleSelectProject: wrote",
