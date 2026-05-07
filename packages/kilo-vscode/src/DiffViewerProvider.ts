@@ -1,4 +1,4 @@
-import * as vscode from "vscode"
+﻿import * as vscode from "vscode"
 import type { FileDiff } from "@kilocode/sdk/v2/client"
 import type { KiloConnectionService } from "./services/cli-backend"
 import { buildWebviewHtml } from "./utils"
@@ -16,7 +16,7 @@ import {
  * It shows the local workspace diff and forwards review comments back to the sidebar chat.
  */
 export class DiffViewerProvider implements vscode.Disposable {
-  public static readonly viewType = "kilo-code.new.DiffViewerPanel"
+  public static readonly viewType = "orqentai.DiffViewerPanel"
 
   private panel: vscode.WebviewPanel | undefined
   private diffInterval: ReturnType<typeof setInterval> | undefined
@@ -87,7 +87,7 @@ export class DiffViewerProvider implements vscode.Disposable {
       this.post({
         type: "ready",
         vscodeLanguage: vscode.env.language,
-        languageOverride: vscode.workspace.getConfiguration("kilo-code.new").get<string>("language"),
+        languageOverride: vscode.workspace.getConfiguration("orqentai.new").get<string>("language"),
         workspaceDirectory: getWorkspaceRoot(),
       })
       this.startDiffPolling()
@@ -216,3 +216,4 @@ export class DiffViewerProvider implements vscode.Disposable {
     this.outputChannel.dispose()
   }
 }
+

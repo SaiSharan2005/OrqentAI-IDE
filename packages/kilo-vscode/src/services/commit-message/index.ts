@@ -1,4 +1,4 @@
-import * as vscode from "vscode"
+﻿import * as vscode from "vscode"
 import type { KiloClient } from "@kilocode/sdk/v2/client"
 import type { KiloConnectionService } from "../cli-backend/connection-service"
 import { getErrorMessage } from "../../kilo-provider-utils"
@@ -34,7 +34,7 @@ export function registerCommitMessageService(
   connectionService: KiloConnectionService,
 ): vscode.Disposable[] {
   const command = vscode.commands.registerCommand(
-    "kilo-code.new.generateCommitMessage",
+    "orqentai.generateCommitMessage",
     async (arg?: vscode.SourceControl) => {
       const extension = vscode.extensions.getExtension<GitExtensionExports>("vscode.git")
       if (!extension) {

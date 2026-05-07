@@ -1,4 +1,4 @@
-import * as vscode from "vscode"
+﻿import * as vscode from "vscode"
 import { KiloProvider } from "./KiloProvider"
 import type { KiloConnectionService } from "./services/cli-backend"
 
@@ -30,7 +30,7 @@ export class SubAgentViewerProvider implements vscode.Disposable {
 
     const label = title ? `Sub-agent: ${title}` : "Sub-agent Viewer"
 
-    const panel = vscode.window.createWebviewPanel("kilo-code.new.SubAgentViewerPanel", label, vscode.ViewColumn.One, {
+    const panel = vscode.window.createWebviewPanel("orqentai.SubAgentViewerPanel", label, vscode.ViewColumn.One, {
       enableScripts: true,
       retainContextWhenHidden: true,
       localResourceRoots: [this.extensionUri],

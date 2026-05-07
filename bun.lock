@@ -271,7 +271,7 @@
     },
     "packages/kilo-vscode": {
       "name": "orqentai-code",
-      "version": "1.0.8",
+      "version": "1.0.9",
       "dependencies": {
         "@anthropic-ai/sdk": "^0.39.0",
         "@kilocode/kilo-i18n": "workspace:*",

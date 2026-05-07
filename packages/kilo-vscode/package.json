@@ -1,9 +1,10 @@
 {
+
   "name": "orqentai-code",
   "displayName": "OrqentAI: AI Coding Agent, Copilot, and Autocomplete",
   "description": "Open Source AI coding agent that generates code from natural language, automates tasks, and runs terminal commands. Features inline autocomplete, browser automation, automated refactoring, and custom modes for planning, coding, and debugging. Supports 500+ AI models including Claude (Anthropic), Gemini, Grok, GPT, Codex and GLM.",
   "version": "1.0.9",
-  "icon": "assets/icons/image.png",
+  "icon": "assets/icons/OrqentAI.png",
   "galleryBanner": {
     "color": "#FFFFFF",
     "theme": "light"
@@ -11,7 +12,7 @@
   "publisher": "OrqentAI",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Kilo-Org/kilocode.git",
+    "url": "https://github.com/SaiSharan2005/OrqentAI-IDE.git",
     "directory": "packages/kilo-vscode"
   },
   "engines": {
@@ -52,585 +53,585 @@
     "viewsContainers": {
       "activitybar": [
         {
-          "id": "kilo-code-ActivityBar",
+          "id": "orqentai-ActivityBar",
           "title": "OrqentAI",
-          "icon": "assets/icons/kilo-light.png",
-          "darkIcon": "assets/icons/kilo-dark.png"
+          "icon": "assets/icons/OrqentAI.png",
+          "darkIcon": "assets/icons/OrqentAI.png"
         }
       ]
     },
     "views": {
-      "kilo-code-ActivityBar": [
+      "orqentai-ActivityBar": [
         {
           "type": "webview",
-          "id": "kilo-code.SidebarProvider",
+          "id": "orqentai.SidebarProvider",
           "name": "OrqentAI"
         }
       ]
     },
     "commands": [
       {
-        "command": "kilo-code.new.plusButtonClicked",
+        "command": "orqentai.plusButtonClicked",
         "title": "New Task",
         "icon": "$(add)"
       },
       {
-        "command": "kilo-code.new.agentManagerOpen",
+        "command": "orqentai.agentManagerOpen",
         "title": "Agent Manager",
         "icon": "$(circuit-board)"
       },
       {
-        "command": "kilo-code.new.marketplaceButtonClicked",
+        "command": "orqentai.marketplaceButtonClicked",
         "title": "Marketplace",
         "icon": "$(extensions)"
       },
       {
-        "command": "kilo-code.new.historyButtonClicked",
+        "command": "orqentai.historyButtonClicked",
         "title": "History",
         "icon": "$(history)"
       },
       {
-        "command": "kilo-code.new.cloudHistoryButtonClicked",
+        "command": "orqentai.cloudHistoryButtonClicked",
         "title": "Cloud History",
         "icon": "$(cloud)"
       },
       {
-        "command": "kilo-code.new.cogniButtonClicked",
+        "command": "orqentai.cogniButtonClicked",
         "title": "COGNI",
         "icon": "$(database)"
       },
       {
-        "command": "kilo-code.new.profileButtonClicked",
+        "command": "orqentai.profileButtonClicked",
         "title": "Profile",
         "icon": "$(account)"
       },
       {
-        "command": "kilo-code.new.settingsButtonClicked",
+        "command": "orqentai.settingsButtonClicked",
         "title": "Settings",
         "icon": "$(settings-gear)"
       },
       {
-        "command": "kilo-code.new.openInTab",
+        "command": "orqentai.openInTab",
         "title": "OrqentAI",
         "icon": {
-          "light": "assets/icons/kilo-light.svg",
-          "dark": "assets/icons/kilo-dark.svg"
+          "light": "assets/icons/OrqentAI.png",
+          "dark": "assets/icons/OrqentAI.png"
         }
       },
       {
-        "command": "kilo-code.new.showChanges",
+        "command": "orqentai.showChanges",
         "title": "Show Changes",
-        "category": "Kilo Code"
+        "category": "OrqentAI"
       },
       {
-        "command": "kilo-code.new.openMigrationWizard",
+        "command": "orqentai.openMigrationWizard",
         "title": "Migrate Settings from Legacy Version",
-        "category": "Kilo Code"
+        "category": "OrqentAI"
       },
       {
-        "command": "kilo-code.new.autocomplete.generateSuggestions",
+        "command": "orqentai.autocomplete.generateSuggestions",
         "title": "Generate Suggested Edits",
         "category": "OrqentAI"
       },
       {
-        "command": "kilo-code.new.autocomplete.cancelSuggestions",
+        "command": "orqentai.autocomplete.cancelSuggestions",
         "title": "Cancel Suggested Edits",
-        "category": "Kilo Code"
+        "category": "OrqentAI"
       },
       {
-        "command": "kilo-code.new.agentManager.previousSession",
+        "command": "orqentai.agentManager.previousSession",
         "title": "Agent Manager: Previous Session",
         "category": "OrqentAI"
       },
       {
-        "command": "kilo-code.new.agentManager.nextSession",
+        "command": "orqentai.agentManager.nextSession",
         "title": "Agent Manager: Next Session",
         "category": "OrqentAI"
       },
       {
-        "command": "kilo-code.new.agentManager.previousTab",
+        "command": "orqentai.agentManager.previousTab",
         "title": "Agent Manager: Previous Tab",
         "category": "OrqentAI"
       },
       {
-        "command": "kilo-code.new.agentManager.nextTab",
+        "command": "orqentai.agentManager.nextTab",
         "title": "Agent Manager: Next Tab",
         "category": "OrqentAI"
       },
       {
-        "command": "kilo-code.new.agentManager.showTerminal",
+        "command": "orqentai.agentManager.showTerminal",
         "title": "Agent Manager: Focus Terminal",
         "category": "OrqentAI",
         "icon": "$(terminal)"
       },
       {
-        "command": "kilo-code.new.agentManager.toggleDiff",
+        "command": "orqentai.agentManager.toggleDiff",
         "title": "Agent Manager: Toggle Diff Panel",
         "category": "OrqentAI",
         "icon": "$(diff)"
       },
       {
-        "command": "kilo-code.new.agentManager.focusPanel",
+        "command": "orqentai.agentManager.focusPanel",
         "title": "Agent Manager: Focus Panel",
         "category": "OrqentAI",
         "icon": "$(circuit-board)"
       },
       {
-        "command": "kilo-code.new.agentManager.showShortcuts",
+        "command": "orqentai.agentManager.showShortcuts",
         "title": "Agent Manager: Show Keyboard Shortcuts",
         "category": "OrqentAI",
         "icon": "$(keyboard)"
       },
       {
-        "command": "kilo-code.new.agentManager.newTab",
+        "command": "orqentai.agentManager.newTab",
         "title": "Agent Manager: New Tab",
         "category": "OrqentAI"
       },
       {
-        "command": "kilo-code.new.agentManager.closeTab",
+        "command": "orqentai.agentManager.closeTab",
         "title": "Agent Manager: Close Tab",
         "category": "OrqentAI"
       },
       {
-        "command": "kilo-code.new.agentManager.newWorktree",
+        "command": "orqentai.agentManager.newWorktree",
         "title": "Agent Manager: New Worktree",
         "category": "OrqentAI"
       },
       {
-        "command": "kilo-code.new.agentManager.openWorktree",
+        "command": "orqentai.agentManager.openWorktree",
         "title": "Agent Manager: Open Worktree",
-        "category": "Kilo Code"
+        "category": "OrqentAI"
       },
       {
-        "command": "kilo-code.new.agentManager.closeWorktree",
+        "command": "orqentai.agentManager.closeWorktree",
         "title": "Agent Manager: Close Worktree",
         "category": "OrqentAI"
       },
       {
-        "command": "kilo-code.new.agentManager.advancedWorktree",
+        "command": "orqentai.agentManager.advancedWorktree",
         "title": "Agent Manager: Advanced New Worktree",
         "category": "OrqentAI"
       },
       {
-        "command": "kilo-code.new.agentManager.jumpTo1",
+        "command": "orqentai.agentManager.jumpTo1",
         "title": "Agent Manager: Jump to Item 1",
         "category": "OrqentAI"
       },
       {
-        "command": "kilo-code.new.agentManager.jumpTo2",
+        "command": "orqentai.agentManager.jumpTo2",
         "title": "Agent Manager: Jump to Item 2",
         "category": "OrqentAI"
       },
       {
-        "command": "kilo-code.new.agentManager.jumpTo3",
+        "command": "orqentai.agentManager.jumpTo3",
         "title": "Agent Manager: Jump to Item 3",
         "category": "OrqentAI"
       },
       {
-        "command": "kilo-code.new.agentManager.jumpTo4",
+        "command": "orqentai.agentManager.jumpTo4",
         "title": "Agent Manager: Jump to Item 4",
         "category": "OrqentAI"
       },
       {
-        "command": "kilo-code.new.agentManager.jumpTo5",
+        "command": "orqentai.agentManager.jumpTo5",
         "title": "Agent Manager: Jump to Item 5",
         "category": "OrqentAI"
       },
       {
-        "command": "kilo-code.new.agentManager.jumpTo6",
+        "command": "orqentai.agentManager.jumpTo6",
         "title": "Agent Manager: Jump to Item 6",
         "category": "OrqentAI"
       },
       {
-        "command": "kilo-code.new.agentManager.jumpTo7",
+        "command": "orqentai.agentManager.jumpTo7",
         "title": "Agent Manager: Jump to Item 7",
         "category": "OrqentAI"
       },
       {
-        "command": "kilo-code.new.agentManager.jumpTo8",
+        "command": "orqentai.agentManager.jumpTo8",
         "title": "Agent Manager: Jump to Item 8",
         "category": "OrqentAI"
       },
       {
-        "command": "kilo-code.new.agentManager.jumpTo9",
+        "command": "orqentai.agentManager.jumpTo9",
         "title": "Agent Manager: Jump to Item 9",
         "category": "OrqentAI"
       },
       {
-        "command": "kilo-code.new.generateCommitMessage",
+        "command": "orqentai.generateCommitMessage",
         "title": "Generate Commit Message",
         "category": "OrqentAI",
         "icon": {
-          "light": "assets/icons/kilo-light.svg",
-          "dark": "assets/icons/kilo-dark.svg"
+          "light": "assets/icons/OrqentAI.png",
+          "dark": "assets/icons/OrqentAI.png"
         }
       },
       {
-        "command": "kilo-code.new.explainCode",
+        "command": "orqentai.explainCode",
         "title": "Explain Code",
         "category": "OrqentAI"
       },
       {
-        "command": "kilo-code.new.fixCode",
+        "command": "orqentai.fixCode",
         "title": "Fix Code",
         "category": "OrqentAI"
       },
       {
-        "command": "kilo-code.new.improveCode",
+        "command": "orqentai.improveCode",
         "title": "Improve Code",
         "category": "OrqentAI"
       },
       {
-        "command": "kilo-code.new.addToContext",
+        "command": "orqentai.addToContext",
         "title": "Add to Context",
         "category": "OrqentAI"
       },
       {
-        "command": "kilo-code.new.terminalAddToContext",
+        "command": "orqentai.terminalAddToContext",
         "title": "Add Terminal Content to Context",
         "category": "OrqentAI"
       },
       {
-        "command": "kilo-code.new.terminalFixCommand",
+        "command": "orqentai.terminalFixCommand",
         "title": "Fix This Command",
         "category": "OrqentAI"
       },
       {
-        "command": "kilo-code.new.terminalExplainCommand",
+        "command": "orqentai.terminalExplainCommand",
         "title": "Explain This Command",
         "category": "OrqentAI"
       },
       {
-        "command": "kilo-code.new.focusChatInput",
+        "command": "orqentai.focusChatInput",
         "title": "Focus Chat Input",
         "category": "OrqentAI"
       },
       {
-        "command": "kilo-code.new.cycleAgentMode",
+        "command": "orqentai.cycleAgentMode",
         "title": "Cycle Agent Mode",
         "category": "OrqentAI"
       },
       {
-        "command": "kilo-code.new.cyclePreviousAgentMode",
+        "command": "orqentai.cyclePreviousAgentMode",
         "title": "Cycle Previous Agent Mode",
         "category": "OrqentAI"
       },
       {
-        "command": "kilo-code.new.toggleAutoApprove",
+        "command": "orqentai.toggleAutoApprove",
         "title": "Toggle Auto-Approve",
         "category": "OrqentAI"
       },
       {
-        "command": "kilo-code.new.generateTerminalCommand",
+        "command": "orqentai.generateTerminalCommand",
         "title": "Generate Terminal Command",
         "category": "OrqentAI"
       }
     ],
     "submenus": [
       {
-        "id": "kilo-code.new.editorContextMenu",
+        "id": "orqentai.editorContextMenu",
         "label": "OrqentAI"
       },
       {
-        "id": "kilo-code.new.terminalContextMenu",
+        "id": "orqentai.terminalContextMenu",
         "label": "OrqentAI"
       }
     ],
     "menus": {
       "view/title": [
         {
-          "command": "kilo-code.new.plusButtonClicked",
+          "command": "orqentai.plusButtonClicked",
           "group": "navigation@0",
-          "when": "view == kilo-code.SidebarProvider"
+          "when": "view == orqentai.SidebarProvider"
         },
         {
-          "command": "kilo-code.new.historyButtonClicked",
+          "command": "orqentai.historyButtonClicked",
           "group": "navigation@1",
-          "when": "view == kilo-code.SidebarProvider"
+          "when": "view == orqentai.SidebarProvider"
         },
         {
-          "command": "kilo-code.new.agentManagerOpen",
+          "command": "orqentai.agentManagerOpen",
           "group": "navigation@2",
-          "when": "view == kilo-code.SidebarProvider"
+          "when": "view == orqentai.SidebarProvider"
         },
         {
-          "command": "kilo-code.new.marketplaceButtonClicked",
+          "command": "orqentai.marketplaceButtonClicked",
           "group": "navigation@3",
-          "when": "view == kilo-code.SidebarProvider"
+          "when": "view == orqentai.SidebarProvider"
         },
         {
-          "command": "kilo-code.new.cogniButtonClicked",
+          "command": "orqentai.cogniButtonClicked",
           "group": "navigation@4",
-          "when": "view == kilo-code.SidebarProvider"
+          "when": "view == orqentai.SidebarProvider"
         },
         {
-          "command": "kilo-code.new.profileButtonClicked",
+          "command": "orqentai.profileButtonClicked",
           "group": "navigation@5",
-          "when": "view == kilo-code.SidebarProvider"
+          "when": "view == orqentai.SidebarProvider"
         },
         {
-          "command": "kilo-code.new.settingsButtonClicked",
+          "command": "orqentai.settingsButtonClicked",
           "group": "navigation@6",
-          "when": "view == kilo-code.SidebarProvider"
+          "when": "view == orqentai.SidebarProvider"
         }
       ],
       "scm/title": [
         {
-          "command": "kilo-code.new.generateCommitMessage",
+          "command": "orqentai.generateCommitMessage",
           "group": "navigation",
           "when": "scmProvider == git"
         }
       ],
       "scm/input": [
         {
-          "command": "kilo-code.new.generateCommitMessage",
+          "command": "orqentai.generateCommitMessage",
           "group": "navigation",
           "when": "scmProvider == git"
         }
       ],
       "editor/title": [
         {
-          "command": "kilo-code.new.openInTab",
+          "command": "orqentai.openInTab",
           "group": "navigation",
           "when": "true"
         }
       ],
       "editor/context": [
         {
-          "submenu": "kilo-code.new.editorContextMenu",
-          "group": "1_kilocode"
+          "submenu": "orqentai.editorContextMenu",
+          "group": "1_orqentai"
         }
       ],
-      "kilo-code.new.editorContextMenu": [
+      "orqentai.editorContextMenu": [
         {
-          "command": "kilo-code.new.explainCode",
+          "command": "orqentai.explainCode",
           "group": "1_actions@1"
         },
         {
-          "command": "kilo-code.new.fixCode",
+          "command": "orqentai.fixCode",
           "group": "1_actions@2"
         },
         {
-          "command": "kilo-code.new.improveCode",
+          "command": "orqentai.improveCode",
           "group": "1_actions@3"
         },
         {
-          "command": "kilo-code.new.addToContext",
+          "command": "orqentai.addToContext",
           "group": "1_actions@4"
         }
       ],
       "terminal/context": [
         {
-          "submenu": "kilo-code.new.terminalContextMenu",
-          "group": "2_kilocode"
+          "submenu": "orqentai.terminalContextMenu",
+          "group": "2_orqentai"
         }
       ],
-      "kilo-code.new.terminalContextMenu": [
+      "orqentai.terminalContextMenu": [
         {
-          "command": "kilo-code.new.terminalAddToContext",
+          "command": "orqentai.terminalAddToContext",
           "group": "1_actions@1"
         },
         {
-          "command": "kilo-code.new.terminalFixCommand",
+          "command": "orqentai.terminalFixCommand",
           "group": "1_actions@2"
         },
         {
-          "command": "kilo-code.new.terminalExplainCommand",
+          "command": "orqentai.terminalExplainCommand",
           "group": "1_actions@3"
         }
       ]
     },
     "keybindings": [
       {
-        "command": "kilo-code.new.focusChatInput",
+        "command": "orqentai.focusChatInput",
         "key": "ctrl+shift+a",
         "mac": "cmd+shift+a"
       },
       {
-        "command": "kilo-code.new.toggleAutoApprove",
+        "command": "orqentai.toggleAutoApprove",
         "key": "ctrl+alt+a",
         "mac": "cmd+alt+a"
       },
       {
-        "command": "kilo-code.new.generateTerminalCommand",
+        "command": "orqentai.generateTerminalCommand",
         "key": "ctrl+shift+g",
         "mac": "cmd+shift+g"
       },
       {
-        "command": "kilo-code.new.agentManagerOpen",
+        "command": "orqentai.agentManagerOpen",
         "key": "ctrl+shift+m",
         "mac": "cmd+shift+m"
       },
       {
-        "command": "kilo-code.new.addToContext",
+        "command": "orqentai.addToContext",
         "key": "ctrl+k ctrl+a",
         "mac": "cmd+k cmd+a",
         "when": "editorTextFocus && editorHasSelection"
       },
       {
-        "command": "kilo-code.new.agentManager.previousSession",
+        "command": "orqentai.agentManager.previousSession",
         "key": "ctrl+alt+up",
         "mac": "cmd+alt+up",
-        "when": "activeWebviewPanelId == 'kilo-code.new.AgentManagerPanel'"
+        "when": "activeWebviewPanelId == 'orqentai.AgentManagerPanel'"
       },
       {
-        "command": "kilo-code.new.agentManager.nextSession",
+        "command": "orqentai.agentManager.nextSession",
         "key": "ctrl+alt+down",
         "mac": "cmd+alt+down",
-        "when": "activeWebviewPanelId == 'kilo-code.new.AgentManagerPanel'"
+        "when": "activeWebviewPanelId == 'orqentai.AgentManagerPanel'"
       },
       {
-        "command": "kilo-code.new.agentManager.previousTab",
+        "command": "orqentai.agentManager.previousTab",
         "key": "ctrl+alt+left",
         "mac": "cmd+alt+left",
-        "when": "activeWebviewPanelId == 'kilo-code.new.AgentManagerPanel'"
+        "when": "activeWebviewPanelId == 'orqentai.AgentManagerPanel'"
       },
       {
-        "command": "kilo-code.new.agentManager.nextTab",
+        "command": "orqentai.agentManager.nextTab",
         "key": "ctrl+alt+right",
         "mac": "cmd+alt+right",
-        "when": "activeWebviewPanelId == 'kilo-code.new.AgentManagerPanel'"
+        "when": "activeWebviewPanelId == 'orqentai.AgentManagerPanel'"
       },
       {
-        "command": "kilo-code.new.agentManager.showTerminal",
+        "command": "orqentai.agentManager.showTerminal",
         "key": "ctrl+/",
         "mac": "cmd+/",
-        "when": "activeWebviewPanelId == 'kilo-code.new.AgentManagerPanel'"
+        "when": "activeWebviewPanelId == 'orqentai.AgentManagerPanel'"
       },
       {
-        "command": "kilo-code.new.agentManager.toggleDiff",
+        "command": "orqentai.agentManager.toggleDiff",
         "key": "ctrl+d",
         "mac": "cmd+d",
-        "when": "activeWebviewPanelId == 'kilo-code.new.AgentManagerPanel'"
+        "when": "activeWebviewPanelId == 'orqentai.AgentManagerPanel'"
       },
       {
-        "command": "kilo-code.new.agentManager.showShortcuts",
+        "command": "orqentai.agentManager.showShortcuts",
         "key": "ctrl+shift+/",
         "mac": "cmd+shift+/",
-        "when": "activeWebviewPanelId == 'kilo-code.new.AgentManagerPanel'"
+        "when": "activeWebviewPanelId == 'orqentai.AgentManagerPanel'"
       },
       {
-        "command": "kilo-code.new.agentManager.newTab",
+        "command": "orqentai.agentManager.newTab",
         "key": "ctrl+t",
         "mac": "cmd+t",
-        "when": "activeWebviewPanelId == 'kilo-code.new.AgentManagerPanel'"
+        "when": "activeWebviewPanelId == 'orqentai.AgentManagerPanel'"
       },
       {
-        "command": "kilo-code.new.agentManager.closeTab",
+        "command": "orqentai.agentManager.closeTab",
         "key": "ctrl+w",
         "mac": "cmd+w",
-        "when": "activeWebviewPanelId == 'kilo-code.new.AgentManagerPanel'"
+        "when": "activeWebviewPanelId == 'orqentai.AgentManagerPanel'"
       },
       {
-        "command": "kilo-code.new.agentManager.newWorktree",
+        "command": "orqentai.agentManager.newWorktree",
         "key": "ctrl+n",
         "mac": "cmd+n",
-        "when": "activeWebviewPanelId == 'kilo-code.new.AgentManagerPanel'"
+        "when": "activeWebviewPanelId == 'orqentai.AgentManagerPanel'"
       },
       {
-        "command": "kilo-code.new.agentManager.openWorktree",
+        "command": "orqentai.agentManager.openWorktree",
         "key": "ctrl+shift+o",
         "mac": "cmd+shift+o",
-        "when": "activeWebviewPanelId == 'kilo-code.new.AgentManagerPanel'"
+        "when": "activeWebviewPanelId == 'orqentai.AgentManagerPanel'"
       },
       {
-        "command": "kilo-code.new.agentManager.closeWorktree",
+        "command": "orqentai.agentManager.closeWorktree",
         "key": "ctrl+shift+w",
         "mac": "cmd+shift+w",
-        "when": "activeWebviewPanelId == 'kilo-code.new.AgentManagerPanel'"
+        "when": "activeWebviewPanelId == 'orqentai.AgentManagerPanel'"
       },
       {
-        "command": "kilo-code.new.agentManager.advancedWorktree",
+        "command": "orqentai.agentManager.advancedWorktree",
         "key": "ctrl+shift+n",
         "mac": "cmd+shift+n",
-        "when": "activeWebviewPanelId == 'kilo-code.new.AgentManagerPanel'"
+        "when": "activeWebviewPanelId == 'orqentai.AgentManagerPanel'"
       },
       {
-        "command": "kilo-code.new.agentManager.jumpTo1",
+        "command": "orqentai.agentManager.jumpTo1",
         "key": "ctrl+1",
         "mac": "cmd+1",
-        "when": "activeWebviewPanelId == 'kilo-code.new.AgentManagerPanel'"
+        "when": "activeWebviewPanelId == 'orqentai.AgentManagerPanel'"
       },
       {
-        "command": "kilo-code.new.agentManager.jumpTo2",
+        "command": "orqentai.agentManager.jumpTo2",
         "key": "ctrl+2",
         "mac": "cmd+2",
-        "when": "activeWebviewPanelId == 'kilo-code.new.AgentManagerPanel'"
+        "when": "activeWebviewPanelId == 'orqentai.AgentManagerPanel'"
       },
       {
-        "command": "kilo-code.new.agentManager.jumpTo3",
+        "command": "orqentai.agentManager.jumpTo3",
         "key": "ctrl+3",
         "mac": "cmd+3",
-        "when": "activeWebviewPanelId == 'kilo-code.new.AgentManagerPanel'"
+        "when": "activeWebviewPanelId == 'orqentai.AgentManagerPanel'"
       },
       {
-        "command": "kilo-code.new.agentManager.jumpTo4",
+        "command": "orqentai.agentManager.jumpTo4",
         "key": "ctrl+4",
         "mac": "cmd+4",
-        "when": "activeWebviewPanelId == 'kilo-code.new.AgentManagerPanel'"
+        "when": "activeWebviewPanelId == 'orqentai.AgentManagerPanel'"
       },
       {
-        "command": "kilo-code.new.agentManager.jumpTo5",
+        "command": "orqentai.agentManager.jumpTo5",
         "key": "ctrl+5",
         "mac": "cmd+5",
-        "when": "activeWebviewPanelId == 'kilo-code.new.AgentManagerPanel'"
+        "when": "activeWebviewPanelId == 'orqentai.AgentManagerPanel'"
       },
       {
-        "command": "kilo-code.new.agentManager.jumpTo6",
+        "command": "orqentai.agentManager.jumpTo6",
         "key": "ctrl+6",
         "mac": "cmd+6",
-        "when": "activeWebviewPanelId == 'kilo-code.new.AgentManagerPanel'"
+        "when": "activeWebviewPanelId == 'orqentai.AgentManagerPanel'"
       },
       {
-        "command": "kilo-code.new.agentManager.jumpTo7",
+        "command": "orqentai.agentManager.jumpTo7",
         "key": "ctrl+7",
         "mac": "cmd+7",
-        "when": "activeWebviewPanelId == 'kilo-code.new.AgentManagerPanel'"
+        "when": "activeWebviewPanelId == 'orqentai.AgentManagerPanel'"
       },
       {
-        "command": "kilo-code.new.agentManager.jumpTo8",
+        "command": "orqentai.agentManager.jumpTo8",
         "key": "ctrl+8",
         "mac": "cmd+8",
-        "when": "activeWebviewPanelId == 'kilo-code.new.AgentManagerPanel'"
+        "when": "activeWebviewPanelId == 'orqentai.AgentManagerPanel'"
       },
       {
-        "command": "kilo-code.new.agentManager.jumpTo9",
+        "command": "orqentai.agentManager.jumpTo9",
         "key": "ctrl+9",
         "mac": "cmd+9",
-        "when": "activeWebviewPanelId == 'kilo-code.new.AgentManagerPanel'"
+        "when": "activeWebviewPanelId == 'orqentai.AgentManagerPanel'"
       },
       {
-        "command": "kilo-code.new.cycleAgentMode",
+        "command": "orqentai.cycleAgentMode",
         "key": "ctrl+.",
         "mac": "cmd+."
       },
       {
-        "command": "kilo-code.new.cyclePreviousAgentMode",
+        "command": "orqentai.cyclePreviousAgentMode",
         "key": "ctrl+shift+.",
         "mac": "cmd+shift+."
       },
       {
-        "command": "kilo-code.new.autocomplete.cancelSuggestions",
+        "command": "orqentai.autocomplete.cancelSuggestions",
         "key": "escape",
-        "when": "editorTextFocus && !editorTabMovesFocus && !inSnippetMode && kilo-code.new.autocomplete.hasSuggestions"
+        "when": "editorTextFocus && !editorTabMovesFocus && !inSnippetMode && orqentai.autocomplete.hasSuggestions"
       },
       {
-        "command": "kilo-code.new.autocomplete.generateSuggestions",
+        "command": "orqentai.autocomplete.generateSuggestions",
         "key": "ctrl+l",
         "mac": "cmd+l",
-        "when": "editorTextFocus && !editorTabMovesFocus && !inSnippetMode && kilocode.autocomplete.enableSmartInlineTaskKeybinding && !github.copilot.completions.enabled"
+        "when": "editorTextFocus && !editorTabMovesFocus && !inSnippetMode && orqentai.autocomplete.enableSmartInlineTaskKeybinding && !github.copilot.completions.enabled"
       },
       {
-        "command": "kilo-code.new.autocomplete.showIncompatibilityExtensionPopup",
+        "command": "orqentai.autocomplete.showIncompatibilityExtensionPopup",
         "key": "ctrl+l",
         "mac": "cmd+l",
-        "when": "editorTextFocus && !editorTabMovesFocus && !inSnippetMode && kilocode.autocomplete.enableSmartInlineTaskKeybinding && github.copilot.completions.enabled"
+        "when": "editorTextFocus && !editorTabMovesFocus && !inSnippetMode && orqentai.autocomplete.enableSmartInlineTaskKeybinding && github.copilot.completions.enabled"
       }
     ],
     "configuration": {
       "title": "OrqentAI",
       "properties": {
-        "kilo-code.new.language": {
+        "orqentai.language": {
           "type": "string",
           "default": "",
           "description": "Override the UI language for OrqentAI (e.g. en, de, ja). Empty means use VS Code's display language.",
@@ -677,62 +678,62 @@
             "Nederlands"
           ]
         },
-        "kilo-code.new.model.providerID": {
+        "orqentai.model.providerID": {
           "type": "string",
           "default": "kilo",
           "description": "Default model provider ID for new sessions"
         },
-        "kilo-code.new.model.modelID": {
+        "orqentai.model.modelID": {
           "type": "string",
           "default": "OrqentAI/Auto",
           "description": "Default model ID for new sessions"
         },
-        "kilo-code.new.autocomplete.enableAutoTrigger": {
+        "orqentai.autocomplete.enableAutoTrigger": {
           "type": "boolean",
           "default": true,
           "description": "Enable automatic inline completion suggestions"
         },
-        "kilo-code.new.autocomplete.enableSmartInlineTaskKeybinding": {
+        "orqentai.autocomplete.enableSmartInlineTaskKeybinding": {
           "type": "boolean",
           "default": false,
           "description": "Enable smart inline task keybinding"
         },
-        "kilo-code.new.autocomplete.enableChatAutocomplete": {
+        "orqentai.autocomplete.enableChatAutocomplete": {
           "type": "boolean",
           "default": false,
           "description": "Enable chat textarea autocomplete"
         },
-        "kilo-code.new.browserAutomation.enabled": {
+        "orqentai.browserAutomation.enabled": {
           "type": "boolean",
           "default": false,
           "description": "Enable browser automation powered by Playwright. When enabled, the AI agent can interact with web pages in a visible Chrome window."
         },
-        "kilo-code.new.browserAutomation.useSystemChrome": {
+        "orqentai.browserAutomation.useSystemChrome": {
           "type": "boolean",
           "default": true,
           "description": "Use your system's installed Chrome browser instead of downloading a separate Chromium instance."
         },
-        "kilo-code.new.browserAutomation.headless": {
+        "orqentai.browserAutomation.headless": {
           "type": "boolean",
           "default": false,
           "description": "Run browser automation in headless mode (no visible window). When disabled, you can watch the agent interact with the browser."
         },
-        "kilo-code.new.notifications.agent": {
+        "orqentai.notifications.agent": {
           "type": "boolean",
           "default": true,
           "description": "Show notification when agent completes a task"
         },
-        "kilo-code.new.notifications.permissions": {
+        "orqentai.notifications.permissions": {
           "type": "boolean",
           "default": true,
           "description": "Show notification on permission requests"
         },
-        "kilo-code.new.notifications.errors": {
+        "orqentai.notifications.errors": {
           "type": "boolean",
           "default": true,
           "description": "Show notification on errors"
         },
-        "kilo-code.new.sounds.agent": {
+        "orqentai.sounds.agent": {
           "type": "string",
           "default": "default",
           "enum": [
@@ -741,7 +742,7 @@
           ],
           "description": "Sound to play when agent completes"
         },
-        "kilo-code.new.sounds.permissions": {
+        "orqentai.sounds.permissions": {
           "type": "string",
           "default": "default",
           "enum": [
@@ -750,7 +751,7 @@
           ],
           "description": "Sound to play on permission requests"
         },
-        "kilo-code.new.sounds.errors": {
+        "orqentai.sounds.errors": {
           "type": "string",
           "default": "default",
           "enum": [

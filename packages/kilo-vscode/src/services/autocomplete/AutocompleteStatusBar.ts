@@ -1,10 +1,10 @@
-import * as vscode from "vscode"
+﻿import * as vscode from "vscode"
 import { t } from "./shims/i18n"
 import type { AutocompleteStatusBarStateProps } from "./types"
 import { humanFormatSessionCost, formatTime } from "./statusbar-utils"
 
 const SUPPORTED_PROVIDER_DISPLAY_NAME = "OrqentAI Gateway"
-const SETTINGS_COMMAND = `command:kilo-code.new.settingsButtonClicked?${encodeURIComponent(JSON.stringify(["autocomplete"]))}`
+const SETTINGS_COMMAND = `command:orqentai.settingsButtonClicked?${encodeURIComponent(JSON.stringify(["autocomplete"]))}`
 
 export class AutocompleteStatusBar {
   statusBar: vscode.StatusBarItem

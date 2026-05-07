@@ -1,5 +1,5 @@
-// English runtime translations for autocomplete (kilocode:autocomplete.* namespace)
-// Source: src/i18n/locales/en/kilocode.json → "autocomplete" section
+﻿// English runtime translations for autocomplete (kilocode:autocomplete.* namespace)
+// Source: src/i18n/locales/en/kilocode.json â†’ "autocomplete" section
 
 export const dict = {
   "kilocode:autocomplete.statusBar.enabled": "$(kilo-logo) Autocomplete",
@@ -8,7 +8,7 @@ export const dict = {
   "kilocode:autocomplete.statusBar.tooltip.basic": "OrqentAI Autocomplete",
   "kilocode:autocomplete.statusBar.tooltip.disabled": "OrqentAI Autocomplete (disabled)",
   "kilocode:autocomplete.statusBar.tooltip.noCredits":
-    "**No credits in your account**\n\nYour OrqentAI account has no credits. To use autocomplete, please add credits to your account.\n\n[Open Settings](command:kilo-code.settingsButtonClicked)",
+    "**No credits in your account**\n\nYour OrqentAI account has no credits. To use autocomplete, please add credits to your account.\n\n[Open Settings](command:orqentai.settingsButtonClicked)",
   "kilocode:autocomplete.statusBar.tooltip.noUsableProvider":
     "**No autocomplete model configured**\n\nTo enable autocomplete, add a profile with one of these supported providers: {{providers}}.\n\n[Open Settings]({{command}})",
   "kilocode:autocomplete.statusBar.tooltip.sessionTotal": "Session total cost:",
@@ -49,3 +49,4 @@ export const dict = {
   "kilocode:autocomplete.authError.message":
     "Kilo Code Autocomplete has been paused due to an authentication error. Please sign in again.",
 }
+

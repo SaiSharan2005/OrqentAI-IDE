@@ -1,4 +1,4 @@
-import * as vscode from "vscode"
+﻿import * as vscode from "vscode"
 import type { KiloConnectionService } from "../cli-backend"
 
 /**
@@ -7,7 +7,7 @@ import type { KiloConnectionService } from "../cli-backend"
  */
 export function ensureBackendForAutocomplete(connection: KiloConnectionService): void {
   const enabled =
-    vscode.workspace.getConfiguration("kilo-code.new.autocomplete").get<boolean>("enableAutoTrigger") ?? true
+    vscode.workspace.getConfiguration("orqentai.autocomplete").get<boolean>("enableAutoTrigger") ?? true
   const dir = vscode.workspace.workspaceFolders?.[0]?.uri.fsPath
   if (!enabled || !dir) return
   connection.connect(dir).catch((err) => {

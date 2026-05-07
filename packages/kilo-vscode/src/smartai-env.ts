@@ -1,4 +1,4 @@
-/**
+﻿/**
  * OrqentAI Environment Configuration
  *
  * Production URL is the default. For local development, set the
@@ -37,5 +37,5 @@ export function getDashboardUrl(): string {
   return GATEWAY_URL.replace(/:\d+$/, ":3080")
 }
 
-// ── Default model (keep in sync with package.json kilo-code.new.model.modelID default) ──
+// ── Default model (keep in sync with package.json orqentai.model.modelID default) ──
 export const DEFAULT_MODEL_ID = "OrqentAI/Auto"

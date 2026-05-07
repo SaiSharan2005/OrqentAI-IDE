@@ -1,4 +1,4 @@
-import { describe, it, expect, vi, beforeEach, type Mock } from "vitest"
+﻿import { describe, it, expect, vi, beforeEach, type Mock } from "vitest"
 
 // Mock vscode following the pattern from AutocompleteServiceManager.spec.ts
 vi.mock("vscode", () => {
@@ -66,11 +66,11 @@ describe("commit-message service", () => {
       expect(disposables.length).toBeGreaterThan(0)
     })
 
-    it("registers the kilo-code.new.generateCommitMessage command", () => {
+    it("registers the orqentai.generateCommitMessage command", () => {
       registerCommitMessageService(mockContext, mockConnectionService)
 
       expect(vscode.commands.registerCommand).toHaveBeenCalledWith(
-        "kilo-code.new.generateCommitMessage",
+        "orqentai.generateCommitMessage",
         expect.any(Function),
       )
     })

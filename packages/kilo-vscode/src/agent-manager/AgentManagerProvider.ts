@@ -1,4 +1,4 @@
-import * as fs from "fs"
+﻿import * as fs from "fs"
 import * as path from "path"
 import type { KiloClient, Session } from "@kilocode/sdk/v2/client"
 import type { KiloConnectionService } from "../services/cli-backend"
@@ -38,7 +38,7 @@ import type { Host, PanelContext, OutputHandle, SessionProvider, Disposable } fr
 const LOCAL_DIFF_ID = "local" as const
 
 export class AgentManagerProvider implements Disposable {
-  public static readonly viewType = "kilo-code.new.AgentManagerPanel"
+  public static readonly viewType = "orqentai.AgentManagerPanel"
 
   private panel: PanelContext | undefined
   private outputChannel: OutputHandle

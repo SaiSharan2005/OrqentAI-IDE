@@ -1,4 +1,4 @@
-import * as vscode from "vscode"
+﻿import * as vscode from "vscode"
 import { t } from "./shims/i18n"
 
 export class AutocompleteCodeActionProvider implements vscode.CodeActionProvider {
@@ -17,7 +17,7 @@ export class AutocompleteCodeActionProvider implements vscode.CodeActionProvider
       this.providedCodeActionKinds["quickfix"],
     )
     action.command = {
-      command: "kilo-code.new.autocomplete.generateSuggestions",
+      command: "orqentai.autocomplete.generateSuggestions",
       title: "",
       arguments: [document.uri, range],
     }

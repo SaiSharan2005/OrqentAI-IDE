@@ -1,4 +1,4 @@
-// id runtime translations for autocomplete
+﻿// id runtime translations for autocomplete
 
 export const dict = {
   "kilocode:autocomplete.statusBar.enabled": "$(kilo-logo) Autocomplete",
@@ -7,7 +7,7 @@ export const dict = {
   "kilocode:autocomplete.statusBar.tooltip.basic": "OrqentAI Autocomplete",
   "kilocode:autocomplete.statusBar.tooltip.disabled": "OrqentAI Autocomplete (dinonaktifkan)",
   "kilocode:autocomplete.statusBar.tooltip.noCredits":
-    "**Tidak ada kredit di akun kamu**\n\nAkun OrqentAI kamu tidak memiliki kredit. Untuk menggunakan autocomplete, silakan tambahkan kredit ke akun kamu.\n\n[Buka Pengaturan](command:kilo-code.settingsButtonClicked)",
+    "**Tidak ada kredit di akun kamu**\n\nAkun OrqentAI kamu tidak memiliki kredit. Untuk menggunakan autocomplete, silakan tambahkan kredit ke akun kamu.\n\n[Buka Pengaturan](command:orqentai.settingsButtonClicked)",
   "kilocode:autocomplete.statusBar.tooltip.noUsableProvider":
     "**Tidak ada model autocomplete yang dikonfigurasi**\n\nUntuk mengaktifkan autocomplete, tambahkan profil dengan salah satu penyedia yang didukung ini: {{providers}}.\n\n[Buka Pengaturan]({{command}})",
   "kilocode:autocomplete.statusBar.tooltip.sessionTotal": "Total biaya sesi:",
@@ -50,3 +50,4 @@ export const dict = {
   "kilocode:autocomplete.authError.message":
     "Kilo Code Autocomplete telah dijeda karena kesalahan autentikasi. Silakan masuk kembali.",
 }
+

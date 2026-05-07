@@ -1,4 +1,4 @@
-/**
+﻿/**
  * VS Code adapter implementing the Host interface.
  *
  * This file is on the architecture test allowlist — it is one of the few
@@ -24,7 +24,7 @@ export class VscodeHost implements Host {
     onBeforeMessage: (msg: Record<string, unknown>) => Promise<Record<string, unknown> | null>
   }): PanelContext {
     const panel = vscode.window.createWebviewPanel(
-      "kilo-code.new.AgentManagerPanel",
+      "orqentai.AgentManagerPanel",
       "Agent Manager",
       vscode.ViewColumn.One,
       {
@@ -144,7 +144,7 @@ export class VscodeHost implements Host {
   }
 
   extensionKeybindings(): Array<{ command: string; key?: string; mac?: string }> {
-    const ext = vscode.extensions.getExtension("kilocode.kilo-code")
+    const ext = vscode.extensions.getExtension("OrqentAI.orqentai-code")
     return ext?.packageJSON?.contributes?.keybindings ?? []
   }
 

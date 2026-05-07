@@ -1,5 +1,5 @@
-// Dutch runtime translations for autocomplete (kilocode:autocomplete.* namespace)
-// Source: src/i18n/locales/nl/kilocode.json → "autocomplete" section
+﻿// Dutch runtime translations for autocomplete (kilocode:autocomplete.* namespace)
+// Source: src/i18n/locales/nl/kilocode.json â†’ "autocomplete" section
 
 export const dict = {
   "kilocode:autocomplete.statusBar.enabled": "$(kilo-logo) Autocomplete",
@@ -8,7 +8,7 @@ export const dict = {
   "kilocode:autocomplete.statusBar.tooltip.basic": "OrqentAI Autocomplete",
   "kilocode:autocomplete.statusBar.tooltip.disabled": "OrqentAI Autocomplete (uitgeschakeld)",
   "kilocode:autocomplete.statusBar.tooltip.noCredits":
-    "**Geen tegoed op je account**\n\nJe OrqentAI account heeft geen tegoed. Om autocomplete te gebruiken, voeg tegoed toe aan je account.\n\n[Instellingen openen](command:kilo-code.settingsButtonClicked)",
+    "**Geen tegoed op je account**\n\nJe OrqentAI account heeft geen tegoed. Om autocomplete te gebruiken, voeg tegoed toe aan je account.\n\n[Instellingen openen](command:orqentai.settingsButtonClicked)",
   "kilocode:autocomplete.statusBar.tooltip.noUsableProvider":
     "**Geen autocomplete-model geconfigureerd**\n\nVoeg een profiel toe met een van deze ondersteunde providers om autocomplete in te schakelen: {{providers}}.\n\n[Instellingen openen]({{command}})",
   "kilocode:autocomplete.statusBar.tooltip.sessionTotal": "Totale sessiekosten:",
@@ -29,7 +29,7 @@ export const dict = {
   "kilocode:autocomplete.progress.processing": "Voorgestelde bewerkingen verwerken...",
   "kilocode:autocomplete.progress.showing": "Voorgestelde bewerkingen tonen...",
   "kilocode:autocomplete.input.title": "OrqentAI: Snelle Taak",
-  "kilocode:autocomplete.input.placeholder": "bijv., 'refactor deze functie om efficiënter te zijn'",
+  "kilocode:autocomplete.input.placeholder": "bijv., 'refactor deze functie om efficiÃ«nter te zijn'",
   "kilocode:autocomplete.commands.generateSuggestions": "OrqentAI: Voorgestelde Bewerkingen Genereren",
   "kilocode:autocomplete.commands.displaySuggestions": "Voorgestelde Bewerkingen Tonen",
   "kilocode:autocomplete.commands.cancelSuggestions": "Voorgestelde Bewerkingen Annuleren",
@@ -45,3 +45,4 @@ export const dict = {
   "kilocode:autocomplete.incompatibilityExtensionPopup.disableCopilot": "Copilot Uitschakelen",
   "kilocode:autocomplete.incompatibilityExtensionPopup.disableInlineAssist": "Autocomplete Uitschakelen",
 }
+

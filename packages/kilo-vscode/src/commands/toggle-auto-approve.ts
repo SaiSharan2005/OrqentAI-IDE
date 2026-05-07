@@ -1,4 +1,4 @@
-import * as vscode from "vscode"
+﻿import * as vscode from "vscode"
 import type { KiloClient, Event } from "@kilocode/sdk/v2/client"
 import type { KiloConnectionService } from "../services/cli-backend/connection-service"
 
@@ -46,7 +46,7 @@ export function registerToggleAutoApprove(
   context.subscriptions.push({ dispose: unsubscribe })
 
   context.subscriptions.push(
-    vscode.commands.registerCommand("kilo-code.new.toggleAutoApprove", async () => {
+    vscode.commands.registerCommand("orqentai.toggleAutoApprove", async () => {
       active = !active
       generation++
       const snapshot = generation

@@ -1,4 +1,4 @@
-// it runtime translations for autocomplete
+﻿// it runtime translations for autocomplete
 
 export const dict = {
   "kilocode:autocomplete.statusBar.enabled": "$(kilo-logo) Autocomplete",
@@ -7,7 +7,7 @@ export const dict = {
   "kilocode:autocomplete.statusBar.tooltip.basic": "OrqentAI Autocomplete",
   "kilocode:autocomplete.statusBar.tooltip.disabled": "OrqentAI Autocomplete (disabilitato)",
   "kilocode:autocomplete.statusBar.tooltip.noCredits":
-    "**Nessun credito nel tuo account**\n\nIl tuo account OrqentAI non ha crediti. Per usare l'autocompletamento, aggiungi crediti al tuo account.\n\n[Apri Impostazioni](command:kilo-code.settingsButtonClicked)",
+    "**Nessun credito nel tuo account**\n\nIl tuo account OrqentAI non ha crediti. Per usare l'autocompletamento, aggiungi crediti al tuo account.\n\n[Apri Impostazioni](command:orqentai.settingsButtonClicked)",
   "kilocode:autocomplete.statusBar.tooltip.noUsableProvider":
     "**Nessun modello di autocompletamento configurato**\n\nPer abilitare l'autocompletamento, aggiungi un profilo con uno di questi provider supportati: {{providers}}.\n\n[Apri Impostazioni]({{command}})",
   "kilocode:autocomplete.statusBar.tooltip.sessionTotal": "Costo totale della sessione:",
@@ -27,8 +27,8 @@ export const dict = {
   "kilocode:autocomplete.progress.generating": "Generando modifiche suggerite...",
   "kilocode:autocomplete.progress.processing": "Elaborando modifiche suggerite...",
   "kilocode:autocomplete.progress.showing": "Mostrando modifiche suggerite...",
-  "kilocode:autocomplete.input.title": "OrqentAI: Attività Rapida",
-  "kilocode:autocomplete.input.placeholder": "es., 'refactorizza questa funzione per renderla più efficiente'",
+  "kilocode:autocomplete.input.title": "OrqentAI: AttivitÃ  Rapida",
+  "kilocode:autocomplete.input.placeholder": "es., 'refactorizza questa funzione per renderla piÃ¹ efficiente'",
   "kilocode:autocomplete.commands.generateSuggestions": "OrqentAI: Genera Modifiche Suggerite",
   "kilocode:autocomplete.commands.displaySuggestions": "Mostra Modifiche Suggerite",
   "kilocode:autocomplete.commands.cancelSuggestions": "Annulla Modifiche Suggerite",
@@ -38,14 +38,15 @@ export const dict = {
   "kilocode:autocomplete.codeAction.title": "OrqentAI: Modifiche Suggerite",
   "kilocode:autocomplete.chatParticipant.fullName": "OrqentAI Agent",
   "kilocode:autocomplete.chatParticipant.name": "Agent",
-  "kilocode:autocomplete.chatParticipant.description": "Posso aiutarti con attività rapide e modifiche suggerite.",
+  "kilocode:autocomplete.chatParticipant.description": "Posso aiutarti con attivitÃ  rapide e modifiche suggerite.",
   "kilocode:autocomplete.incompatibilityExtensionPopup.message":
-    "Il OrqentAI Autocomplete è bloccato da un conflitto con GitHub Copilot. Per risolvere questo problema, devi disabilitare i suggerimenti in linea di Copilot.",
+    "Il OrqentAI Autocomplete Ã¨ bloccato da un conflitto con GitHub Copilot. Per risolvere questo problema, devi disabilitare i suggerimenti in linea di Copilot.",
   "kilocode:autocomplete.incompatibilityExtensionPopup.disableCopilot": "Disabilita Copilot",
   "kilocode:autocomplete.incompatibilityExtensionPopup.disableInlineAssist": "Disabilita Autocomplete",
   "kilocode:autocomplete.creditsExhausted.message":
-    "Kilo Code Autocomplete è stato messo in pausa perché il tuo account non ha più crediti. Aggiungi crediti per riprendere l'autocompletamento.",
+    "Kilo Code Autocomplete Ã¨ stato messo in pausa perchÃ© il tuo account non ha piÃ¹ crediti. Aggiungi crediti per riprendere l'autocompletamento.",
   "kilocode:autocomplete.creditsExhausted.addCredits": "Aggiungi crediti",
   "kilocode:autocomplete.authError.message":
-    "Kilo Code Autocomplete è stato messo in pausa a causa di un errore di autenticazione. Effettua nuovamente l'accesso.",
+    "Kilo Code Autocomplete Ã¨ stato messo in pausa a causa di un errore di autenticazione. Effettua nuovamente l'accesso.",
 }
+

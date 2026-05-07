@@ -1,4 +1,4 @@
-const KEY_SYMBOLS: Record<string, { mac: string; other: string }> = {
+﻿const KEY_SYMBOLS: Record<string, { mac: string; other: string }> = {
   ctrl: { mac: "⌃", other: "Ctrl" },
   cmd: { mac: "⌘", other: "Ctrl" },
   shift: { mac: "⇧", other: "Shift" },
@@ -34,13 +34,13 @@ export function formatKeybinding(raw: string, mac: boolean): string {
 }
 
 /** Agent Manager command prefix for keybinding extraction. */
-const AM_PREFIX = "kilo-code.new.agentManager."
+const AM_PREFIX = "orqentai.agentManager."
 
 /** Global commands whose keybindings are forwarded to the webview. */
 const GLOBAL_KEYBINDINGS: Record<string, string> = {
-  "kilo-code.new.agentManagerOpen": "agentManagerOpen",
-  "kilo-code.new.cycleAgentMode": "cycleAgentMode",
-  "kilo-code.new.cyclePreviousAgentMode": "cyclePreviousAgentMode",
+  "orqentai.agentManagerOpen": "agentManagerOpen",
+  "orqentai.cycleAgentMode": "cycleAgentMode",
+  "orqentai.cyclePreviousAgentMode": "cyclePreviousAgentMode",
 }
 
 /**

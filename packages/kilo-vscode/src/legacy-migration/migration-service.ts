@@ -1,4 +1,4 @@
-/**
+﻿/**
  * legacy-migration - Core migration service.
  *
  * Reads legacy Kilo Code v5.x data from VS Code SecretStorage and the extension's
@@ -615,7 +615,7 @@ async function migrateAutoApproval(
 
 async function migrateAutocomplete(settings: LegacyAutocompleteSettings): Promise<MigrationResultItem> {
   try {
-    const config = vscode.workspace.getConfiguration("kilo-code.new.autocomplete")
+    const config = vscode.workspace.getConfiguration("orqentai.autocomplete")
     if (settings.enableAutoTrigger !== undefined) {
       await config.update("enableAutoTrigger", settings.enableAutoTrigger, vscode.ConfigurationTarget.Global)
     }
