@@ -7,11 +7,11 @@ export const KiloClawNav: NavSection[] = [
       { href: "/kiloclaw/overview", children: "Overview" },
       { href: "/kiloclaw/dashboard", children: "Dashboard" },
       { href: "/kiloclaw/pre-installed-software", children: "Pre-installed Software" },
+      { href: "/kiloclaw/end-to-end", children: "End to End Config" },
       {
         href: "/kiloclaw/control-ui/overview",
         children: "Control UI",
         subLinks: [
-          { href: "/kiloclaw/control-ui/overview", children: "Overview" },
           { href: "/kiloclaw/control-ui/changing-models", children: "Changing Models" },
           { href: "/kiloclaw/control-ui/exec-approvals", children: "Exec Approvals" },
           { href: "/kiloclaw/control-ui/version-pinning", children: "Version Pinning" },
@@ -21,7 +21,6 @@ export const KiloClawNav: NavSection[] = [
         href: "/kiloclaw/chat-platforms",
         children: "Chat Platforms",
         subLinks: [
-          { href: "/kiloclaw/chat-platforms", children: "Overview" },
           { href: "/kiloclaw/chat-platforms/telegram", children: "Telegram" },
           { href: "/kiloclaw/chat-platforms/discord", children: "Discord" },
           { href: "/kiloclaw/chat-platforms/slack", children: "Slack" },
@@ -29,21 +28,24 @@ export const KiloClawNav: NavSection[] = [
       },
       {
         href: "/kiloclaw/development-tools",
-        children: "Development Tools",
+        children: "Integrations",
         subLinks: [
-          { href: "/kiloclaw/development-tools", children: "Overview" },
           { href: "/kiloclaw/development-tools/github", children: "GitHub" },
           { href: "/kiloclaw/development-tools/google", children: "Google Workspace" },
-        ],
-      },
-      {
-        href: "/kiloclaw/tools",
-        children: "Tools",
-        subLinks: [
-          { href: "/kiloclaw/tools", children: "Overview" },
+          { href: "/kiloclaw/development-tools/linear", children: "Linear" },
+          { href: "/kiloclaw/development-tools/composio", children: "Composio" },
           { href: "/kiloclaw/tools/1password", children: "1Password" },
           { href: "/kiloclaw/tools/brave-search", children: "Brave Search" },
           { href: "/kiloclaw/tools/agentcard", children: "AgentCard" },
+          { href: "/kiloclaw/tools/other-tools", children: "Other Tools" },
+        ],
+      },
+      {
+        href: "/kiloclaw/triggers",
+        children: "Triggers",
+        subLinks: [
+          { href: "/kiloclaw/triggers/webhooks", children: "Webhooks" },
+          { href: "/kiloclaw/triggers/scheduled", children: "Scheduled" },
         ],
       },
       {
